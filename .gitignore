@@ -11,5 +11,7 @@ MvnPackage.cmd
 errlogorin.txt
 todo.txt
 LoggerPackage.cmd
-src/main/resources/img/char/Marisa/backup/Marisa.7z
-src/main/resources/img/char/Marisa/Marisa_2.7z
+src/main/resources/marisa/img/char/Marisa/backup/Marisa.7z
+src/main/resources/marisa/img/char/Marisa/Marisa_2.7z
+
+lib/

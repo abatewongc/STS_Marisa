@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://E:/STSmod worktable/lib/desktop-1.0.jar" />
+    <libelement value="file://E:/STSmod worktable/lib/BaseMod.jar" />
+    <libelement value="file://E:/STSmod worktable/lib/ModTheSpire.jar" />
+    <src_description expected_position="0">
+      <src_folder value="file://$MODULE_DIR$/src/main/java" expected_position="0" />
+    </src_description>
+  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -8,24 +16,50 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="BaseMod" level="project" />
-    <orderEntry type="library" name="ModTheSpire" level="project" />
-    <orderEntry type="library" name="desktop-1.0" level="project" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="module-library">
-      <library name="Maven: com.megacrit.cardcrawl:slaythespire:906">
+      <library name="desktop-1.0.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/desktop-1.0.jar!/" />
+          <root url="file://E:/STSmod worktable/lib/desktop-1.0.jar" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="BaseMod.jar">
+        <CLASSES>
+          <root url="file://E:/STSmod worktable/lib/BaseMod.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="ModTheSpire.jar">
+        <CLASSES>
+          <root url="file://E:/STSmod worktable/lib/ModTheSpire.jar" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.megacrit.cardcrawl:slaythespire:906">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/desktop-1.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/desktop-1.0.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="Maven: basemod:basemod:3.2.2">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/BaseMod.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/BaseMod.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -34,7 +68,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl:ModTheSpire:3.1.0">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../lib/ModTheSpire.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/ModTheSpire.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

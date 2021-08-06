@@ -1,0 +1,12 @@
+{
+  "stsmarisamod:DeadBranchReplacement": {
+    "TEXT": [
+      "Don't replace Dead Branch?"
+    ]
+  },
+  "stsmarisamod:EnableBlackCatEventForAll": {
+    "TEXT": [
+      "Enable Black Cat event when playing other characters?"
+    ]
+  }
+}
