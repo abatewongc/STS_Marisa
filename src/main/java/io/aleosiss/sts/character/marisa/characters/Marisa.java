@@ -75,21 +75,17 @@ public class Marisa extends CustomPlayer {
 	public void applyPreCombatLogic() {
 		super.applyPreCombatLogic();
 		MarisaModHandler.typhoonCounter = 0;
-		MarisaModHandler.logger.info(
-				"Marisa : applyPreCombatLogic : I just reset the god damn typhoon counter ! current counter : "
-						+ MarisaModHandler.typhoonCounter
-		);
+		MarisaModHandler.logger.info("Marisa : applyPreCombatLogic : I just reset the god damn typhoon counter ! current counter : " + MarisaModHandler.typhoonCounter);
 	}
 
 	private static final String CHARACTER_ID = MarisaHelpers.makeID("MarisaCharacter");
 	private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(CHARACTER_ID);
 
-
 	private static final String MARISA_SHOULDER_2 = "marisa/img/char/Marisa/shoulder2.png"; // shoulder2 / shoulder_1
 	private static final String MARISA_SHOULDER_1 = "marisa/img/char/Marisa/shoulder1.png"; // shoulder1 / shoulder_2
 	private static final String MARISA_CORPSE = "marisa/img/char/Marisa/fallen.png"; // dead corpse
 	public static final Logger logger = LogManager.getLogger(MarisaModHandler.class.getName());
-	//private static final float[] layerSpeeds = { 20.0F, 0.0F, -40.0F, 0.0F, 0.0F, 5.0F, 0.0F, -8.0F, 0.0F, 8.0F };
+
 	private static final String MARISA_SKELETON_ATLAS = "marisa/img/char/Marisa/MarisaModelv3.atlas";// Marisa_v0 / MarisaModel_v02 /MarisaModelv3
 	private static final String MARISA_SKELETON_JSON = "marisa/img/char/Marisa/MarisaModelv3.json";
 	private static final String MARISA_ANIMATION = "Idle";// Sprite / Idle
@@ -107,9 +103,7 @@ public class Marisa extends CustomPlayer {
 			"marisa/img/UI/EPanel/layer1d.png"
 	};
 	private static final String ORB_VFX = "marisa/img/UI/energyBlueVFX.png";
-	private static final float[] LAYER_SPEED =
-			{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
-	//public static final String SPRITER_ANIM_FILEPATH = "marisa/img/char/MyCharacter/marisa_test.scml"; // spriter animation scml
+	private static final float[] LAYER_SPEED = {-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
 
 	public Marisa(String name) {
 		super(name, MarisaModClassEnum.MARISA, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
@@ -119,11 +113,7 @@ public class Marisa extends CustomPlayer {
 
 		logger.info("init Marisa");
 
-		initializeClass(
-				null,
-				MARISA_SHOULDER_2,
-				MARISA_SHOULDER_1,
-				MARISA_CORPSE,
+		initializeClass(null, MARISA_SHOULDER_2, MARISA_SHOULDER_1, MARISA_CORPSE,
 				getLoadout(),
 				20.0F, -10.0F, 220.0F, 290.0F,
 				new EnergyManager(ENERGY_PER_TURN)
@@ -143,19 +133,12 @@ public class Marisa extends CustomPlayer {
 	}
 
 	public CharSelectInfo getLoadout() { // the rest of the character loadout so includes your character select screen info plus hp and starting gold
-
-
-		return new CharSelectInfo(
-				characterStrings.TEXT[0],
-				characterStrings.TEXT[1],
-				STARTING_HP,
-				MAX_HP,
+		return new CharSelectInfo(characterStrings.TEXT[0], characterStrings.TEXT[1],
+				STARTING_HP, MAX_HP,
 				0,
-				STARTING_GOLD,
-				HAND_SIZE,
+				STARTING_GOLD, HAND_SIZE,
 				this,
-				getStartingRelics(),
-				getStartingDeck(),
+				getStartingRelics(), getStartingDeck(),
 				false
 		);
 	}
@@ -182,11 +165,7 @@ public class Marisa extends CustomPlayer {
 
 	public void doCharSelectScreenSelectEffect() {
 		CardCrawlGame.sound.playA("SELECT_MRS", MathUtils.random(-0.1F, 0.1F));
-		CardCrawlGame.screenShake.shake(
-				ScreenShake.ShakeIntensity.MED,
-				ScreenShake.ShakeDur.SHORT,
-				false
-		);
+		CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
 	}
 
 	public String getCustomModeCharacterButtonSoundKey() {
