@@ -13,10 +13,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.FairyDestrucCullingAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class FairyDestructionRay extends CustomCard {
+public class FairyDestructionRay extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.FAIRY_DESTRUCTION_RAY;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

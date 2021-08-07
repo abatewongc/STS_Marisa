@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.BigCruncAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class BigCrunch extends CustomCard {
+public class BigCrunch extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.BIG_CRUNCH;
 	public static final String IMG_PATH = "marisa/img/cards/BigCrunch.png";

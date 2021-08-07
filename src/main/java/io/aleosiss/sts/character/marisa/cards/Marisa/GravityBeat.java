@@ -2,7 +2,7 @@ package io.aleosiss.sts.character.marisa.cards.Marisa;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class GravityBeat extends CustomCard {
+public class GravityBeat extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.GRAVITY_BEAT;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

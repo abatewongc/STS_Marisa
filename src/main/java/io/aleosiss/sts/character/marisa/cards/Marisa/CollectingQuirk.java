@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class CollectingQuirk extends CustomCard {
+public class CollectingQuirk extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.COLLECTING_QUIRK;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

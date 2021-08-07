@@ -5,14 +5,14 @@ import static io.aleosiss.sts.character.marisa.patches.CardTagEnum.SPARK;
 import io.aleosiss.sts.character.marisa.action.DarkSparkAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class DarkSpark extends CustomCard {
+public class DarkSpark extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.DARK_SPARK;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

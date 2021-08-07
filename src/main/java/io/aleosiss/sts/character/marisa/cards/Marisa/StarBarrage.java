@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class StarBarrage extends CustomCard {
+public class StarBarrage extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.STAR_BARRAGE;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

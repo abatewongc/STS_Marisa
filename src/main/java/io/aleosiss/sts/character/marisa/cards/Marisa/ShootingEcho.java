@@ -13,9 +13,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class ShootingEcho extends CustomCard {
+public class ShootingEcho extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SHOOTING_ECHO;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

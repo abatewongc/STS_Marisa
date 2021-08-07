@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.DiscToHandRandAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class EarthLightRay extends CustomCard {
+public class EarthLightRay extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.EARTHLIGHT_RAY;
 	public static final String IMG_PATH = "marisa/img/cards/EarthLightRay.png";

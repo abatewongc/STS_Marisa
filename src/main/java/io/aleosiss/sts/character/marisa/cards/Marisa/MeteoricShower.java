@@ -3,7 +3,7 @@ package io.aleosiss.sts.character.marisa.cards.Marisa;
 import io.aleosiss.sts.character.marisa.action.MeteoricShowerAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class MeteoricShower extends CustomCard {
+public class MeteoricShower extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.METEORIC_SHOWER;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

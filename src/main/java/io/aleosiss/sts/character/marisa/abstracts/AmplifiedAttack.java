@@ -1,6 +1,5 @@
 package io.aleosiss.sts.character.marisa.abstracts;
 
-import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,7 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 
-public abstract class AmplifiedAttack extends CustomCard {
+public abstract class AmplifiedAttack extends MarisaModCard {
 	private int ampDamage = -1;
 	protected int ampNumber = 0;
 	protected int[] multiAmpDamage;

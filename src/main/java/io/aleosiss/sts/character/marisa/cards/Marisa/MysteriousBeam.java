@@ -14,9 +14,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class MysteriousBeam extends CustomCard {
+public class MysteriousBeam extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.MYSTERIOUS_BEAM;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

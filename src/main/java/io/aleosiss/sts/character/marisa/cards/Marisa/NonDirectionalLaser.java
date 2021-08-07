@@ -14,9 +14,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class NonDirectionalLaser extends CustomCard {
+public class NonDirectionalLaser extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.NONDIRECTIONAL_LASER;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

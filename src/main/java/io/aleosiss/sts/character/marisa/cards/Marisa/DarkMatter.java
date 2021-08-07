@@ -17,9 +17,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 //import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect;
 
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class DarkMatter extends CustomCard {
+public class DarkMatter extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.DARK_MATTER;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

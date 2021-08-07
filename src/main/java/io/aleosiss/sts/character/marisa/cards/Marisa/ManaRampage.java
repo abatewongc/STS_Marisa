@@ -3,7 +3,7 @@ package io.aleosiss.sts.character.marisa.cards.Marisa;
 import io.aleosiss.sts.character.marisa.action.ManaRampageAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
-public class ManaRampage extends CustomCard {
+public class ManaRampage extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.MANA_RAMPAGE;
 	public static final String IMG_PATH = "marisa/img/cards/ManaRampage.png";

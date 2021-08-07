@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class OpenUniverse extends CustomCard {
+public class OpenUniverse extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.OPEN_UNIVERSE;
 	public static final String IMG_PATH = "marisa/img/cards/openUni.png";

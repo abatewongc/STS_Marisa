@@ -1,11 +1,12 @@
 package io.aleosiss.sts.character.marisa;
 
-import static io.aleosiss.sts.character.marisa.patches.AbstractCardEnum.MARISA_COLOR;
 import static io.aleosiss.sts.character.marisa.patches.CardTagEnum.SPARK;
 import static io.aleosiss.sts.character.marisa.patches.MarisaModClassEnum.MARISA;
 import static io.aleosiss.sts.character.marisa.utils.MarisaHelpers.*;
 
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.File;
+import com.megacrit.cardcrawl.localization.*;
 import io.aleosiss.sts.character.marisa.action.SparkCostAction;
 import io.aleosiss.sts.character.marisa.cards.Marisa.AbsoluteMagnitude;
 import io.aleosiss.sts.character.marisa.cards.Marisa.Acceleration;
@@ -143,17 +144,12 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.localization.Keyword;
-import com.megacrit.cardcrawl.localization.PotionStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -189,45 +185,11 @@ public class MarisaModHandler implements
 
 	public MarisaModHandler() {
 		BaseMod.subscribe(this);
-		logger.info("creating the color : MARISA_COLOR");
-		BaseMod.addColor(
-				MARISA_COLOR,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.ATTACK_CC,
-				Constants.SKILL_CC,
-				Constants.POWER_CC,
-				Constants.ENERGY_ORB_CC,
-				Constants.ATTACK_CC_PORTRAIT,
-				Constants.SKILL_CC_PORTRAIT,
-				Constants.POWER_CC_PORTRAIT,
-				Constants.ENERGY_ORB_CC_PORTRAIT,
-				Constants.CARD_ENERGY_ORB
-		);
-		BaseMod.addColor(
-				AbstractCardEnum.MARISA_DERIVATIONS,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.STARLIGHT,
-				Constants.ATTACK_CC,
-				Constants.SKILL_CC,
-				Constants.POWER_CC,
-				Constants.ENERGY_ORB_CC,
-				Constants.ATTACK_CC_PORTRAIT,
-				Constants.SKILL_CC_PORTRAIT,
-				Constants.POWER_CC_PORTRAIT,
-				Constants.ENERGY_ORB_CC_PORTRAIT,
-				Constants.CARD_ENERGY_ORB
-		);
+		constructColors();
+		constructConfiguration();
+	}
+
+	private void constructConfiguration() {
 		marisaModDefaultProperties.setProperty("isCatEventEnabled", "TRUE");
 		try {
 			final SpireConfig config = new SpireConfig("vexMod", "vexModConfig", marisaModDefaultProperties);
@@ -236,6 +198,19 @@ public class MarisaModHandler implements
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void constructColors() {
+		BaseMod.addColor(AbstractCardEnum.MARISA_COLOR,
+				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
+				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
+				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
+		);
+		BaseMod.addColor(AbstractCardEnum.MARISA_DERIVATIONS,
+				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
+				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
+				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
+		);
 	}
 
 	public void receiveEditCharacters() {
@@ -268,10 +243,7 @@ public class MarisaModHandler implements
 		addRelic(new BigShroomBag());
 		//addRelic(new Cape());
 
-		BaseMod.addRelic(
-				new CatCart(),
-				RelicType.SHARED
-		);
+		BaseMod.addRelic(new CatCart(), RelicType.SHARED);
 		//BaseMod.addRelicToCustomPool(new Cape_1(), AbstractCardEnum.MARISA_COLOR);
 
 		logger.info("Relics editing finished.");
@@ -279,12 +251,8 @@ public class MarisaModHandler implements
 
 	public void receiveEditCards() {
 		logger.info("starting editing cards");
-
-		loadCardsToAdd();
-
 		logger.info("adding cards for MARISA");
-
-		for (AbstractCard card : cardsToAdd) {
+		for (AbstractCard card : loadCardsToAdd()) {
 			logger.info("Adding card : " + card.name);
 			BaseMod.addCard(card);
 		}
@@ -396,28 +364,27 @@ public class MarisaModHandler implements
 		logger.info("Beginning to edit strings for mod with ID: " + MOD_ID);
 
 		loadLocalizedStringData(CardStrings.class, "cards.json");
-		//loadLocalizedStringData(CharacterStrings.class, "character.json");
+		loadLocalizedStringData(CharacterStrings.class, "character.json");
 		loadLocalizedStringData(EventStrings.class, "events.json");
 		loadLocalizedStringData(PowerStrings.class, "powers.json");
 		//loadLocalizedStringData(MonsterStrings.class, "monsters.json");
 		loadLocalizedStringData(PotionStrings.class, "potions.json");
 		loadLocalizedStringData(RelicStrings.class, "relics.json");
-		//loadLocalizedStringData(UIStrings.class, "ui.json");
+		loadLocalizedStringData(UIStrings.class, "ui.json");
 
 		logger.info("Done editing strings");
 	}
 
 	@Override
 	public void receivePostInitialize() {
+		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString("stsmarisamod:DeadBranchReplacement");
+		UIStrings blackCatEventForAllUI = CardCrawlGame.languagePack.getUIString("stsmarisamod:EnableBlackCatEventForAll");
 		logger.info("Adding badge, configs,event and potion");
 
 		final ModPanel settingsPanel = new ModPanel();
-		String blackCatEventLabel = "";
-		String deadBranchReplacementLabel = "";
-
 		final ModLabeledToggleButton enableBlackCatButton =
 				new ModLabeledToggleButton(
-						blackCatEventLabel,
+						blackCatEventForAllUI.TEXT[0],
 						350.0f,
 						700.0f,
 						Settings.CREAM_COLOR,
@@ -439,7 +406,7 @@ public class MarisaModHandler implements
 
 		final ModLabeledToggleButton enableDeadBranchButton =
 				new ModLabeledToggleButton(
-						deadBranchReplacementLabel,
+						deadBranchReplacementUI.TEXT[0],
 						350.0f,
 						600.0f,
 						Settings.CREAM_COLOR,
@@ -465,51 +432,25 @@ public class MarisaModHandler implements
 
 		BaseMod.addEvent(Mushrooms_MRS.ID, Mushrooms_MRS.class, Exordium.ID);
 		BaseMod.addEvent(OrinTheCat.ID, OrinTheCat.class, TheBeyond.ID);
-/*
-		//BaseMod.addEvent(TestEvent.ID, TestEvent.class);
-		BaseMod.addEvent(TestEvent.ID, TestEvent.class, Exordium.ID);
-		BaseMod.addEvent(TestEvent.ID, TestEvent.class, TheBeyond.ID);
-		BaseMod.addEvent(TestEvent.ID, TestEvent.class, TheCity.ID);
-*/
-		BaseMod.addPotion(
-				ShroomBrew.class,
-				Color.NAVY.cpy(),
-				Color.LIME.cpy(),
-				Color.OLIVE,
+
+		BaseMod.addPotion(ShroomBrew.class,
+				Color.NAVY.cpy(), Color.LIME.cpy(), Color.OLIVE,
 				"ShroomBrew",
 				MARISA
 		);
 
-		BaseMod.addPotion(
-				StarNLove.class,
-				Color.BLUE.cpy(),
-				Color.YELLOW.cpy(),
-				Color.NAVY,
+		BaseMod.addPotion(StarNLove.class,
+				Color.BLUE.cpy(), Color.YELLOW.cpy(), Color.NAVY,
 				"StarNLove",
 				MARISA
 		);
 
-		BaseMod.addPotion(
-				BottledSpark.class,
-				Color.BLUE.cpy(),
-				Color.YELLOW.cpy(),
-				Color.NAVY,
+		BaseMod.addPotion(BottledSpark.class,
+				Color.BLUE.cpy(), Color.YELLOW.cpy(), Color.NAVY,
 				"BottledSpark",
 				MARISA
 		);
-		/*
-		String orin, zombieFairy;
-		switch (Settings.language) {
-			case ZHS:
-				orin = ORIN_ENCOUNTER_ZHS;
-				zombieFairy = ZOMBIE_FAIRY_ENC_ZHS;
-				break;
-			default:
-				orin = ORIN_ENCOUNTER;
-				zombieFairy = ZOMBIE_FAIRY_ENC;
-				break;
-		}
-		*/
+
 		BaseMod.addMonster(Constants.ORIN_ENCOUNTER, Orin::new);
 		BaseMod.addMonster(Constants.ZOMBIE_FAIRY_ENC, (BaseMod.GetMonster) ZombieFairy::new);
 		final Texture badge = ImageMaster.loadImage(Constants.MOD_BADGE);
@@ -522,96 +463,98 @@ public class MarisaModHandler implements
 		);
 	}
 
-	private void loadCardsToAdd() {
-		cardsToAdd.clear();
+	private List<AbstractCard> loadCardsToAdd() {
+		ArrayList<AbstractCard> cardLoader = new ArrayList<>();
 
-		cardsToAdd.add(new Strike_MRS());
-		cardsToAdd.add(new Defend_MRS());
-		cardsToAdd.add(new MasterSpark());
-		cardsToAdd.add(new Upsweep());
+		cardLoader.add(new Strike_MRS());
+		cardLoader.add(new Defend_MRS());
+		cardLoader.add(new MasterSpark());
+		cardLoader.add(new Upsweep());
 
-		cardsToAdd.add(new DoubleSpark());
-		cardsToAdd.add(new NonDirectionalLaser());
-		cardsToAdd.add(new LuminousStrike());
-		cardsToAdd.add(new MysteriousBeam());
-		cardsToAdd.add(new WitchLeyline());
-		cardsToAdd.add(new Surprise());
-		cardsToAdd.add(new Rebound());
-		cardsToAdd.add(new UnstableBomb());
-		cardsToAdd.add(new StarBarrage());
-		cardsToAdd.add(new ShootingEcho());
-		cardsToAdd.add(new MachineGunSpark());
-		cardsToAdd.add(new DarkSpark());
-		cardsToAdd.add(new DeepEcologicalBomb());
-		cardsToAdd.add(new MeteoricShower());
-		cardsToAdd.add(new GravityBeat());
-		cardsToAdd.add(new GrandCross());
-		cardsToAdd.add(new DragonMeteor());
-		cardsToAdd.add(new RefractionSpark());
-		cardsToAdd.add(new Robbery());
-		cardsToAdd.add(new ChargeUpSpray());
-		cardsToAdd.add(new AlicesGift());
-		cardsToAdd.add(new FairyDestructionRay());
-		cardsToAdd.add(new BlazingStar());
-		cardsToAdd.add(new ShootTheMoon());
-		cardsToAdd.add(new FinalSpark());
-		cardsToAdd.add(new WarmingUp());
-		cardsToAdd.add(new AbsoluteMagnitude());
-		cardsToAdd.add(new TreasureHunter());
-		cardsToAdd.add(new CollectingQuirk());
+		cardLoader.add(new DoubleSpark());
+		cardLoader.add(new NonDirectionalLaser());
+		cardLoader.add(new LuminousStrike());
+		cardLoader.add(new MysteriousBeam());
+		cardLoader.add(new WitchLeyline());
+		cardLoader.add(new Surprise());
+		cardLoader.add(new Rebound());
+		cardLoader.add(new UnstableBomb());
+		cardLoader.add(new StarBarrage());
+		cardLoader.add(new ShootingEcho());
+		cardLoader.add(new MachineGunSpark());
+		cardLoader.add(new DarkSpark());
+		cardLoader.add(new DeepEcologicalBomb());
+		cardLoader.add(new MeteoricShower());
+		cardLoader.add(new GravityBeat());
+		cardLoader.add(new GrandCross());
+		cardLoader.add(new DragonMeteor());
+		cardLoader.add(new RefractionSpark());
+		cardLoader.add(new Robbery());
+		cardLoader.add(new ChargeUpSpray());
+		cardLoader.add(new AlicesGift());
+		cardLoader.add(new FairyDestructionRay());
+		cardLoader.add(new BlazingStar());
+		cardLoader.add(new ShootTheMoon());
+		cardLoader.add(new FinalSpark());
+		cardLoader.add(new WarmingUp());
+		cardLoader.add(new AbsoluteMagnitude());
+		cardLoader.add(new TreasureHunter());
+		cardLoader.add(new CollectingQuirk());
 
-		cardsToAdd.add(new MilkyWay());
-		cardsToAdd.add(new AsteroidBelt());
-		cardsToAdd.add(new Upgrade());
-		cardsToAdd.add(new SporeCrump());
-		cardsToAdd.add(new IllusionStar());
-		cardsToAdd.add(new EnergyRecoil());
-		cardsToAdd.add(new GasGiant());
-		cardsToAdd.add(new StardustReverie());
-		cardsToAdd.add(new MagicAbsorber());
-		cardsToAdd.add(new Occultation());
-		cardsToAdd.add(new EarthLightRay());
-		cardsToAdd.add(new BlazeAway());
-		cardsToAdd.add(new ChargingUp());
-		cardsToAdd.add(new DarkMatter());
-		cardsToAdd.add(new MagicChant());
-		cardsToAdd.add(new OneTimeOff());
-		cardsToAdd.add(new ManaConvection());
-		cardsToAdd.add(new PropBag());
-		cardsToAdd.add(new SprinkleStarSeal());
-		cardsToAdd.add(new GalacticHalo());
-		cardsToAdd.add(new SuperPerseids());
-		cardsToAdd.add(new PulseMagic());
-		cardsToAdd.add(new Orbital());
-		cardsToAdd.add(new BigCrunch());
-		cardsToAdd.add(new OpenUniverse());
-		cardsToAdd.add(new StarlightTyphoon());
-		cardsToAdd.add(new MaximisePower());
-		cardsToAdd.add(new UltraShortWave());
-		cardsToAdd.add(new ManaRampage());
-		cardsToAdd.add(new BinaryStars());
-		cardsToAdd.add(new Acceleration());
+		cardLoader.add(new MilkyWay());
+		cardLoader.add(new AsteroidBelt());
+		cardLoader.add(new Upgrade());
+		cardLoader.add(new SporeCrump());
+		cardLoader.add(new IllusionStar());
+		cardLoader.add(new EnergyRecoil());
+		cardLoader.add(new GasGiant());
+		cardLoader.add(new StardustReverie());
+		cardLoader.add(new MagicAbsorber());
+		cardLoader.add(new Occultation());
+		cardLoader.add(new EarthLightRay());
+		cardLoader.add(new BlazeAway());
+		cardLoader.add(new ChargingUp());
+		cardLoader.add(new DarkMatter());
+		cardLoader.add(new MagicChant());
+		cardLoader.add(new OneTimeOff());
+		cardLoader.add(new ManaConvection());
+		cardLoader.add(new PropBag());
+		cardLoader.add(new SprinkleStarSeal());
+		cardLoader.add(new GalacticHalo());
+		cardLoader.add(new SuperPerseids());
+		cardLoader.add(new PulseMagic());
+		cardLoader.add(new Orbital());
+		cardLoader.add(new BigCrunch());
+		cardLoader.add(new OpenUniverse());
+		cardLoader.add(new StarlightTyphoon());
+		cardLoader.add(new MaximisePower());
+		cardLoader.add(new UltraShortWave());
+		cardLoader.add(new ManaRampage());
+		cardLoader.add(new BinaryStars());
+		cardLoader.add(new Acceleration());
 
-		cardsToAdd.add(new WitchOfGreed());
-		cardsToAdd.add(new SatelliteIllusion());
-		cardsToAdd.add(new OortCloud());
-		cardsToAdd.add(new OrrerysSun());
-		cardsToAdd.add(new EnergyFlow());
-		cardsToAdd.add(new EventHorizon());
-		cardsToAdd.add(new Singularity());
-		cardsToAdd.add(new CasketOfStar());
+		cardLoader.add(new WitchOfGreed());
+		cardLoader.add(new SatelliteIllusion());
+		cardLoader.add(new OortCloud());
+		cardLoader.add(new OrrerysSun());
+		cardLoader.add(new EnergyFlow());
+		cardLoader.add(new EventHorizon());
+		cardLoader.add(new Singularity());
+		cardLoader.add(new CasketOfStar());
 		//cardsToAdd.add(new PolarisUnique());
-		cardsToAdd.add(new EscapeVelocity());
-		cardsToAdd.add(new MillisecondPulsars());
-		cardsToAdd.add(new Supernova());
+		cardLoader.add(new EscapeVelocity());
+		cardLoader.add(new MillisecondPulsars());
+		cardLoader.add(new Supernova());
 
-		cardsToAdd.add(new Spark());
-		cardsToAdd.add(new GuidingStar());
-		cardsToAdd.add(new BlackFlareStar());
-		cardsToAdd.add(new WhiteDwarf());
-		cardsToAdd.add(new Exhaustion());
-		cardsToAdd.add(new Strike_MRS());
-		cardsToAdd.add(new Wraith());
+		cardLoader.add(new Spark());
+		cardLoader.add(new GuidingStar());
+		cardLoader.add(new BlackFlareStar());
+		cardLoader.add(new WhiteDwarf());
+		cardLoader.add(new Exhaustion());
+		cardLoader.add(new Strike_MRS());
+		cardLoader.add(new Wraith());
+
+		return cardLoader;
 	}
 
 	static class Keywords {

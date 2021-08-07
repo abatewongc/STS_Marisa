@@ -17,8 +17,7 @@ import io.aleosiss.sts.character.marisa.abstracts.AmplifiedAttack;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 
 @Deprecated
-public class FluorensentBeam
-    extends AmplifiedAttack {
+public class FluorensentBeam extends AmplifiedAttack {
 
   public static final String ID = "FluorensentBeam";
   private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

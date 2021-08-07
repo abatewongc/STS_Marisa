@@ -1,5 +1,7 @@
 package io.aleosiss.sts.character.marisa.characters;
 
+import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.cards.Marisa.MasterSpark;
 import io.aleosiss.sts.character.marisa.data.Constants;
@@ -29,6 +31,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import java.util.ArrayList;
 
+import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -78,6 +81,9 @@ public class Marisa extends CustomPlayer {
 		);
 	}
 
+	private static final String CHARACTER_ID = MarisaHelpers.makeID("MarisaCharacter");
+	private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(CHARACTER_ID);
+
 
 	private static final String MARISA_SHOULDER_2 = "marisa/img/char/Marisa/shoulder2.png"; // shoulder2 / shoulder_1
 	private static final String MARISA_SHOULDER_1 = "marisa/img/char/Marisa/shoulder1.png"; // shoulder1 / shoulder_2
@@ -106,18 +112,16 @@ public class Marisa extends CustomPlayer {
 	//public static final String SPRITER_ANIM_FILEPATH = "marisa/img/char/MyCharacter/marisa_test.scml"; // spriter animation scml
 
 	public Marisa(String name) {
-		//super(name, setClass, null, null , null ,new SpriterAnimation(SPRITER_ANIM_FILEPATH));
 		super(name, MarisaModClassEnum.MARISA, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
-		//super(name, setClass, null, null, (String) null, null);
 
-		this.dialogX = (this.drawX + 0.0F * Settings.scale); // set location for text bubbles
-		this.dialogY = (this.drawY + 220.0F * Settings.scale); // you can just copy these values
+		this.dialogX = (this.drawX + 0.0F * Settings.scale);
+		this.dialogY = (this.drawY + 220.0F * Settings.scale);
 
 		logger.info("init Marisa");
 
 		initializeClass(
 				null,
-				MARISA_SHOULDER_2, // required call to load textures and setup energy/loadout
+				MARISA_SHOULDER_2,
 				MARISA_SHOULDER_1,
 				MARISA_CORPSE,
 				getLoadout(),
@@ -126,7 +130,6 @@ public class Marisa extends CustomPlayer {
 		);
 
 		loadAnimation(MARISA_SKELETON_ATLAS, MARISA_SKELETON_JSON, 2.0F);
-		// if you're using modified versions of base game animations or made animations in spine make sure to include this bit and the following lines
 		AnimationState.TrackEntry e = this.state.setAnimation(0, MARISA_ANIMATION, true);
 		e.setTime(e.getEndTime() * MathUtils.random());
 		this.stateData.setMix("Hit", "Idle", 0.1F);
@@ -140,30 +143,11 @@ public class Marisa extends CustomPlayer {
 	}
 
 	public CharSelectInfo getLoadout() { // the rest of the character loadout so includes your character select screen info plus hp and starting gold
-		String title;
-		String flavor;
-		if (Settings.language == Settings.GameLanguage.ZHS) {
-			title = "\u666e\u901a\u7684\u9b54\u6cd5\u4f7f";
-			flavor = "\u4f4f\u5728\u9b54\u6cd5\u68ee\u6797\u7684\u9b54\u6cd5\u4f7f\u3002 NL \u5584\u957f\u4e8e\u5149\u548c\u70ed\u7684\u9b54\u6cd5\u3002";
-		} else if (Settings.language == Settings.GameLanguage.JPN) {
-			title = "\u666e\u901a\u306e\u9b54\u6cd5\u4f7f\u3044";
-			flavor = "\u9b54\u6cd5\u306e\u68ee\u306b\u4f4f\u3093\u3067\u3044\u308b\u666e\u901a\u306e\u9b54\u6cd5\u4f7f\u3044\u3002 NL \u5149\u3068\u71b1\u306e\u9b54\u6cd5\u304c\u5f97\u610f\u3002";
-		} else if (Settings.language == Settings.GameLanguage.ZHT) {
-			title = "\u666e\u901a\u7684\u9b54\u6cd5\u4f7f";
-			flavor = "\u4f4f\u5728\u9b54\u6cd5\u68ee\u6797\u7684\u9b54\u6cd5\u4f7f\u3002 NL \u5584\u9577\u65bc\u5149\u548c\u71b1\u7684\u9b54\u6cd5\u3002";
-		} else if (Settings.language == Settings.GameLanguage.KOR) {
-			title = "\ud3c9\ubc94\ud55c \ub9c8\ubc95\uc0ac";
-			flavor = "\ub9c8\ubc95\uc758 \uc232\uc5d0 \uc0ac\ub294 \"\ud3c9\ubc94\ud55c\" \ub9c8\ubc95\uc0ac \uc785\ub2c8\ub2e4. NL \ube5b\uacfc \uc5f4 \ub9c8\ubc95\uc774 \ud2b9\uae30\uc785\ub2c8\ub2e4.";
-		} else if (Settings.language == Settings.GameLanguage.FRA) {
-			title = "La magicienne ordinaire";
-			flavor = "La magicienne \"ordinaire\" vie dans la for\u00eat magique.  NL Sp\u00e9cialis\u00e9es dans la magie de la lumi\u00e8re et de la chaleur.";
-		} else {
-			title = "The Ordinary Magician";
-			flavor = "The \"ordinary\" magician lives in the Forest of Magic. NL Specializes in light and heat magic.";
-		}
+
+
 		return new CharSelectInfo(
-				title,
-				flavor,
+				characterStrings.TEXT[0],
+				characterStrings.TEXT[1],
 				STARTING_HP,
 				MAX_HP,
 				0,
@@ -181,19 +165,7 @@ public class Marisa extends CustomPlayer {
 	}
 
 	public String getTitle(PlayerClass playerClass) {
-		String title;
-		if (Settings.language == GameLanguage.ZHS) {
-			title = "\u666e\u901a\u7684\u9b54\u6cd5\u4f7f";
-		} else if (Settings.language == GameLanguage.JPN) {
-			title = "\u666e\u901a\u306e\u9b54\u6cd5\u4f7f\u3044";
-		} else if (Settings.language == GameLanguage.ZHT) {
-			title = "\u666e\u901a\u7684\u9b54\u6cd5\u4f7f";
-		} else if (Settings.language == GameLanguage.KOR) {
-			title = "\ud3c9\ubc94\ud55c \ub9c8\ubc95\uc0ac";
-		} else {
-			title = "The Ordinary Magician";
-		}
-		return title;
+		return characterStrings.TEXT[0];
 	}
 
 	public Color getCardTrailColor() {

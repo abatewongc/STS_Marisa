@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.SatelliteIllusionPower;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class SatelliteIllusion extends CustomCard {
+public class SatelliteIllusion extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SATELLITE_ILLUSION;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

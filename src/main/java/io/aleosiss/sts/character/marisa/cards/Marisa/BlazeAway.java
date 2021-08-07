@@ -4,7 +4,7 @@ import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.action.BlazeAwayAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class BlazeAway extends CustomCard {
+public class BlazeAway extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.BLAZE_AWAY;
 	public static final String IMG_PATH = "marisa/img/cards/blazeAway.png";

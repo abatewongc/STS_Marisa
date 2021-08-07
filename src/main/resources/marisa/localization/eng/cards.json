@@ -147,12 +147,12 @@
   },
   "GuidingStar": {
     "NAME": "Guiding Star",
-    "DESCRIPTION": "Retain .  NL  If the card is in your hand at the start of turn,gain  [E]  .",
+    "DESCRIPTION": "Retain.  NL  If the card is in your hand at the start of turn,gain  [E].",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "OrrerysSun": {
     "NAME": "Orrerys Sun",
-    "DESCRIPTION": "Whenever Charge-up is consumed, gain !M! block .",
+    "DESCRIPTION": "Whenever Charge-up is consumed, gain !M! block.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "ChargingUp": {
@@ -251,17 +251,17 @@
   },
   "PulseMagic": {
     "NAME": "Pulse Magic",
-    "DESCRIPTION": "Next turn, gain  [E]  . Amplify [E]  : Amplify effects cost no [E] this turn.",
-    "UPGRADE_DESCRIPTION": "Next turn, gain [E]  [E]  . Amplify [E]  : Amplify effects cost no [E] this turn."
+    "DESCRIPTION": "Next turn, gain  [E]. Amplify [E]  : Amplify effects cost no [E] this turn.",
+    "UPGRADE_DESCRIPTION": "Next turn, gain [E]  [E]. Amplify [E]  : Amplify effects cost no [E] this turn."
   },
   "Surprise": {
-    "NAME": "66C",
+    "NAME": "Surprise",
     "DESCRIPTION": "Innate. NL Deal !D! damage. NL Deals double damage if there are no cards in your discard pile.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "Singularity": {
     "NAME": "Singularity",
-    "DESCRIPTION": "Whenever you play a card that costs 0, increase the damage of a random Attack in your hand by !M! .",
+    "DESCRIPTION": "Whenever you play a card that costs 0, increase the damage of a random Attack in your hand by !M!.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "SporeBomb": {
@@ -306,8 +306,8 @@
   },
   "MagicChant": {
     "NAME": "Magic Chant",
-    "DESCRIPTION": "Choose a card in your draw pile,add it to your hand and upgrade it. NL Exhaust .",
-    "UPGRADE_DESCRIPTION": "Choose a card in your draw pile,add it to your hand and upgrade it."
+    "DESCRIPTION": "Choose a card in your draw pile. Add it to your hand and upgrade it. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose a card in your draw pile. Add it to your hand and upgrade it."
   },
   "UnstableBomb": {
     "NAME": "Unstable Bomb",
@@ -327,7 +327,7 @@
   "DarkMatter": {
     "NAME": "Dark Matter",
     "DESCRIPTION": "Can only be played once per turn. NL Shuffle 2 copies of this card into your draw pile. Draw 1 card. When this card is Exhausted, gain !B! Block. NL Ethereal.",
-    "UPGRADE_DESCRIPTION": "Can only be played once per turn. NL Shuffle 2 copies of this card into your draw pile. Draw 1 card. When this card is Exhausted, gain !B! Block. NL Ethereal .",
+    "UPGRADE_DESCRIPTION": "Can only be played once per turn. NL Shuffle 2 copies of this card into your draw pile. Draw 1 card. When this card is Exhausted, gain !B! Block. NL Ethereal.",
     "EXTENDED_DESCRIPTION": [
       "I can't play Dark Matter again this turn.",
       ""
@@ -364,7 +364,7 @@
   },
   "ManaConvection": {
     "NAME": "Mana Convection",
-    "DESCRIPTION": "Exhaust up to !M! cards,gain  [E]  for each card exhausted. NL Exhaust .",
+    "DESCRIPTION": "Exhaust up to !M! cards,gain  [E]  for each card exhausted. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "ManaRampage": {
@@ -399,7 +399,7 @@
   "FungusSplash": {
     "NAME": "Fungus Brew",
     "DESCRIPTION": " Exhaust a card. Throw a potion at your target. NL The type of potion depends on the type of the card you exhausted. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": " Exhaust a card. Throw a potion at your target. NL The type of potion depends on the type of the card you exhausted ."
+    "UPGRADE_DESCRIPTION": " Exhaust a card. Throw a potion at your target. NL The type of potion depends on the type of the card you exhausted."
   },
   "PropBag": {
     "NAME": "Portable Prop Bag",
@@ -408,7 +408,7 @@
   },
   "BlackFlareStar": {
     "NAME": "Black Flare Star",
-    "DESCRIPTION": "Can only be played when you have 4 or more cards in your hand. Exhaust . NL Discard any number of cards from your hand and gain !B! Block for each.",
+    "DESCRIPTION": "Can only be played when you have 4 or more cards in your hand. Exhaust. NL Discard any number of cards from your hand and gain !B! Block for each.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW",
     "EXTENDED_DESCRIPTION": [
       "I don't have 4 cards in my hand.",
@@ -417,8 +417,8 @@
   },
   "WhiteDwarf": {
     "NAME": "White Dwarf",
-    "DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust . NL Deal !B! damage (2 × size of your discard pile). Add 2 Burns to your hand.",
-    "UPGRADE_DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust . NL Deal !B! damage (3 × size of your discard pile). Add 2 Burns to your hand.",
+    "DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust. NL Deal !B! damage (2 × size of your discard pile). Add 2 Burns to your hand.",
+    "UPGRADE_DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust. NL Deal !B! damage (3 × size of your discard pile). Add 2 Burns to your hand.",
     "EXTENDED_DESCRIPTION": [
       "I have more than 4 cards in my hand.",
       ""
@@ -456,7 +456,7 @@
   },
   "AlicesGift": {
     "NAME": "Alice's Gift",
-    "DESCRIPTION": " Retain. Deal !D! Damage. Exhaust . NL Amplify [E]  [E] : Deal triple damage.",
+    "DESCRIPTION": " Retain. Deal !D! Damage. Exhaust. NL Amplify [E]  [E] : Deal triple damage.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "Exhaustion_MRS": {
@@ -481,13 +481,13 @@
   },
   "Wraith": {
     "NAME": "Wraith",
-    "DESCRIPTION": "Unplayable. NL At the end of your turn, gain 1 Wraith .",
+    "DESCRIPTION": "Unplayable. NL At the end of your turn, gain 1 Wraith.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "Acceleration": {
     "NAME": "Acceleration",
     "DESCRIPTION": "Draw top !B! cards in your draw pile. NL Amplify  [E] : Draw top !M! cards in your draw pile.",
-    "UPGRADE_DESCRIPTION": "Retain . NL Draw !M! cards. NL Amplify  [E] : Draw !M! cards."
+    "UPGRADE_DESCRIPTION": "Retain. NL Draw !M! cards. NL Amplify  [E] : Draw !M! cards."
   },
   "WWWWWWWWWWWWWW": {
     "NAME": "WWWWWWWWWWW",

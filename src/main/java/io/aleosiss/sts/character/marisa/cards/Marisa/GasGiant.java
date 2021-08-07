@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class GasGiant extends CustomCard {
+public class GasGiant extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.GAS_GIANT;
 	public static final String IMG_PATH = "marisa/img/cards/Jupiter.png";

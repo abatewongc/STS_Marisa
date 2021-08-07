@@ -22,32 +22,23 @@ public class AbsoluteMagnitude extends AmplifiedAttack {
 	public static final String DESCRIPTION_UPG = cardStrings.UPGRADE_DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/absMagni.png";
 	private static final int COST = 2;
-	private static final float ATK_MULT = 2F;
-	private static final float ATK_MULT_UPG = 3F;
+	private static final float ATTACK_PER_CHARGE_UP = 2F;
+	private static final float ATTACK_PER_CHARGE_UP_UPGRADE = 1F;
+
 	private float multiplier;
 
 	public AbsoluteMagnitude() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.RARE,
-				AbstractCard.CardTarget.ENEMY
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ENEMY);
 
 		this.damage = this.baseDamage = 0;
-		this.multiplier = ATK_MULT;
+		this.multiplier = ATTACK_PER_CHARGE_UP;
 		this.block = this.baseBlock = 0;
 	}
 
 	public void applyPowers() {
 		AbstractPlayer p = AbstractDungeon.player;
-		if (p.hasPower("ChargeUpPower")) {
-			this.ampNumber = (int) (p.getPower("ChargeUpPower").amount * this.multiplier);
+		if (p.hasPower(Identifiers.Powers.CHARGE_UP)) {
+			this.ampNumber = (int) (p.getPower(Identifiers.Powers.CHARGE_UP).amount * multiplier);
 		}
 		super.applyPowers();
 		this.isBlockModified = true;
@@ -75,7 +66,7 @@ public class AbsoluteMagnitude extends AmplifiedAttack {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			this.multiplier = ATK_MULT_UPG;
+			this.multiplier += ATTACK_PER_CHARGE_UP_UPGRADE;
 			this.rawDescription = DESCRIPTION_UPG;
 			initializeDescription();
 		}

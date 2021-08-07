@@ -11,10 +11,10 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class SporeCrump extends CustomCard {
+public class SporeCrump extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SPORE_CRUMP;
 	public static final String IMG_PATH = "marisa/img/cards/SporeCrump.png";

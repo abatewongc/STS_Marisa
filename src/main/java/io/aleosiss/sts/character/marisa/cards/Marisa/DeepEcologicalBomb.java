@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.WasteBombAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class DeepEcologicalBomb extends CustomCard {
+public class DeepEcologicalBomb extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.DEEP_ECOLOGICAL_BOMB;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

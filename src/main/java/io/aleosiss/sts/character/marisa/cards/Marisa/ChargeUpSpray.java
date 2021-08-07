@@ -14,9 +14,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class ChargeUpSpray extends CustomCard {
+public class ChargeUpSpray extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.CHARGE_UP_SPRAY;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.SupernovaPower;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class Supernova extends CustomCard {
+public class Supernova extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SUPERNOVA;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

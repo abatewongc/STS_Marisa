@@ -2,7 +2,7 @@ package io.aleosiss.sts.character.marisa.cards.Marisa;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
-public class SprinkleStarSeal extends CustomCard {
+public class SprinkleStarSeal extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SPRINKLE_STAR_SEAL;
 	public static final String IMG_PATH = "marisa/img/cards/sprinkleSeal.png";

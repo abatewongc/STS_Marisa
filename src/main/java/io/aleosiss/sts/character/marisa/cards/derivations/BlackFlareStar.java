@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.BlackFlareStarAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class BlackFlareStar extends CustomCard {
+public class BlackFlareStar extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.BLACK_FLARE_STAR;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -15,9 +15,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class SuperPerseids extends CustomCard {
+public class SuperPerseids extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.SUPER_PERSEIDS;
 	public static final String IMG_PATH = "marisa/img/cards/SuperPerseids.png";

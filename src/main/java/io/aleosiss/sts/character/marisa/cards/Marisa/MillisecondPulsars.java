@@ -1,6 +1,6 @@
 package io.aleosiss.sts.character.marisa.cards.Marisa;
 
-import basemod.abstracts.CustomCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,7 +14,7 @@ import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.MillisecondPulsarsPower;
 
-public class MillisecondPulsars extends CustomCard {
+public class MillisecondPulsars extends MarisaModCard {
 
 	public static final String ID = Identifiers.Cards.MILLISECOND_PULSARS;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
