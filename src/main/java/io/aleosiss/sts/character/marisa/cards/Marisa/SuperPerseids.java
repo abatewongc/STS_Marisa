@@ -51,20 +51,6 @@ public class SuperPerseids extends MarisaModCard {
 
 	public void triggerWhenDrawn() {
 		this.applyPowers();
-    /*
-    ThMod.logger.info("SuperPerseids : triggerWhenDrawn : Granting Charge-up "
-        + "; : upgraded : " + this.upgraded
-    );
-    AbstractPlayer p = AbstractDungeon.player;
-    AbstractDungeon.actionManager.addToBottom(
-        new ApplyPowerAction(
-            p,
-            p,
-            new ChargeUpPower(p,this.magicNumber),
-            this.magicNumber
-        )
-    );
-    */
 		AbstractDungeon.actionManager.addToBottom(
 				new GainEnergyAction(1)
 		);

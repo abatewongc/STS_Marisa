@@ -13,41 +13,39 @@ import io.aleosiss.sts.character.marisa.data.Identifiers;
 
 public class Exhaustion extends MarisaModCard {
 
-  public static final String ID = Identifiers.Cards.EXHAUSTION;
-  private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-  public static final String NAME = cardStrings.NAME;
-  public static final String DESCRIPTION = cardStrings.DESCRIPTION;
-  private static final int COST = -2;
+	public static final String ID = Identifiers.Cards.EXHAUSTION;
+	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
+	public static final String NAME = cardStrings.NAME;
+	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+	private static final int COST = -2;
 
-  public Exhaustion() {
-    super(
-            ID,
-            NAME,
-            "marisa/img/cards/exhaustion.png",
-            COST,
-            DESCRIPTION,
-            CardType.STATUS,
-            CardColor.COLORLESS,
-            CardRarity.SPECIAL,
-            CardTarget.NONE
-    );
-    this.exhaust = true;
-  }
+	public Exhaustion() {
+		super(
+				ID,
+				NAME,
+				"marisa/img/cards/exhaustion.png",
+				COST,
+				DESCRIPTION,
+				CardType.STATUS,
+				CardColor.COLORLESS,
+				CardRarity.SPECIAL,
+				CardTarget.NONE
+		);
+		this.exhaust = true;
+	}
 
-  public void use(AbstractPlayer p, AbstractMonster m) {
-    if (p.hasRelic("Medical Kit")) {
-      useMedicalKit(p);
-    } else {
-      AbstractDungeon.actionManager.addToBottom(
-              new UseCardAction(this)
-      );
-    }
-  }
+	public void use(AbstractPlayer p, AbstractMonster m) {
+		if (p.hasRelic("Medical Kit")) {
+			useMedicalKit(p);
+		} else {
+			AbstractDungeon.actionManager.addToBottom(new UseCardAction(this));
+		}
+	}
 
-  public AbstractCard makeCopy() {
-    return new Exhaustion();
-  }
+	public AbstractCard makeCopy() {
+		return new Exhaustion();
+	}
 
-  public void upgrade() {
-  }
+	public void upgrade() {
+	}
 }

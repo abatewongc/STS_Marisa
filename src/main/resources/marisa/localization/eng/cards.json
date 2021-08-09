@@ -101,7 +101,7 @@
     ]
   },
   "OortCloud": {
-    "NAME": "OortCloud",
+    "NAME": "Oort Cloud",
     "DESCRIPTION": "Gain !M! Plated Armor. NL Amplify  [E]  : Gain !B! more Plated Armor.",
     "UPGRADE_DESCRIPTION": "Gain !M! Plated Armor. NL Amplify  [E]  : Gain 3 more Plated Armor."
   },
@@ -147,7 +147,7 @@
   },
   "GuidingStar": {
     "NAME": "Guiding Star",
-    "DESCRIPTION": "Retain.  NL  If the card is in your hand at the start of turn,gain  [E].",
+    "DESCRIPTION": "Retain.  NL  If this card is in your hand at the start of the turn, gain  [E].",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "OrrerysSun": {
@@ -280,7 +280,7 @@
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "TreasureHunter": {
-    "NAME": "TreasureHunter",
+    "NAME": "Treasure Hunter",
     "DESCRIPTION": "Deal !D! damage. NL If this kills a non-minion enemy in an Elite or Boss room, at the end of combat, obtain 1 random relic. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
@@ -416,7 +416,7 @@
     ]
   },
   "WhiteDwarf": {
-    "NAME": "White Dwarf",
+    "NAME": "White Dwarf Star",
     "DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust. NL Deal !B! damage (2 × size of your discard pile). Add 2 Burns to your hand.",
     "UPGRADE_DESCRIPTION": "Can only be played when you have 4 or less cards in your hand. Exhaust. NL Deal !B! damage (3 × size of your discard pile). Add 2 Burns to your hand.",
     "EXTENDED_DESCRIPTION": [

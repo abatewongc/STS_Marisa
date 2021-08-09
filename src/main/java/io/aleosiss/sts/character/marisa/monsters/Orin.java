@@ -380,10 +380,10 @@ public class Orin extends AbstractMonster/* implements BaseMod.GetMonster */ {
   }
 
   private boolean canExecute() {
-    if (!AbstractDungeon.player.hasPower("Wraith")) {
+    if (!AbstractDungeon.player.hasPower(Identifiers.Powers.WRAITH)) {
       return false;
     } else {
-      return AbstractDungeon.player.getPower("Wraith").amount > this.exc;
+      return AbstractDungeon.player.getPower(Identifiers.Powers.WRAITH).amount > this.exc;
     }
   }
 

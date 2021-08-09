@@ -35,6 +35,7 @@ public class AbsoluteMagnitude extends AmplifiedAttack {
 		this.block = this.baseBlock = 0;
 	}
 
+	@Override
 	public void applyPowers() {
 		AbstractPlayer p = AbstractDungeon.player;
 		if (p.hasPower(Identifiers.Powers.CHARGE_UP)) {

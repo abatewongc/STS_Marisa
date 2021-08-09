@@ -32,14 +32,6 @@ public class Acceleration extends MarisaModCard {
 		this.block = this.baseBlock = DRAW;
 	}
 
-	/*
-	  public void applyPowers(){
-		super.applyPowers();
-		if (this.upgraded){
-		  this.retain = true;
-		}
-	  }
-	*/
 	@Override
 	protected void applyPowersToBlock() {
 	}

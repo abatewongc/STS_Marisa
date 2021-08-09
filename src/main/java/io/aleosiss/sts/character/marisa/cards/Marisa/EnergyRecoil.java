@@ -46,8 +46,8 @@ public class EnergyRecoil extends MarisaModCard {
 		} else {
 			this.baseBlock = 0;
 		}
-		if (p.hasPower("ChargeUpPower")) {
-			this.baseBlock += p.getPower("ChargeUpPower").amount;
+		if (p.hasPower(Identifiers.Powers.CHARGE_UP)) {
+			this.baseBlock += p.getPower(Identifiers.Powers.CHARGE_UP).amount;
 			super.applyPowers();
 		}
 

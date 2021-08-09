@@ -74,9 +74,7 @@ public class BlazeAway extends MarisaModCard {
 							+ " ; CFT : " + card.costForTurn
 			);
 			for (int i = 0; i < this.magicNumber; i++) {
-				AbstractDungeon.actionManager.addToBottom(
-						new BlazeAwayAction(card)
-				);
+				AbstractDungeon.actionManager.addToBottom(new BlazeAwayAction(card));
 			}
 
 		} else {

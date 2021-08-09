@@ -16,12 +16,7 @@ public class AmplifyUtils {
 	public static final Logger logger = LogManager.getLogger(AmplifyUtils.class.getName());
 
 	public static boolean Amplified(AbstractCard card, int amplifyCost) {
-		logger.info(
-				"Marisa::Amplified: card to check : "
-						+ card.cardID
-						+ " ; costForTurn : "
-						+ card.costForTurn
-		);
+		logger.info("Marisa::Amplified: card to check : " + card.cardID + " ; costForTurn : " + card.costForTurn);
 		AbstractPlayer player = AbstractDungeon.player;
 		if ((player.hasPower(Identifiers.Powers.ONE_TIME_OFF))) {
 			logger.info("Marisa::Amplified: OneTimeOff detected, returning false.");

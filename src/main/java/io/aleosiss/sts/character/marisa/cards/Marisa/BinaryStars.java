@@ -2,7 +2,7 @@ package io.aleosiss.sts.character.marisa.cards.Marisa;
 
 import io.aleosiss.sts.character.marisa.action.BinaryStarsAction;
 import io.aleosiss.sts.character.marisa.cards.derivations.BlackFlareStar;
-import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarf;
+import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarfStar;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
@@ -50,7 +50,7 @@ public class BinaryStars extends MarisaModCard {
 			AbstractDungeon.actionManager.addToBottom(
 					new MakeTempCardInHandAction(c, 1)
 			);
-			c = new WhiteDwarf();
+			c = new WhiteDwarfStar();
 			if (this.upgraded) {
 				c.upgrade();
 			}

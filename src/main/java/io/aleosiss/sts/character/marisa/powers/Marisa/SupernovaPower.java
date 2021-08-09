@@ -19,11 +19,10 @@ import io.aleosiss.sts.character.marisa.data.Identifiers;
 public class SupernovaPower extends AbstractPower {
 
 	public static final String POWER_ID = Identifiers.Powers.SUPERNOVA;
-	private static final PowerStrings powerStrings = CardCrawlGame.languagePack
-			.getPowerStrings(POWER_ID);
+	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private AbstractPlayer p;
+	private AbstractPlayer player;
 
 	public SupernovaPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
@@ -33,15 +32,14 @@ public class SupernovaPower extends AbstractPower {
 		this.type = AbstractPower.PowerType.BUFF;
 		updateDescription();
 		this.img = new Texture("marisa/img/powers/impulse.png");
-		this.p = AbstractDungeon.player;
+		this.player = AbstractDungeon.player;
 	}
 
 	public void atEndOfTurn(boolean isPlayer) {
-		if (!this.p.hand.isEmpty()) {
+		if (!this.player.hand.isEmpty()) {
 			flash();
-			for (AbstractCard c : this.p.hand.group) {
-				AbstractDungeon.actionManager.addToBottom(
-						new ExhaustSpecificCardAction(c, this.p.hand));
+			for (AbstractCard c : this.player.hand.group) {
+				AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, this.player.hand));
 			}
 		}
 	}
@@ -49,26 +47,22 @@ public class SupernovaPower extends AbstractPower {
 	public void onExhaust(AbstractCard card) {
 		boolean apply = (card instanceof Burn);
 		if (apply) {
-			AbstractDungeon.actionManager.addToBottom(
-					new ApplyPowerAction(p, p, new StrengthPower(p, this.amount), this.amount));
+			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new StrengthPower(player, this.amount), this.amount));
 		}
 	}
 
 	@Override
 	public void onDrawOrDiscard() {
-		//ThMod.logger.info("SuperNovaPower : onDrawOrDiscard : ExhaustDiscard");
 		ExhaustDiscard();
 	}
 
 	@Override
 	public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source) {
-		//ThMod.logger.info("SuperNovaPower : onApplyPower : ExhaustDiscard");
 		ExhaustDiscard();
 	}
 
 	@Override
 	public void onInitialApplication() {
-		//ThMod.logger.info("SuperNovaPower : onInitialApplication : ExhaustDiscard");
 		ExhaustDiscard();
 	}
 

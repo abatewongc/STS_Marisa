@@ -38,13 +38,7 @@ public class GuidingStar extends MarisaModCard {
 				AbstractCard.CardTarget.SELF
 		);
 		this.exhaust = true;
-		this.retain = true;
-	}
-
-	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		this.retain = true;
+		this.selfRetain = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {

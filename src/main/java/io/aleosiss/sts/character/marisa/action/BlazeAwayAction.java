@@ -17,32 +17,26 @@ public class BlazeAwayAction
 		extends AbstractGameAction {
 
 	private AbstractCard card;
-	AbstractPlayer p;
+	AbstractPlayer player;
 
 	public BlazeAwayAction(AbstractCard card) {
 		this.duration = Settings.ACTION_DUR_FAST;
-		this.p = AbstractDungeon.player;
+		this.player = AbstractDungeon.player;
 		if (card.type == CardType.ATTACK) {
 			this.card = card;
 		} else {
 			this.isDone = true;
 		}
-		MarisaModHandler.logger.info(
-				"BlazeAwayAction : Initialize complete ; card : " +
-						card.name
-		);
+		MarisaModHandler.logger.info("BlazeAwayAction : Initialize complete ; card : " + card.name);
 	}
 
 	public void update() {
-
 		AbstractMonster target = AbstractDungeon.getMonsters().getRandomMonster(true);
-/*
-    if (target == null) {
-      this.isDone = true;
-      ThMod.logger.info("ManaRampageAction : done");
-      return;
-    }
-    */
+		if(target == null) {
+			this.isDone = true;
+			return;
+		}
+
 		AbstractDungeon.player.limbo.group.add(card);
 		card.current_x = (Settings.WIDTH / 2.0F);
 		card.current_y = (Settings.HEIGHT / 2.0F);
@@ -52,12 +46,7 @@ public class BlazeAwayAction
 		card.purgeOnUse = true;
 		card.targetAngle = 0.0F;
 		card.drawScale = 0.12F;
-		MarisaModHandler.logger.info(
-				"BlazeAwayAction : card : " +
-						card.cardID +
-						" ; target : " +
-						target.id
-		);
+		MarisaModHandler.logger.info("BlazeAwayAction : card : " + card.cardID + " ; target : " + target.id);
 
 		card.applyPowers();
 		AbstractDungeon.actionManager.currentAction = null;

@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import io.aleosiss.sts.character.marisa.cards.derivations.BlackFlareStar;
-import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarf;
+import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarfStar;
 
 public class BinaryStarsAction extends AbstractGameAction {
 	private AbstractPlayer p;
@@ -30,7 +30,7 @@ public class BinaryStarsAction extends AbstractGameAction {
 			if (this.upg)
 				c.upgrade();
 			tmp.addToTop(c);
-			c = new WhiteDwarf();
+			c = new WhiteDwarfStar();
 			if (this.upg)
 				c.upgrade();
 			tmp.addToTop(c);

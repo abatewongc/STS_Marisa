@@ -51,8 +51,8 @@ public class ChargeUpSpray extends MarisaModCard {
 		if (p.hasRelic("SimpleLauncher")) {
 			cnt = 6;
 		}
-		if ((p.hasPower("ChargeUpPower")) && (!p.hasPower("OneTimeOffPlusPower"))) {
-			if (p.getPower("ChargeUpPower").amount >= cnt) {
+		if ((p.hasPower(Identifiers.Powers.CHARGE_UP)) && (!p.hasPower(Identifiers.Powers.ONE_TIME_OFF))) {
+			if (p.getPower(Identifiers.Powers.CHARGE_UP).amount >= cnt) {
 				AbstractDungeon.actionManager.addToTop(
 						new DrawCardAction(AbstractDungeon.player, this.magicNumber)
 				);

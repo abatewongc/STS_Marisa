@@ -44,7 +44,7 @@ public class GrandCross extends MarisaModCard {
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		if (AbstractDungeon.player.hasPower("GrandCrossPower")) {
+		if (AbstractDungeon.player.hasPower(Identifiers.Powers.GRAND_CROSS)) {
 			if (this.costForTurn != 0) {
 				this.flash();
 				this.costForTurn = 0;

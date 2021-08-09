@@ -59,7 +59,7 @@ public class DarkMatter extends MarisaModCard {
 		if (!canUse) {
 			return false;
 		}
-		if (p.hasPower("DarkMatterPower")) {
+		if (p.hasPower(Identifiers.Powers.DARK_MATTER)) {
 			this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
 			return false;
 		}

@@ -38,8 +38,9 @@ public class AlicesGift extends MarisaModCard {
 				CardRarity.UNCOMMON,
 				CardTarget.ENEMY
 		);
-		this.damage = this.baseDamage = ATK;
+	this.damage = this.baseDamage = ATK;
 		this.exhaust = true;
+		this.selfRetain = true;
 	}
 
 	@Override
@@ -48,12 +49,6 @@ public class AlicesGift extends MarisaModCard {
 			upgradeName();
 			upgradeDamage(ATK_UPG);
 		}
-	}
-
-	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		this.retain = true;
 	}
 
 	@Override

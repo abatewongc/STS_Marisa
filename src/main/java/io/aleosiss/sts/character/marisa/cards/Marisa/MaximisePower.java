@@ -43,12 +43,12 @@ public class MaximisePower extends MarisaModCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (p.hasPower("ChargeUpPower")) {
-			if (p.getPower("ChargeUpPower").amount > 0) {
+		if (p.hasPower(Identifiers.Powers.CHARGE_UP)) {
+			if (p.getPower(Identifiers.Powers.CHARGE_UP).amount > 0) {
 				AbstractDungeon.actionManager.addToBottom(
-						new GainEnergyAction(p.getPower("ChargeUpPower").amount)
+						new GainEnergyAction(p.getPower(Identifiers.Powers.CHARGE_UP).amount)
 				);
-				p.getPower("ChargeUpPower").amount = 0;
+				p.getPower(Identifiers.Powers.CHARGE_UP).amount = 0;
 			}
 		}
 		AbstractDungeon.actionManager.addToBottom(

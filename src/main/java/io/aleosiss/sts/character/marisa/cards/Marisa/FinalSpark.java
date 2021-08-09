@@ -33,45 +33,20 @@ public class FinalSpark extends MarisaModCard {
 	private static final int ATK_DMG = 40;
 
 	public FinalSpark() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.RARE,
-				AbstractCard.CardTarget.ALL_ENEMY
-		);
-
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
 		this.isMultiDamage = true;
 		this.baseDamage = ATK_DMG;
 		this.tags.add(SPARK);
 	}
 
-	@Override
-	public void applyPowers() {
-		super.applyPowers();
-		if (this.upgraded) {
-			this.retain = true;
-		}
-	}
+	public void use(AbstractPlayer player, AbstractMonster monster) {
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-
-		AbstractDungeon.actionManager.addToBottom(
-				new SFXAction("ATTACK_HEAVY")
-		);
-		AbstractDungeon.actionManager.addToBottom(
-				new VFXAction(
-						new MindblastEffect(p.dialogX, p.dialogY, false)
-				)
-		);
+		AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_HEAVY"));
+		AbstractDungeon.actionManager.addToBottom(new VFXAction(new MindblastEffect(player.dialogX, player.dialogY, false)));
 
 		AbstractDungeon.actionManager.addToBottom(
 				new DamageAllEnemiesAction(
-						p,
+						player,
 						this.multiDamage,
 						this.damageTypeForTurn,
 						AbstractGameAction.AttackEffect.SLASH_DIAGONAL
@@ -96,6 +71,7 @@ public class FinalSpark extends MarisaModCard {
 		if (!this.upgraded) {
 			upgradeName();
 			this.rawDescription = DESCRIPTION_UPG;
+			this.selfRetain = true;
 			initializeDescription();
 		}
 	}

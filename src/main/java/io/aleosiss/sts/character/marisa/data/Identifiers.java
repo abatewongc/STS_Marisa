@@ -2,6 +2,10 @@ package io.aleosiss.sts.character.marisa.data;
 
 
 public class Identifiers {
+	public static class Properties extends Identifiers {
+		public static final String IS_CAT_EVENT_ENABLED = "isCatEventEnabled";
+	}
+
 	public static class Powers extends Identifiers {
 		// Marisa
 		public static final String BLAZE_AWAY = "BlazeAwayPower";

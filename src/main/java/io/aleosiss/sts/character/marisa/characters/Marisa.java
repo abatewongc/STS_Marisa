@@ -46,25 +46,25 @@ public class Marisa extends CustomPlayer {
 	private static final int ASCENSION_MAX_HP_LOSS = 5;
 
 	public ArrayList<String> getStartingDeck() { // starting deck 'nuff said
-		ArrayList<String> retVal = new ArrayList<>();
-		retVal.add(Cards.STRIKE);
-		retVal.add(Cards.STRIKE);
-		retVal.add(Cards.STRIKE);
-		retVal.add(Cards.STRIKE);
-		retVal.add(Cards.DEFEND);
-		retVal.add(Cards.DEFEND);
-		retVal.add(Cards.DEFEND);
-		retVal.add(Cards.DEFEND);
-		retVal.add(Cards.MASTER_SPARK);
-		retVal.add(Cards.UPSWEEP);
-		return retVal;
+		ArrayList<String> deck = new ArrayList<>();
+		deck.add(Cards.STRIKE);
+		deck.add(Cards.STRIKE);
+		deck.add(Cards.STRIKE);
+		deck.add(Cards.STRIKE);
+		deck.add(Cards.DEFEND);
+		deck.add(Cards.DEFEND);
+		deck.add(Cards.DEFEND);
+		deck.add(Cards.DEFEND);
+		deck.add(Cards.MASTER_SPARK);
+		deck.add(Cards.UPSWEEP);
+		return deck;
 	}
 
-	public ArrayList<String> getStartingRelics() { // starting relics - also simple
-		ArrayList<String> retVal = new ArrayList<>();
-		retVal.add(Identifiers.Relics.MINI_HAKKERO);
+	public ArrayList<String> getStartingRelics() {
+		ArrayList<String> relics = new ArrayList<>();
+		relics.add(Identifiers.Relics.MINI_HAKKERO);
 		UnlockTracker.markRelicAsSeen(Identifiers.Relics.MINI_HAKKERO);
-		return retVal;
+		return relics;
 	}
 
 	public AbstractCard getStartCardForEvent() {

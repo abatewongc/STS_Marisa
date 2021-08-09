@@ -21,6 +21,7 @@ public abstract class AmplifiedAttack extends MarisaModCard {
 		super(id, name, img, cost, rawDescription, type, color, rarity, target);
 	}
 
+	@Override
 	public void applyPowers() {
 		if (!this.isException) {
 			this.damage = this.baseDamage;

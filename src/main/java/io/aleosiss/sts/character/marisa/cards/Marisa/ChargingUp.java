@@ -45,11 +45,6 @@ public class ChargingUp extends MarisaModCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int stack = this.magicNumber;
-		/*
-			if (ThMod.Amplified(this.costForTurn+AMP, AMP)) {
-				stack = stack * 2 - 1;
-			}
-			*/
 		AbstractDungeon.actionManager.addToBottom(
 				new ApplyPowerAction(
 						p,

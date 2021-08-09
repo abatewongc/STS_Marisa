@@ -16,7 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 
-public class WhiteDwarf extends AmplifiedAttack {
+public class WhiteDwarfStar extends AmplifiedAttack {
 
 	public static final String ID = Identifiers.Cards.WHITE_DWARF_STAR;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -33,7 +33,7 @@ public class WhiteDwarf extends AmplifiedAttack {
 
 	private float magn = MULTIPLIER;
 
-	public WhiteDwarf() {
+	public WhiteDwarfStar() {
 		super(
 				ID,
 				NAME,
@@ -92,7 +92,7 @@ public class WhiteDwarf extends AmplifiedAttack {
 	}
 
 	public AbstractCard makeCopy() {
-		return new WhiteDwarf();
+		return new WhiteDwarfStar();
 	}
 
 	public void upgrade() {

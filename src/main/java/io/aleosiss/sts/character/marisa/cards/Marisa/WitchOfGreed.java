@@ -48,30 +48,7 @@ public class WitchOfGreed extends MarisaModCard {
 		this.tags.add(AbstractCard.CardTags.HEALING);
 	}
 
-	/*
-	  public void use(AbstractPlayer p, AbstractMonster m) {
 
-		if (ThMod.Amplified(this, AMP)) {
-		  AbstractDungeon.actionManager.addToBottom(
-			  new ApplyPowerAction(
-				  p,
-				  p,
-				  new WitchOfGreedPotion(p, 1), 1)
-		  );
-		}
-
-		ThMod.logger.info("WitchOfGreed : Applying power : gold ;");
-
-		AbstractDungeon.actionManager.addToBottom(
-			new ApplyPowerAction(
-				p,
-				p,
-				new WitchOfGreedGold(p, this.magicNumber),
-				this.magicNumber
-			)
-		);
-	  }
-	*/
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT) {
 

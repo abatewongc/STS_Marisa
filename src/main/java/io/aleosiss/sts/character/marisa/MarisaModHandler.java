@@ -1,134 +1,10 @@
 package io.aleosiss.sts.character.marisa;
 
-import static io.aleosiss.sts.character.marisa.patches.CardTagEnum.SPARK;
-import static io.aleosiss.sts.character.marisa.patches.MarisaModClassEnum.MARISA;
-import static io.aleosiss.sts.character.marisa.utils.MarisaHelpers.*;
-
-import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.helpers.File;
-import com.megacrit.cardcrawl.localization.*;
-import io.aleosiss.sts.character.marisa.action.SparkCostAction;
-import io.aleosiss.sts.character.marisa.cards.Marisa.AbsoluteMagnitude;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Acceleration;
-import io.aleosiss.sts.character.marisa.cards.Marisa.AlicesGift;
-import io.aleosiss.sts.character.marisa.cards.Marisa.AsteroidBelt;
-import io.aleosiss.sts.character.marisa.cards.Marisa.BigCrunch;
-import io.aleosiss.sts.character.marisa.cards.Marisa.BinaryStars;
-import io.aleosiss.sts.character.marisa.cards.Marisa.BlazeAway;
-import io.aleosiss.sts.character.marisa.cards.Marisa.BlazingStar;
-import io.aleosiss.sts.character.marisa.cards.Marisa.CasketOfStar;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ChargeUpSpray;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ChargingUp;
-import io.aleosiss.sts.character.marisa.cards.Marisa.CollectingQuirk;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Surprise;
-import io.aleosiss.sts.character.marisa.cards.Marisa.DarkMatter;
-import io.aleosiss.sts.character.marisa.cards.Marisa.DarkSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.DeepEcologicalBomb;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Defend_MRS;
-import io.aleosiss.sts.character.marisa.cards.Marisa.DoubleSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.DragonMeteor;
-import io.aleosiss.sts.character.marisa.cards.Marisa.EarthLightRay;
-import io.aleosiss.sts.character.marisa.cards.Marisa.EnergyFlow;
-import io.aleosiss.sts.character.marisa.cards.Marisa.EnergyRecoil;
-import io.aleosiss.sts.character.marisa.cards.Marisa.EscapeVelocity;
-import io.aleosiss.sts.character.marisa.cards.Marisa.EventHorizon;
-import io.aleosiss.sts.character.marisa.cards.Marisa.FairyDestructionRay;
-import io.aleosiss.sts.character.marisa.cards.Marisa.FinalSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.GalacticHalo;
-import io.aleosiss.sts.character.marisa.cards.Marisa.GasGiant;
-import io.aleosiss.sts.character.marisa.cards.Marisa.GrandCross;
-import io.aleosiss.sts.character.marisa.cards.Marisa.GravityBeat;
-import io.aleosiss.sts.character.marisa.cards.Marisa.IllusionStar;
-import io.aleosiss.sts.character.marisa.cards.Marisa.WarmingUp;
-import io.aleosiss.sts.character.marisa.cards.Marisa.LuminousStrike;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MachineGunSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MagicAbsorber;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MagicChant;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ManaConvection;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ManaRampage;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MasterSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MaximisePower;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MeteoricShower;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MilkyWay;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MillisecondPulsars;
-import io.aleosiss.sts.character.marisa.cards.Marisa.MysteriousBeam;
-import io.aleosiss.sts.character.marisa.cards.Marisa.NonDirectionalLaser;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Occultation;
-import io.aleosiss.sts.character.marisa.cards.Marisa.OneTimeOff;
-import io.aleosiss.sts.character.marisa.cards.Marisa.OortCloud;
-import io.aleosiss.sts.character.marisa.cards.Marisa.OpenUniverse;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Orbital;
-import io.aleosiss.sts.character.marisa.cards.Marisa.OrrerysSun;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Upgrade;
-import io.aleosiss.sts.character.marisa.cards.Marisa.PropBag;
-import io.aleosiss.sts.character.marisa.cards.Marisa.PulseMagic;
-import io.aleosiss.sts.character.marisa.cards.Marisa.RefractionSpark;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Robbery;
-import io.aleosiss.sts.character.marisa.cards.Marisa.SatelliteIllusion;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ShootTheMoon;
-import io.aleosiss.sts.character.marisa.cards.Marisa.ShootingEcho;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Singularity;
-import io.aleosiss.sts.character.marisa.cards.Marisa.SporeCrump;
-import io.aleosiss.sts.character.marisa.cards.Marisa.SprinkleStarSeal;
-import io.aleosiss.sts.character.marisa.cards.Marisa.StarBarrage;
-import io.aleosiss.sts.character.marisa.cards.Marisa.StardustReverie;
-import io.aleosiss.sts.character.marisa.cards.Marisa.StarlightTyphoon;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Strike_MRS;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Supernova;
-import io.aleosiss.sts.character.marisa.cards.Marisa.SuperPerseids;
-import io.aleosiss.sts.character.marisa.cards.Marisa.TreasureHunter;
-import io.aleosiss.sts.character.marisa.cards.Marisa.UltraShortWave;
-import io.aleosiss.sts.character.marisa.cards.Marisa.UnstableBomb;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Upsweep;
-import io.aleosiss.sts.character.marisa.cards.Marisa.WitchLeyline;
-import io.aleosiss.sts.character.marisa.cards.Marisa.WitchOfGreed;
-import io.aleosiss.sts.character.marisa.cards.Marisa.Rebound;
-import io.aleosiss.sts.character.marisa.cards.derivations.BlackFlareStar;
-import io.aleosiss.sts.character.marisa.cards.derivations.Exhaustion;
-import io.aleosiss.sts.character.marisa.cards.derivations.GuidingStar;
-import io.aleosiss.sts.character.marisa.cards.derivations.Spark;
-import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarf;
-import io.aleosiss.sts.character.marisa.cards.derivations.Wraith;
-import io.aleosiss.sts.character.marisa.characters.Marisa;
-import io.aleosiss.sts.character.marisa.data.Constants;
-import io.aleosiss.sts.character.marisa.event.Mushrooms_MRS;
-import io.aleosiss.sts.character.marisa.event.OrinTheCat;
-import io.aleosiss.sts.character.marisa.monsters.Orin;
-import io.aleosiss.sts.character.marisa.monsters.ZombieFairy;
-import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.potions.BottledSpark;
-import io.aleosiss.sts.character.marisa.potions.ShroomBrew;
-import io.aleosiss.sts.character.marisa.potions.StarNLove;
-import io.aleosiss.sts.character.marisa.relics.AmplifyWand;
-import io.aleosiss.sts.character.marisa.relics.BewitchedHakkero;
-import io.aleosiss.sts.character.marisa.relics.BigShroomBag;
-import io.aleosiss.sts.character.marisa.relics.BreadOfAWashokuLover;
-import io.aleosiss.sts.character.marisa.relics.CatCart;
-import io.aleosiss.sts.character.marisa.relics.ExperimentalFamiliar;
-import io.aleosiss.sts.character.marisa.relics.HandmadeGrimoire;
-import io.aleosiss.sts.character.marisa.relics.MagicBroom;
-import io.aleosiss.sts.character.marisa.relics.MiniHakkero;
-import io.aleosiss.sts.character.marisa.relics.RampagingMagicTools;
-import io.aleosiss.sts.character.marisa.relics.ShroomBag;
-import io.aleosiss.sts.character.marisa.relics.SimpleLauncher;
-import io.aleosiss.sts.character.marisa.relics.SproutingBranch;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.helpers.RelicType;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.OnCardUseSubscriber;
-import basemod.interfaces.OnPowersModifiedSubscriber;
-import basemod.interfaces.PostBattleSubscriber;
-import basemod.interfaces.PostDrawSubscriber;
-import basemod.interfaces.PostDungeonInitializeSubscriber;
-import basemod.interfaces.PostEnergyRechargeSubscriber;
-import basemod.interfaces.PostExhaustSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -137,27 +13,44 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheBeyond;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import io.aleosiss.sts.character.marisa.action.SparkCostAction;
+import io.aleosiss.sts.character.marisa.cards.Marisa.*;
+import io.aleosiss.sts.character.marisa.cards.derivations.*;
+import io.aleosiss.sts.character.marisa.characters.Marisa;
+import io.aleosiss.sts.character.marisa.data.Constants;
+import io.aleosiss.sts.character.marisa.data.Identifiers;
+import io.aleosiss.sts.character.marisa.event.Mushrooms_MRS;
+import io.aleosiss.sts.character.marisa.event.OrinTheCat;
+import io.aleosiss.sts.character.marisa.monsters.Orin;
+import io.aleosiss.sts.character.marisa.monsters.ZombieFairy;
+import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
+import io.aleosiss.sts.character.marisa.potions.BottledSpark;
+import io.aleosiss.sts.character.marisa.potions.ShroomBrew;
+import io.aleosiss.sts.character.marisa.potions.StarNLove;
+import io.aleosiss.sts.character.marisa.relics.*;
+import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
-import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import static io.aleosiss.sts.character.marisa.patches.CardTagEnum.SPARK;
+import static io.aleosiss.sts.character.marisa.patches.MarisaModClassEnum.MARISA;
+import static io.aleosiss.sts.character.marisa.utils.MarisaHelpers.addRelic;
 
-@SuppressWarnings("Duplicates")
 @SpireInitializer
 public class MarisaModHandler implements
 		PostExhaustSubscriber,
@@ -181,7 +74,9 @@ public class MarisaModHandler implements
 	public static boolean isDeadBranchEnabled;
 
 	private final Properties marisaModDefaultProperties = new Properties();
-	private final ArrayList<AbstractCard> cardsToAdd = new ArrayList<>();
+
+	@SuppressWarnings("unused") // SpireInitializer
+	public static void initialize() { new MarisaModHandler();}
 
 	public MarisaModHandler() {
 		BaseMod.subscribe(this);
@@ -190,14 +85,19 @@ public class MarisaModHandler implements
 	}
 
 	private void constructConfiguration() {
-		marisaModDefaultProperties.setProperty("isCatEventEnabled", "TRUE");
+		setDefaultProperties();
+
 		try {
 			final SpireConfig config = new SpireConfig("vexMod", "vexModConfig", marisaModDefaultProperties);
 			config.load();
-			isCatEventEnabled = config.getBool("isCatEventEnabled");
+			isCatEventEnabled = config.getBool(Identifiers.Properties.IS_CAT_EVENT_ENABLED);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void setDefaultProperties() {
+		marisaModDefaultProperties.setProperty(Identifiers.Properties.IS_CAT_EVENT_ENABLED, "TRUE");
 	}
 
 	private void constructColors() {
@@ -213,6 +113,7 @@ public class MarisaModHandler implements
 		);
 	}
 
+	@Override
 	public void receiveEditCharacters() {
 		logger.info("begin editing characters");
 
@@ -226,6 +127,7 @@ public class MarisaModHandler implements
 		logger.info("done editing characters");
 	}
 
+	@Override
 	public void receiveEditRelics() {
 		logger.info("Begin editing relics.");
 
@@ -249,6 +151,7 @@ public class MarisaModHandler implements
 		logger.info("Relics editing finished.");
 	}
 
+	@Override
 	public void receiveEditCards() {
 		logger.info("starting editing cards");
 		logger.info("adding cards for MARISA");
@@ -260,10 +163,6 @@ public class MarisaModHandler implements
 		logger.info("done editing cards");
 	}
 
-	public static void initialize() {
-		new MarisaModHandler();
-	}
-
 	@Override
 	public void receivePostExhaust(AbstractCard c) {
 		// TODO Auto-generated method stub
@@ -272,12 +171,12 @@ public class MarisaModHandler implements
 	@Override
 	public void receivePostBattle(AbstractRoom r) {
 		typhoonCounter = 0;
-		logger.info("ThMod : PostBattle ; typhoon-counter reset");
+		logger.info("Marisa : PostBattle ; typhoon-counter reset");
 	}
 
 	@Override
 	public void receiveCardUsed(AbstractCard card) {
-		MarisaModHandler.logger.info("ThMod : Card used : " + card.cardID + " ; cost : " + card.costForTurn);
+		MarisaModHandler.logger.info("Marisa : Card used : " + card.cardID + " ; cost : " + card.costForTurn);
 		if (MarisaHelpers.wasZeroCost(card)) {
 			typhoonCounter++;
 			MarisaModHandler.logger.info("typhoon-counter increased , now :" + typhoonCounter);
@@ -300,9 +199,7 @@ public class MarisaModHandler implements
 
 		for (AbstractCard card : AbstractDungeon.player.hand.group) {
 			if (card instanceof GuidingStar) {
-				AbstractDungeon.actionManager.addToBottom(
-						new GainEnergyAction(1)
-				);
+				AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
 				card.flash();
 			}
 		}
@@ -322,26 +219,6 @@ public class MarisaModHandler implements
 	@Override
 	public void receivePostDraw(AbstractCard arg0) {
 		// TODO Auto-generated method stub
-	}
-
-
-	private void loadLocalizedStringData(Class<?> stringType, String stringsFileName) {
-		// We load english first as a fallback for yet-to-be-translated things, then load the "true" language if it is not English
-		BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.GameLanguage.ENG, stringsFileName));
-		if (!Settings.GameLanguage.ENG.equals(Settings.language)) {
-			BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.language, stringsFileName));
-		}
-	}
-
-	public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
-		String languageFolder = language.name().toLowerCase(Locale.ROOT);
-		String path = "marisa/localization/" + languageFolder + "/" + resourcePath;
-		logger.info("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
-		return path;
-	}
-
-	private static String loadJson(String jsonPath) {
-		return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
 	}
 
 	@Override
@@ -375,6 +252,25 @@ public class MarisaModHandler implements
 		logger.info("Done editing strings");
 	}
 
+	private void loadLocalizedStringData(Class<?> stringType, String stringsFileName) {
+		// We load english first as a fallback for yet-to-be-translated things, then load the "true" language if it is not English
+		BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.GameLanguage.ENG, stringsFileName));
+		if (!Settings.GameLanguage.ENG.equals(Settings.language)) {
+			BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.language, stringsFileName));
+		}
+	}
+
+	public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
+		String languageFolder = language.name().toLowerCase(Locale.ROOT);
+		String path = "marisa/localization/" + languageFolder + "/" + resourcePath;
+		logger.info("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
+		return path;
+	}
+
+	private static String loadJson(String jsonPath) {
+		return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
+	}
+
 	@Override
 	public void receivePostInitialize() {
 		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString("stsmarisamod:DeadBranchReplacement");
@@ -391,8 +287,7 @@ public class MarisaModHandler implements
 						FontHelper.charDescFont,
 						isCatEventEnabled,
 						settingsPanel,
-						label -> {
-						},
+						label -> {},
 						button -> {
 							isCatEventEnabled = button.enabled;
 							try {
@@ -549,7 +444,7 @@ public class MarisaModHandler implements
 		cardLoader.add(new Spark());
 		cardLoader.add(new GuidingStar());
 		cardLoader.add(new BlackFlareStar());
-		cardLoader.add(new WhiteDwarf());
+		cardLoader.add(new WhiteDwarfStar());
 		cardLoader.add(new Exhaustion());
 		cardLoader.add(new Strike_MRS());
 		cardLoader.add(new Wraith());
