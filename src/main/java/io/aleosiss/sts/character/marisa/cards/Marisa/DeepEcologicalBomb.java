@@ -20,28 +20,19 @@ public class DeepEcologicalBomb extends MarisaModCard {
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/DeepEcoBomb.png";
-	private static final int STC = 2;
-	private static final int UPG_STC = 1;
+	private static final int TEMPORARY_STRENGTH_DOWN = 2;
+	private static final int UPGRADE_STRENGTH_DOWN = 1;
 	private static final int COST = 1;
-	private static final int ATK_DMG = 7;
-	private static final int UPG_DMG = 2;
-	private static final int AMP = 1;
+	private static final int BASE_DAMAGE = 7;
+	private static final int UPGRADE_DAMAGE = 2;
+	private static final int AMPLIFY_COST = 1;
 
 	public DeepEcologicalBomb() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.UNCOMMON,
-				AbstractCard.CardTarget.ALL_ENEMY
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY
 		);
 
-		this.baseDamage = ATK_DMG;
-		this.magicNumber = this.baseMagicNumber = STC;
+		this.baseDamage = BASE_DAMAGE;
+		this.magicNumber = this.baseMagicNumber = TEMPORARY_STRENGTH_DOWN;
 	}
 
 	@Override
@@ -51,15 +42,13 @@ public class DeepEcologicalBomb extends MarisaModCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int num = 1;
 
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplified(this, AMPLIFY_COST)) {
 			num++;
 		}
 		AbstractDungeon.actionManager.addToBottom(
 				new WasteBombAction(
 						AbstractDungeon.getMonsters().getRandomMonster(true),
-						this.damage,
-						num,
-						this.magicNumber
+						this.damage, num, this.magicNumber
 				)
 		);
 	}
@@ -71,8 +60,8 @@ public class DeepEcologicalBomb extends MarisaModCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(UPG_DMG);
-			upgradeMagicNumber(UPG_STC);
+			upgradeDamage(UPGRADE_DAMAGE);
+			upgradeMagicNumber(UPGRADE_STRENGTH_DOWN);
 		}
 	}
 }
