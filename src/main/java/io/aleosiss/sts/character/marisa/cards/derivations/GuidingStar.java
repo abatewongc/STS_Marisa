@@ -26,31 +26,13 @@ public class GuidingStar extends MarisaModCard {
 	private static final int UPG_COST = 0;
 
 	public GuidingStar() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.SKILL,
-				AbstractCardEnum.MARISA_DERIVATIONS,
-				AbstractCard.CardRarity.SPECIAL,
-				AbstractCard.CardTarget.SELF
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, AbstractCardEnum.MARISA_DERIVATIONS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
 		this.exhaust = true;
 		this.selfRetain = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
-		AbstractDungeon.actionManager.addToBottom(
-				new MakeTempCardInDrawPileAction(
-						this.makeStatEquivalentCopy(),
-						1,
-						true,
-						true
-				)
-		);
+		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(this.makeStatEquivalentCopy(), 1, true, true));
 
 		if (AbstractDungeon.player.discardPile.size() > 0) {
 			AbstractDungeon.actionManager.addToBottom(
@@ -70,9 +52,7 @@ public class GuidingStar extends MarisaModCard {
 	}
 
 	public void triggerAtStartOfTurn() {
-		AbstractDungeon.actionManager.addToBottom(
-				new GainEnergyAction(1)
-		);
+		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(1));
 	}
 
 	public AbstractCard makeCopy() {

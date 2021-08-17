@@ -49,8 +49,7 @@ public class Mushrooms_MRS extends AbstractEvent {
 		this.body = DESCRIPTIONS[2];
 		this.roomEventText.addDialogOption(OPTIONS[0]);
 		int temp = (int) ((float) AbstractDungeon.player.maxHealth * 0.25F);
-		this.roomEventText
-				.addDialogOption(OPTIONS[1] + temp + OPTIONS[2], CardLibrary.getCopy(Parasite.ID));
+		this.roomEventText.addDialogOption(OPTIONS[1] + temp + OPTIONS[2], CardLibrary.getCopy(Parasite.ID));
 		AbstractDungeon.getCurrRoom().phase = RoomPhase.EVENT;
 		this.hasDialog = true;
 		this.hasFocus = true;

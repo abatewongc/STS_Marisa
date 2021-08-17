@@ -28,17 +28,7 @@ public class UltraShortWave extends MarisaModCard {
 	private static final int ENERGY = 1;
 
 	public UltraShortWave() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.SKILL,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.RARE,
-				AbstractCard.CardTarget.SELF
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.SELF);
 		this.magicNumber = this.baseMagicNumber = GAIN;
 		this.block = this.baseBlock = ENERGY;
 		this.damage = this.baseDamage = GROW;
@@ -54,18 +44,10 @@ public class UltraShortWave extends MarisaModCard {
 
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(
-				new GainEnergyAction(this.block)
-		);
-		AbstractDungeon.actionManager.addToBottom(
-				new ApplyPowerAction(
-						p,
-						p,
-						new ChargeUpPower(p, this.magicNumber),
-						this.magicNumber
-				)
-		);
+	public void use(AbstractPlayer player, AbstractMonster m) {
+		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(this.block));
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player,
+				new ChargeUpPower(player, this.magicNumber), this.magicNumber));
 		this.upgradeMagicNumber(this.damage);
 		this.upgradeBlock(1);
 	}

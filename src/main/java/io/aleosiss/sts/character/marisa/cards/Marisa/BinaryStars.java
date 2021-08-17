@@ -39,6 +39,8 @@ public class BinaryStars extends MarisaModCard {
 				AbstractCard.CardTarget.SELF
 		);
 		//this.exhaust = true;
+		this.additionalCardsToPreview.add(new BlackFlareStar());
+		this.additionalCardsToPreview.add(new WhiteDwarfStar());
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
@@ -74,6 +76,10 @@ public class BinaryStars extends MarisaModCard {
 			upgradeName();
 			this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
 			initializeDescription();
+
+			for (AbstractCard card : additionalCardsToPreview) {
+				card.upgrade();
+			}
 		}
 	}
 }

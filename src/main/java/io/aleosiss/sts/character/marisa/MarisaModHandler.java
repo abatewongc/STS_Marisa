@@ -82,6 +82,7 @@ public class MarisaModHandler implements
 		BaseMod.subscribe(this);
 		constructColors();
 		constructConfiguration();
+		logger.info("Finished Marisa mod basemod registration.");
 	}
 
 	private void constructConfiguration() {

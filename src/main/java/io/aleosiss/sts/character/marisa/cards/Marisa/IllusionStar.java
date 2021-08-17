@@ -27,33 +27,17 @@ public class IllusionStar extends MarisaModCard {
 	private static final int UPG_CARD_PRINT = 1;
 
 	public IllusionStar() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.SKILL,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.COMMON,
-				AbstractCard.CardTarget.SELF
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.COMMON, AbstractCard.CardTarget.SELF);
 		this.magicNumber = this.baseMagicNumber = CARD_PRINT;
 		this.exhaust = true;
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		for (int i = 0; i < this.magicNumber; i++) {
-
-			AbstractCard c = MarisaHelpers.getRandomMarisaCard();
-
-			AbstractDungeon.actionManager.addToBottom(
-					new MakeTempCardInHandAction(c, 1)
-			);
+			AbstractCard card = MarisaHelpers.getRandomMarisaCard();
+			AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, 1));
 		}
-		AbstractDungeon.actionManager.addToBottom(
-				new PutOnDeckAction(p, p, 1, false)
-		);
+		AbstractDungeon.actionManager.addToBottom(new PutOnDeckAction(p, p, 1, false));
 	}
 
 	public AbstractCard makeCopy() {

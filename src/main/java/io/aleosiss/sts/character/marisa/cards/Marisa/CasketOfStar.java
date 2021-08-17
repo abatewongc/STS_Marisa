@@ -24,23 +24,11 @@ public class CasketOfStar extends MarisaModCard {
 	private static final int COST = 2;
 
 	public CasketOfStar() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				CardType.POWER,
-				AbstractCardEnum.MARISA_COLOR,
-				CardRarity.RARE,
-				CardTarget.SELF
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, CardType.POWER, AbstractCardEnum.MARISA_COLOR, CardRarity.RARE, CardTarget.SELF);
 	}
 
 	public void use(AbstractPlayer player, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(
-				new ApplyPowerAction(player, player, new CasketOfStarPower(player, 1, this.upgraded), 1)
-		);
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new CasketOfStarPower(player, 1, this.upgraded), 1));
 	}
 
 	public AbstractCard makeCopy() {

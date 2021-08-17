@@ -3,14 +3,17 @@ package io.aleosiss.sts.character.marisa.powers.Marisa;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.cards.derivations.Spark;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
+import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
 
 public class CasketOfStarPower extends AbstractPower {
 
@@ -31,8 +34,13 @@ public class CasketOfStarPower extends AbstractPower {
 		this.img = new Texture("marisa/img/powers/energyNext.png");
 	}
 
+	@Override
 	public void onGainedBlock(float blockAmount) {
 		AbstractCard card = new Spark();
+		// if generate block while the player is ending turn, then our spark should stay in our hand.
+		MarisaModHandler.logger.info("COS: endTurnQueued was: " + AbstractDungeon.player.endTurnQueued);
+		MarisaModHandler.logger.info("COS: isEndingTurn was: " + AbstractDungeon.player.isEndingTurn);
+		card.retain = AbstractDungeon.player.endTurnQueued || AbstractDungeon.player.isEndingTurn;
 		if (this.upgraded) {
 			card.upgrade();
 		}

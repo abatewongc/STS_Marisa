@@ -21,7 +21,7 @@
   },
   "DarkSpark": {
     "NAME": "Dark Spark",
-    "DESCRIPTION": "Exhaust top !M! cards of your draw pile,deal !D! damage to ALL enemies for each Attack Exhausted.",
+    "DESCRIPTION": "Exhaust top !M! cards of your draw pile, deal !D! damage to ALL enemies for each Attack Exhausted.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
   },
   "DeepEcoloBomb": {
@@ -339,7 +339,7 @@
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "CasketOfStar": {
-    "NAME": "Casket Of Star",
+    "NAME": "Casket Of Stars",
     "DESCRIPTION": "Whenever you gain Block, add a Spark to your hand.",
     "UPGRADE_DESCRIPTION": "Whenever you gain Block, add an Upgraded Spark to your hand."
   },
@@ -364,7 +364,7 @@
   },
   "ManaConvection": {
     "NAME": "Mana Convection",
-    "DESCRIPTION": "Exhaust up to !M! cards,gain  [E]  for each card exhausted. NL Exhaust.",
+    "DESCRIPTION": "Exhaust up to !M! cards. gain  [E]  for each card exhausted. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },
   "ManaRampage": {
