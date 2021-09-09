@@ -44,28 +44,27 @@ public class TreasureHunterDamageAction extends AbstractGameAction {
 			);
 
 			this.target.damage(this.info);
-			AbstractMonster mon = (AbstractMonster) this.target;
-
-			AbstractRoom curRoom = AbstractDungeon.getCurrRoom();
+			AbstractMonster monster = (AbstractMonster) this.target;
+			AbstractRoom currentRoom = AbstractDungeon.getCurrRoom();
 
 			MarisaModHandler.logger.info(
 					"TreasureHunterDamageAction : Checking : MonsterRoomElite :" +
-							(curRoom.eliteTrigger) +
+							(currentRoom.eliteTrigger) +
 							" ; MonsterRoomBoss :" +
-							(curRoom instanceof MonsterRoomBoss) +
+							(currentRoom instanceof MonsterRoomBoss) +
 							" ; MindBloom boss fight :" +
 							AbstractDungeon.lastCombatMetricKey.equals("Mind Bloom Boss Battle")
 			);
 
-			reward = (curRoom.eliteTrigger) ||
-					(curRoom instanceof MonsterRoomBoss)
+			reward = (currentRoom.eliteTrigger) ||
+					(currentRoom instanceof MonsterRoomBoss)
 					|| AbstractDungeon.lastCombatMetricKey.equals("Mind Bloom Boss Battle")
 					|| AbstractDungeon.lastCombatMetricKey.equals("3 Sentries")
 					|| AbstractDungeon.lastCombatMetricKey.equals("Gremlin Nob")
 					|| AbstractDungeon.lastCombatMetricKey.equals("Lagavulin Event");
 
 			if (
-					!(curRoom instanceof MonsterRoomBoss) && (
+					!(currentRoom instanceof MonsterRoomBoss) && (
 							!AbstractDungeon.lastCombatMetricKey.equals("Mind Bloom Boss Battle"))
 			) {
 				while (this.tier == RelicTier.RARE) {
@@ -75,11 +74,11 @@ public class TreasureHunterDamageAction extends AbstractGameAction {
 
 			if (reward) {
 				MarisaModHandler.logger.info(
-						"TreasureHunterDamageAction : Checking : isDying :" + mon.isDying +
-								" ; Current hp : " + mon.currentHealth
+						"TreasureHunterDamageAction : Checking : isDying :" + monster.isDying +
+								" ; Current hp : " + monster.currentHealth
 				);
 				if (
-						((((AbstractMonster) this.target).isDying) || (this.target.currentHealth <= 0)) &&
+						(((this.target).isDying) || (this.target.currentHealth <= 0)) &&
 								(!this.target.halfDead) &&
 								(!this.target.hasPower("Minion"))
 				) {

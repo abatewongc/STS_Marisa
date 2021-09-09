@@ -50,7 +50,8 @@ public class Identifiers {
 		public static final String RAMPAGING_MAGIC_TOOLS = "RampagingMagicTools";
 		public static final String SHROOM_BAG = "ShroomBag";
 		public static final String SPROUTING_BRANCH = "SproutingBranch";
-	}
+		public static final String PHILO_STONE = "Philosopher's Stone";
+    }
 
 	public static class Potions extends Identifiers {
 		public static final String BOTTLED_SPARK = "BottledSpark";
@@ -146,4 +147,10 @@ public class Identifiers {
 		public static final String WHITE_DWARF_STAR = "WhiteDwarf";
 		public static final String WRAITH = "Wraith";
 	}
+
+	public static class Mods extends Identifiers {
+
+		public static final String LETHALITY = "Lethality";
+		public static final String TIME_DILATION = "Time Dilation";
+    }
 }

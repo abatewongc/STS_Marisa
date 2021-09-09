@@ -5,11 +5,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import io.aleosiss.sts.character.marisa.powers.Marisa.ChargeUpPower;
 
 public class ChargeUpUtils {
-	public static void addChargeUp(int chargeUpIncrease) {
-		addChargeUp(chargeUpIncrease, false);
-		AbstractDungeon.actionManager.addToBottom(createChargeUpPowerAction(chargeUpIncrease));
-	}
-
 	public static void addChargeUp(int chargeUpIncrease, boolean addToTop) {
 		ApplyPowerAction chargeUpPowerAction = createChargeUpPowerAction(chargeUpIncrease);
 		if (addToTop) {

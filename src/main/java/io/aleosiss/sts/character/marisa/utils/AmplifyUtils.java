@@ -24,10 +24,7 @@ public class AmplifyUtils {
 		}
 
 		boolean amplifyActivated = false;
-		if ((player.hasPower(Identifiers.Powers.MILLISECOND_PULSARS))
-				|| (player.hasPower(Identifiers.Powers.PULSE_MAGIC))
-				|| (card.freeToPlayOnce)
-				|| (card.purgeOnUse)) {
+		if (canAmplifyForFree(card, player)) {
 			MarisaModHandler.logger.info(
 					"Marisa::Amplified: Free Amplify tag detected, returning true : Milli :"
 							+ (player.hasPower(Identifiers.Powers.MILLISECOND_PULSARS))
@@ -53,16 +50,27 @@ public class AmplifyUtils {
 		}
 
 		if (amplifyActivated) {
-			AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player, player, new GrandCrossPower(player)));
-			if (player.hasPower(Identifiers.Powers.EVENT_HORIZON)) {
-				player.getPower(Identifiers.Powers.EVENT_HORIZON).onSpecificTrigger();
-			}
-			if (player.hasRelic(Identifiers.Relics.AMPLIFY_WAND)) {
-				AbstractRelic amplifyWand = player.getRelic(Identifiers.Relics.AMPLIFY_WAND);
-				amplifyWand.onTrigger();
-			}
+			amplifyEventActivated(player);
 		}
 		MarisaModHandler.logger.info("Marisa::Amplified: card : " + card.cardID + " ; Amplify : " + amplifyActivated + " ; costForTurn : " + card.costForTurn);
 		return amplifyActivated;
+	}
+
+	private static void amplifyEventActivated(AbstractPlayer player) {
+		AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(player, player, new GrandCrossPower(player)));
+
+		if (player.hasPower(Identifiers.Powers.EVENT_HORIZON)) {
+			player.getPower(Identifiers.Powers.EVENT_HORIZON).onSpecificTrigger();
+		}
+		if (player.hasRelic(Identifiers.Relics.AMPLIFY_WAND)) {
+			player.getRelic(Identifiers.Relics.AMPLIFY_WAND).onTrigger();
+		}
+	}
+
+	private static boolean canAmplifyForFree(AbstractCard card, AbstractPlayer player) {
+		return (player.hasPower(Identifiers.Powers.MILLISECOND_PULSARS))
+				|| (player.hasPower(Identifiers.Powers.PULSE_MAGIC))
+				|| (card.freeToPlayOnce)
+				|| (card.purgeOnUse);
 	}
 }

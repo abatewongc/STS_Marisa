@@ -15,14 +15,16 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.action.ConsumeChargeUpAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
+import io.aleosiss.sts.character.marisa.relics.SimpleLauncher;
+
+import static io.aleosiss.sts.character.marisa.data.Identifiers.Relics.SIMPLE_LAUNCHER;
 
 public class ChargeUpPower extends AbstractPower {
 	public static final String POWER_ID = Identifiers.Powers.CHARGE_UP;
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private static final int ACT_STACK = 8;
-	private static final int IMPR_STACK = 6;
+	private static final int DEFAULT_STACKS_PER_CHARGE = 8;
 	private int numberOfCharges;
 	private int stacksPerCharge; // amount of stacks of charge up considered to be a single 'charge'
 
@@ -30,7 +32,7 @@ public class ChargeUpPower extends AbstractPower {
 		this.name = NAME;
 		this.ID = POWER_ID;
 		this.owner = owner;
-		this.amount = ExhaustionCheck() ? 0 : amount;
+		this.amount = exhaustionCheck() ? 0 : amount;
 		this.type = AbstractPower.PowerType.BUFF;
 		updateDescription();
 		this.img = new Texture("marisa/img/powers/generator.png");
@@ -42,7 +44,7 @@ public class ChargeUpPower extends AbstractPower {
 	@Override
 	public void stackPower(int stackAmount) {
 		if (stackAmount > 0) {
-			if (ExhaustionCheck()) {
+			if (exhaustionCheck()) {
 				return;
 			}
 		}
@@ -70,7 +72,7 @@ public class ChargeUpPower extends AbstractPower {
 
 	@Override
 	public void onAfterCardPlayed(AbstractCard card) {
-		if ((this.owner.hasPower(Identifiers.Powers.ONE_TIME_OFF)) || (ExhaustionCheck())) {
+		if ((this.owner.hasPower(Identifiers.Powers.ONE_TIME_OFF)) || (exhaustionCheck())) {
 			return;
 		}
 		if ((this.numberOfCharges > 0) && (card.type == CardType.ATTACK)) {
@@ -84,26 +86,30 @@ public class ChargeUpPower extends AbstractPower {
 
 	@Override
 	public float atDamageFinalGive(float damage, DamageInfo.DamageType type) {
-		if ((this.owner.hasPower(Identifiers.Powers.ONE_TIME_OFF)) || (ExhaustionCheck())) {
+		if ((this.owner.hasPower(Identifiers.Powers.ONE_TIME_OFF)) || (exhaustionCheck())) {
 			return damage;
 		}
 		if (numberOfCharges > 0) {
 			if ((type == DamageType.NORMAL) && (this.amount >= 1)) {
-				return (float) (damage * Math.pow(2, this.numberOfCharges));
+				return getFinalDamage(damage, this.numberOfCharges);
 			}
 		}
 		return damage;
 	}
 
+	private float getFinalDamage(float damage, int numberOfCharges) {
+		return (float) (damage * Math.pow(2, numberOfCharges));
+	}
+
 	private void getDivider() {
-		if (AbstractDungeon.player.hasRelic(Identifiers.Relics.SIMPLE_LAUNCHER)) {
-			this.stacksPerCharge = IMPR_STACK;
-		} else {
-			this.stacksPerCharge = ACT_STACK;
+		this.stacksPerCharge = DEFAULT_STACKS_PER_CHARGE;
+		if (AbstractDungeon.player.hasRelic(SIMPLE_LAUNCHER)) {
+			SimpleLauncher relic = (SimpleLauncher) AbstractDungeon.player.getRelic(SIMPLE_LAUNCHER);
+			this.stacksPerCharge += relic.getStacksPerChargeModifier();
 		}
 	}
 
-	private boolean ExhaustionCheck() {
+	private boolean exhaustionCheck() {
 		boolean isExhausted = false;
 		for (AbstractCard card : AbstractDungeon.player.hand.group) {
 			if (card instanceof Exhaustion) {

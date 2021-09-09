@@ -12,8 +12,7 @@ import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 public class MeteoricShowerAction extends AbstractGameAction {
 
-  private static final UIStrings uiStrings = CardCrawlGame.languagePack
-          .getUIString("ExhaustAction");
+  private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("ExhaustAction");
   public static final String[] TEXT = uiStrings.TEXT;
   private AbstractPlayer p;
   private int num;

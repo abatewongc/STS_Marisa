@@ -30,7 +30,7 @@ public class EnergyFlowPower
 
 	public void atEndOfTurn(boolean isPlayer) {
 		flash();
-		ChargeUpUtils.addChargeUp(this.amount);
+		ChargeUpUtils.addChargeUp(this.amount, false);
 	}
 
 	public void updateDescription() {
