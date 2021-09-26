@@ -35,73 +35,57 @@ public class ShootTheMoon extends AmplifiedAttack {
 	private static final int AMP = 1;
 
 	public ShootTheMoon() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION, AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.UNCOMMON,
-				AbstractCard.CardTarget.ENEMY
-		);
-
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ENEMY);
 		this.baseDamage = ATK_DMG;
 		this.ampNumber = AMP_DMG;
 		this.baseBlock = this.baseDamage + this.ampNumber;
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractPower po;
-
-		boolean fightingBoss = (m.type == AbstractMonster.EnemyType.BOSS);
+	public void use(AbstractPlayer player, AbstractMonster monster) {
+		boolean targetingBoss = (monster.type == AbstractMonster.EnemyType.BOSS);
 
 		if (AmplifyUtils.Amplified(this, AMP)) {
-
-			if (!fightingBoss) {
-				for (AbstractPower pow : m.powers) {
-					if (pow.type == AbstractPower.PowerType.BUFF) {
-						AbstractDungeon.actionManager.addToBottom(
-								new RemoveSpecificPowerAction(m, p, pow)
-						);
-					}
-				}
-			}
-
-			AbstractDungeon.actionManager.addToBottom(
-					new DamageAction(
-							m,
-							new DamageInfo(p, this.block, this.damageTypeForTurn),
-							AbstractGameAction.AttackEffect.SLASH_DIAGONAL
-					)
-			);
+			amplifiedUse(player, monster, targetingBoss);
 		} else {
-			if ((!m.powers.isEmpty()) && (!fightingBoss)) {
+			use(player, monster, targetingBoss);
+		}
+	}
 
-				ArrayList<AbstractPower> pows = new ArrayList<>();
-				for (AbstractPower pow : m.powers) {
-					if (pow.type == AbstractPower.PowerType.BUFF) {
-						pows.add(pow);
-					}
+	private void use(AbstractPlayer player, AbstractMonster monster, boolean targetingBoss) {
+		if ((!monster.powers.isEmpty()) && (!targetingBoss)) {
+			ArrayList<AbstractPower> powers = new ArrayList<>();
+			for (AbstractPower pow : monster.powers) {
+				if (pow.type == AbstractPower.PowerType.BUFF) {
+					powers.add(pow);
 				}
-				if (!pows.isEmpty()) {
-					po = pows.get((int) (Math.random() * pows.size()));
-					AbstractDungeon.actionManager.addToBottom(
-							new RemoveSpecificPowerAction(m, p, po)
-					);
-				}
-
 			}
-
-			AbstractDungeon.actionManager.addToBottom(
-					new DamageAction(
-							m,
-							new DamageInfo(p, this.damage, this.damageTypeForTurn),
-							AbstractGameAction.AttackEffect.SLASH_DIAGONAL
-					)
-			);
+			if (!powers.isEmpty()) {
+				AbstractPower power = powers.get((int) (Math.random() * powers.size()));
+				AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(monster, player, power));
+			}
 		}
 
+		AbstractDungeon.actionManager.addToBottom(
+				new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn),
+						AbstractGameAction.AttackEffect.SLASH_DIAGONAL
+				)
+		);
+	}
+
+	private void amplifiedUse(AbstractPlayer player, AbstractMonster monster, boolean targetingBoss) {
+		if (!targetingBoss) {
+			for (AbstractPower power : monster.powers) {
+				if (power.type == AbstractPower.PowerType.BUFF) {
+					AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(monster, player, power));
+				}
+			}
+		}
+
+		AbstractDungeon.actionManager.addToBottom(
+				new DamageAction(monster, new DamageInfo(player, this.block, this.damageTypeForTurn),
+						AbstractGameAction.AttackEffect.SLASH_DIAGONAL
+				)
+		);
 	}
 
 	public AbstractCard makeCopy() {

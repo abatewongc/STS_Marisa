@@ -55,6 +55,7 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$MODULE_DIR$/lib/desktop-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/desktop-1.0.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -76,5 +77,8 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="BaseMod" level="project" />
+    <orderEntry type="library" name="basemod" level="project" />
+    <orderEntry type="library" name="desktop-1.0" level="project" />
   </component>
 </module>

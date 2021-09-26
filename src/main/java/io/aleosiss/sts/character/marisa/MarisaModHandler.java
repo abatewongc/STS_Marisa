@@ -87,7 +87,6 @@ public class MarisaModHandler implements
 
 	private void constructConfiguration() {
 		setDefaultProperties();
-
 		try {
 			final SpireConfig config = new SpireConfig("vexMod", "vexModConfig", marisaModDefaultProperties);
 			config.load();
@@ -186,9 +185,7 @@ public class MarisaModHandler implements
 			card.retain = false;
 		}
 		if (card.hasTag(SPARK)) {
-			AbstractDungeon.actionManager.addToTop(
-					new SparkCostAction()
-			);
+			AbstractDungeon.actionManager.addToTop(new SparkCostAction());
 		}
 	}
 
