@@ -78,7 +78,5 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="BaseMod" level="project" />
-    <orderEntry type="library" name="basemod" level="project" />
-    <orderEntry type="library" name="desktop-1.0" level="project" />
   </component>
 </module>

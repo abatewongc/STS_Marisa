@@ -58,6 +58,15 @@ public class Spark extends MarisaModCard {
 		return new Spark();
 	}
 
+	@Override
+	public AbstractCard makeStatEquivalentCopy() {
+		AbstractCard card = super.makeStatEquivalentCopy();
+		card.retain = this.retain;
+
+		return card;
+	}
+
+
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();

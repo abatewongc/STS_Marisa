@@ -40,10 +40,10 @@ public class CasketOfStarPower extends AbstractPower {
 		// if generate block while the player is ending turn, then our spark should stay in our hand.
 		MarisaModHandler.logger.info("COS: endTurnQueued was: " + AbstractDungeon.player.endTurnQueued);
 		MarisaModHandler.logger.info("COS: isEndingTurn was: " + AbstractDungeon.player.isEndingTurn);
-		card.retain = AbstractDungeon.player.endTurnQueued || AbstractDungeon.player.isEndingTurn;
 		if (this.upgraded) {
 			card.upgrade();
 		}
+		card.retain = AbstractDungeon.player.endTurnQueued;
 		AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, this.amount));
 	}
 
