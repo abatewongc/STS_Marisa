@@ -14,46 +14,78 @@ import java.util.Arrays;
 
 public abstract class MarisaModCard extends CustomCard {
 	protected ArrayList<AbstractCard> additionalCardsToPreview = new ArrayList<>();
+	private static final int WIDTH_SPACING = 10;
+	private static final int HEIGHT_SPACING = 7;
 
-	public MarisaModCard(String id, String name, String imgUrl, int cost, String rawDescription, CardType type, CardColor color, CardRarity rarity, CardTarget target) {
+	public MarisaModCard(String id,
+	                     String name,
+	                     String imgUrl,
+	                     int cost,
+	                     String rawDescription,
+	                     CardType type,
+	                     CardColor color,
+	                     CardRarity rarity,
+	                     CardTarget target) {
 		super(id, name, imgUrl, cost, rawDescription, type, color, rarity, target);
-		assert additionalCardsToPreview.size() < 5;
+	}
+
+
+	@Override
+	public void renderCardTip(SpriteBatch sb) {
+		super.renderCardTip(sb);
+		boolean renderTip = (boolean) basemod.ReflectionHacks.getPrivate(this, AbstractCard.class, "renderTip");
+
+		int count = 0;
+		if (!Settings.hideCards && renderTip) {
+			if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+				if(!additionalCardsToPreview.isEmpty()) {
+					this.renderCardPreview(sb);
+				};
+			}
+		}
+	}
+
+	@Override
+	public void renderCardPreview(SpriteBatch sb) {
+		if (AbstractDungeon.player == null || !AbstractDungeon.player.isDraggingCard) {
+			int index = 0;
+			float dx = (AbstractCard.IMG_WIDTH * 0.9f - 5f) * drawScale + WIDTH_SPACING;
+			float dy = (AbstractCard.IMG_HEIGHT * 0.4f - 5f) * drawScale + HEIGHT_SPACING;
+
+			float curX = current_x;
+			float curY = current_y;
+
+			for (AbstractCard c : additionalCardsToPreview) {
+				if (current_x > Settings.WIDTH * 0.75f) {
+					curX = current_x + dx;
+				} else {
+					curX = current_x - dx;
+				}
+				c.current_x = curX;
+
+				if (index != 0) {
+					curY += (2 * dy);
+				} else {
+					curY -= (dy / 4);
+				}
+
+				c.current_y = curY;
+				c.drawScale = drawScale * 0.8f;
+				c.render(sb);
+				index++;
+			}
+		}
 	}
 
 	@Override
 	public void renderCardPreviewInSingleView(SpriteBatch sb) {
-		super.renderCardPreviewInSingleView(sb);
-		renderGeneratedCardPreview(sb);
-	}
-
-
-	private void renderGeneratedCardPreview(SpriteBatch sb) {
-		//Removes the preview when the player is manipulating the card or if the card is locked or we have nothing to preview
-		if (MarisaHelpers.cardIsBeingManipulated(this) || additionalCardsToPreview.isEmpty()) {
-			return;
-		}
-
-		float drawScale = 0.5f;
-
-		ArrayList<ScreenPosition> positions = generateScreenPositions();
-		if(positions.size() < additionalCardsToPreview.size()) {
-			MarisaModHandler.logger.warn("Cannot preview all cards for card: " + this.cardID);
-		}
-
-		for(int i = 0; i < positions.size() - 1; i++) {
-			if(additionalCardsToPreview.size() <= i) {
-				break;
-			}
-
-			ScreenPosition position = positions.get(i);
-			AbstractCard card = additionalCardsToPreview.get(i);
-			AbstractCard render = card.makeStatEquivalentCopy();
-			if(render != null) {
-				render.drawScale = drawScale;
-				render.current_x = position.getX();
-				render.current_y = position.getY();
-				render.render(sb);
-			}
+		int index = 0;
+		for (AbstractCard c : additionalCardsToPreview) {
+			c.current_x = 485.0F * Settings.scale;
+			c.current_y = (795.0F - 510.0F * index) * Settings.scale;
+			c.drawScale = 0.8f;
+			c.render(sb);
+			index++;
 		}
 	}
 

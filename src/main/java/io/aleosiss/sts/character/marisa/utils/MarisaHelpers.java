@@ -12,6 +12,11 @@ import io.aleosiss.sts.character.marisa.relics.MiniHakkero;
 import static io.aleosiss.sts.character.marisa.patches.AbstractCardEnum.MARISA_COLOR;
 
 public class MarisaHelpers {
+	// These sentinel values are defined by the base game, we're just giving them more readable names.
+	// Copied from https://github.com/dbjorge/jorbs-spire-mod/blob/master/src/main/java/stsjorbsmod/cards/CustomJorbsModCard.java
+	public static final int COST_X = -1;
+	public static final int COST_UNPLAYABLE = -2;
+
 	public static boolean wasZeroCost(AbstractCard card) {
 		return (card.costForTurn == 0)
 				|| (card.costForTurn <= -2)
