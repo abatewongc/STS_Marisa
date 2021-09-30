@@ -1,5 +1,9 @@
 package io.aleosiss.sts.character.marisa.cards.Marisa;
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.vfx.combat.BlizzardEffect;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.action.UnstableBombAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,7 +15,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
+import io.aleosiss.sts.character.marisa.vfx.CollectingQuirkEffect;
 
 public class CollectingQuirk extends MarisaCard {
 
@@ -28,17 +33,7 @@ public class CollectingQuirk extends MarisaCard {
 	private int counter;
 
 	public CollectingQuirk() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.RARE,
-				AbstractCard.CardTarget.ALL_ENEMY
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.RARE, AbstractCard.CardTarget.ALL_ENEMY);
 		this.baseDamage = ATK_DMG;
 		this.magicNumber = this.baseMagicNumber = DIVIDER;
 		this.block = this.baseBlock = 0;
@@ -48,7 +43,7 @@ public class CollectingQuirk extends MarisaCard {
 	@Override
 	public void applyPowers() {
 		super.applyPowers();
-		getCounter();
+		getNumberOfHits();
 		modifyBlock();
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 		initializeDescription();
@@ -64,7 +59,7 @@ public class CollectingQuirk extends MarisaCard {
 	@Override
 	public void calculateCardDamage(AbstractMonster mo) {
 		//super.calculateCardDamage(mo);
-		getCounter();
+		getNumberOfHits();
 		modifyBlock();
 		this.rawDescription = DESCRIPTION + EXTENDED_DESCRIPTION[0];
 		initializeDescription();
@@ -77,17 +72,13 @@ public class CollectingQuirk extends MarisaCard {
 		);
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		getCounter();
+	public void use(AbstractPlayer player, AbstractMonster monster) {
+		counter = getNumberOfHits();
 		if (counter > 0) {
-			AbstractDungeon.actionManager.addToBottom(
-					new UnstableBombAction(
-							AbstractDungeon.getMonsters().getRandomMonster(true),
-							this.damage,
-							this.damage,
-							this.counter
-					)
-			);
+			float duration = Settings.FAST_MODE ? 0.5f : 1.0f;
+			MonsterGroup monsters = AbstractDungeon.getMonsters();
+			this.addToBot(new VFXAction(new CollectingQuirkEffect(monsters.shouldFlipVfx(), (float) monsters.monsters.stream().mapToDouble(m -> m.drawX).average().orElse(Settings.WIDTH)), duration));
+			this.addToBot(new UnstableBombAction(AbstractDungeon.getMonsters().getRandomMonster(true), this.damage, this.damage, this.counter));
 		}
 	}
 
@@ -100,20 +91,24 @@ public class CollectingQuirk extends MarisaCard {
 		return new CollectingQuirk();
 	}
 
-	private void getCounter() {
-		AbstractPlayer p = AbstractDungeon.player;
+	private int getNumberOfHits() {
+		AbstractPlayer player = AbstractDungeon.player;
 		int divider = DIVIDER;
 		if (this.upgraded) {
 			divider = UPG_DIVIDER;
 		}
-		counter = p.relics.size();
-		if (p.hasRelic("Circlet")) {
-			counter += p.getRelic("Circlet").counter - 1;
+
+		counter = player.relics.size();
+		if (player.hasRelic(Identifiers.Relics.CIRCLET)) {
+			counter += player.getRelic(Identifiers.Relics.CIRCLET).counter - 1;
 		}
-		if (p.hasRelic("Red Circlet")) {
-			counter += p.getRelic("Red Circlet").counter - 1;
+		if (player.hasRelic(Identifiers.Relics.RED_CIRCLET)) {
+			counter += player.getRelic(Identifiers.Relics.RED_CIRCLET).counter - 1;
 		}
+
 		counter /= divider;
+
+		return counter;
 	}
 
 	public void upgrade() {
