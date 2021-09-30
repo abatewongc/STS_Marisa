@@ -14,11 +14,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
 
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 
-public class WitchLeyline extends MarisaModCard {
+public class WitchLeyline extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.WITCH_LEYLINE;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -2,7 +2,7 @@ package io.aleosiss.sts.character.marisa.cards.derivations;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.powers.monsters.WraithPower;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.SetDontTriggerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class Wraith extends MarisaModCard {
+public class Wraith extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.WRAITH;
 	private static final CardStrings cardStrings =

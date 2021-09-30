@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.TreasureHunterDamageAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class TreasureHunter extends MarisaModCard {
+public class TreasureHunter extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.TREASURE_HUNTER;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

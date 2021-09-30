@@ -5,7 +5,7 @@ import io.aleosiss.sts.character.marisa.cards.derivations.BlackFlareStar;
 import io.aleosiss.sts.character.marisa.cards.derivations.WhiteDwarfStar;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class BinaryStars extends MarisaModCard {
+public class BinaryStars extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.BINARY_STARS;
 	public static final String IMG_PATH = "marisa/img/cards/binaryStar.png";

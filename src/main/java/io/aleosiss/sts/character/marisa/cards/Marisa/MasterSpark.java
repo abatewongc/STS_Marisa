@@ -53,27 +53,27 @@ public class MasterSpark extends AmplifiedAttack {
 		this.tags.add(SPARK);
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
+	public void use(AbstractPlayer player, AbstractMonster monster) {
 
 		AbstractDungeon.actionManager.addToBottom(
 				new VFXAction(
-						new MindblastEffect(p.dialogX, p.dialogY, false)
+						new MindblastEffect(player.dialogX, player.dialogY, false)
 				)
 		);
 
 		if (AmplifyUtils.Amplified(this, AMP)) {
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(
-							m,
-							new DamageInfo(p, this.block, this.damageTypeForTurn),
+							monster,
+							new DamageInfo(player, this.block, this.damageTypeForTurn),
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL
 					)
 			);
 		} else {
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(
-							m,
-							new DamageInfo(p, this.damage, this.damageTypeForTurn),
+							monster,
+							new DamageInfo(player, this.damage, this.damageTypeForTurn),
 							AbstractGameAction.AttackEffect.SLASH_DIAGONAL
 					)
 			);

@@ -18,9 +18,9 @@ import com.megacrit.cardcrawl.vfx.combat.MindblastEffect;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class FinalSpark extends MarisaModCard {
+public class FinalSpark extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.FINAL_SPARK;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

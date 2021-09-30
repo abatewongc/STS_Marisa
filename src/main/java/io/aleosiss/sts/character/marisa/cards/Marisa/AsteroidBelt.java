@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class AsteroidBelt extends MarisaModCard {
+public class AsteroidBelt extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.ASTEROID_BELT;
 	public static final String IMG_PATH = "marisa/img/cards/Asteroid.png";

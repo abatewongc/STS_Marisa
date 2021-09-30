@@ -12,10 +12,10 @@ import com.megacrit.cardcrawl.powers.EnergizedBluePower;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.PulseMagicPower;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class PulseMagic extends MarisaModCard {
+public class PulseMagic extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.PULSE_MAGIC;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

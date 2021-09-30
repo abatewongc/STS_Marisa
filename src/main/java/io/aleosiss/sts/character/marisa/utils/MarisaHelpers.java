@@ -5,9 +5,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.cards.derivations.GuidingStar;
-import io.aleosiss.sts.character.marisa.relics.MiniHakkero;
 
 import static io.aleosiss.sts.character.marisa.patches.AbstractCardEnum.MARISA_COLOR;
 
@@ -48,8 +47,8 @@ public class MarisaHelpers {
 		return makeID(idClass.getSimpleName());
 	}
 
-	public static boolean cardIsBeingManipulated(MarisaModCard marisaModCard) {
+	public static boolean cardIsBeingManipulated(MarisaCard marisaCard) {
 		//Removes the preview when the player is manipulating the card or if the card is locked
-		return (marisaModCard.isLocked || (AbstractDungeon.player != null && (AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.inSingleTargetMode)));
+		return (marisaCard.isLocked || (AbstractDungeon.player != null && (AbstractDungeon.player.isDraggingCard || AbstractDungeon.player.inSingleTargetMode)));
 	}
 }

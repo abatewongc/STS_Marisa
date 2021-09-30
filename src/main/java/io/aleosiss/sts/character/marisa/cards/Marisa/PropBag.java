@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.PropBagAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class PropBag extends MarisaModCard {
+public class PropBag extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.PROP_BAG;
 	public static final String IMG_PATH = "marisa/img/cards/PropBag.png";

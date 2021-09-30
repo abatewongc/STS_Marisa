@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.OrbitalAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class Orbital extends MarisaModCard {
+public class Orbital extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.ORBITAL;
 	public static final String IMG_PATH = "marisa/img/cards/Marisa/orbit.png";

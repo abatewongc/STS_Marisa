@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import java.util.ArrayList;
 
-public abstract class AmplifiedAttack extends MarisaModCard {
+public abstract class AmplifiedAttack extends MarisaCard {
 	private int ampDamage = -1;
 	protected int ampNumber = 0;
 	protected int[] multiAmpDamage;

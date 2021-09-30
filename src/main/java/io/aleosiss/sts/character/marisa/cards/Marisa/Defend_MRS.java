@@ -7,11 +7,11 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 
-public class Defend_MRS extends MarisaModCard {
+public class Defend_MRS extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.DEFEND;
 	public static final String IMG_PATH = "marisa/img/cards/Defend_MRS.png";

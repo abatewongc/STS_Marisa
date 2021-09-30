@@ -13,7 +13,7 @@ import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
 
-public class CollectingQuirk extends MarisaModCard {
+public class CollectingQuirk extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.COLLECTING_QUIRK;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -9,9 +9,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class ASillyJoke extends MarisaModCard {
+public class ASillyJoke extends MarisaCard {
 
 	public static final String ID = "SillyJoke";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

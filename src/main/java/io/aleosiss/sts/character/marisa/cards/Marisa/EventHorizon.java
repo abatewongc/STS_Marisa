@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.EventHorizonPower;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class EventHorizon extends MarisaModCard {
+public class EventHorizon extends MarisaCard {
 	public static final String ID = Identifiers.Cards.EVENT_HORIZON;
 	public static final String IMG_PATH = "marisa/img/cards/EventHorizon.png";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -1,6 +1,6 @@
 package io.aleosiss.sts.character.marisa.cards.Marisa;
 
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,7 +14,7 @@ import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class AlicesGift extends MarisaModCard {
+public class AlicesGift extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.ALICES_GIFT;
 	public static final String IMG_PATH = "marisa/img/cards/GiftDoll_v2.png";

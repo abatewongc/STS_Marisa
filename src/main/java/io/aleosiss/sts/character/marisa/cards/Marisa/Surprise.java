@@ -12,9 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class Surprise extends MarisaModCard {
+public class Surprise extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.SURPRISE;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

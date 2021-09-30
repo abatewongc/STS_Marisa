@@ -211,7 +211,7 @@
   },
   "ShootingEcho": {
     "NAME": "Shooting Echo",
-    "DESCRIPTION": "Deal !D! damage. NL Exhaust a card.  NL If the card you exhaust is Burn ,put this card back to your hand.",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust a card.  NL If the card you exhaust is a Burn, put this card back to your hand.",
     "UPGRADE_DESCRIPTION": "Exhaust a card. Add an Upgraded Shooting Echo to your hand. NL Deal !D! damage. NL Exhaust."
   },
   "EnergyFlow": {

@@ -51,7 +51,9 @@ public class Identifiers {
 		public static final String SHROOM_BAG = "ShroomBag";
 		public static final String SPROUTING_BRANCH = "SproutingBranch";
 		public static final String PHILO_STONE = "Philosopher's Stone";
-    }
+		public static final String CIRCLET = "Circlet";
+		public static final String RED_CIRCLET = "Red Circlet";
+	}
 
 	public static class Potions extends Identifiers {
 		public static final String BOTTLED_SPARK = "BottledSpark";

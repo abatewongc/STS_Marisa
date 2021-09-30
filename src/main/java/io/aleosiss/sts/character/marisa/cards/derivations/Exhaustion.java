@@ -8,10 +8,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 
-public class Exhaustion extends MarisaModCard {
+public class Exhaustion extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.EXHAUSTION;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

@@ -1,6 +1,6 @@
 package io.aleosiss.sts.character.marisa.cards.Marisa;
 
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.action.DrawDrawPileAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.utils.AmplifyUtils;
 
-public class Acceleration extends MarisaModCard {
+public class Acceleration extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.ACCELERATION;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

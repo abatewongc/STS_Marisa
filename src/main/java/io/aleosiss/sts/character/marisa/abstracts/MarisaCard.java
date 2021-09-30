@@ -1,5 +1,6 @@
 package io.aleosiss.sts.character.marisa.abstracts;
 
+import basemod.ReflectionHacks;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -10,20 +11,20 @@ import io.aleosiss.sts.character.marisa.model.ScreenPosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class MarisaModCard extends CustomCard {
+public abstract class MarisaCard extends CustomCard {
 	protected ArrayList<AbstractCard> additionalCardsToPreview = new ArrayList<>();
 	private static final int WIDTH_SPACING = 10;
 	private static final int HEIGHT_SPACING = 7;
 
-	public MarisaModCard(String id,
-	                     String name,
-	                     String imgUrl,
-	                     int cost,
-	                     String rawDescription,
-	                     CardType type,
-	                     CardColor color,
-	                     CardRarity rarity,
-	                     CardTarget target) {
+	public MarisaCard(String id,
+	                  String name,
+	                  String imgUrl,
+	                  int cost,
+	                  String rawDescription,
+	                  CardType type,
+	                  CardColor color,
+	                  CardRarity rarity,
+	                  CardTarget target) {
 		super(id, name, imgUrl, cost, rawDescription, type, color, rarity, target);
 	}
 
@@ -31,7 +32,7 @@ public abstract class MarisaModCard extends CustomCard {
 	@Override
 	public void renderCardTip(SpriteBatch sb) {
 		super.renderCardTip(sb);
-		boolean renderTip = (boolean) basemod.ReflectionHacks.getPrivate(this, AbstractCard.class, "renderTip");
+		boolean renderTip = (boolean) ReflectionHacks.getPrivate(this, AbstractCard.class, "renderTip");
 
 		int count = 0;
 		if (!Settings.hideCards && renderTip) {
@@ -88,20 +89,21 @@ public abstract class MarisaModCard extends CustomCard {
 	}
 
 	private ArrayList<ScreenPosition> generateScreenPositions() {
-		float yPosition1 = this.current_y + this.hb.height * 0.75f;
-		float yPosition2 = this.current_y + this.hb.height * 0.25f;
-		float yPosition3 = this.current_y - this.hb.height * 0.25f;
+		float yOffset1 = this.hb.height * 1.15f;
+		float yOffset2 = this.hb.height * 0.25f;
+		float yOffset3 = this.hb.height * -0.65f;
 
 		//changes the preview to render below the Arcana in the shop so it doesn't clip out of the screen
 		if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.SHOP) {
-			yPosition1 = this.current_y - this.hb.height * 0.75f;
-			yPosition2 = this.current_y - this.hb.height * 0.25f;
-			yPosition3 = this.current_y + this.hb.height * 0.25f;
+			yOffset1 = -yOffset1;
+			yOffset2 = -yOffset2;
+			yOffset3 = -yOffset3;
 		}
 
-		float xPosition1;
-		float xPosition2;
-		float xPosition3;
+		float yPosition1 = this.current_y + yOffset1;
+		float yPosition2 = this.current_y + yOffset2;
+		float yPosition3 = this.current_y + yOffset3;
+
 		float xOffset1 = -this.hb.width * 0.75f;
 		float xOffset2 = -this.hb.width * 0.25f;
 		float xOffset3 = this.hb.width * 0.25f;
@@ -113,9 +115,9 @@ public abstract class MarisaModCard extends CustomCard {
 			xOffset3 = -xOffset3;
 		}
 
-		xPosition1 = this.current_x + xOffset1;
-		xPosition2 = this.current_x + xOffset2;
-		xPosition3 = this.current_x + xOffset3;
+		float xPosition1 = this.current_x + xOffset1;
+		float xPosition2 = this.current_x + xOffset2;
+		float xPosition3 = this.current_x + xOffset3;
 
 		ScreenPosition position1 = ScreenPosition.of(xPosition1, yPosition1);
 		ScreenPosition position2 = ScreenPosition.of(xPosition1, yPosition2);

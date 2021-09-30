@@ -11,9 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.action.ReboundAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class Rebound extends MarisaModCard {
+public class Rebound extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.REBOUND;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

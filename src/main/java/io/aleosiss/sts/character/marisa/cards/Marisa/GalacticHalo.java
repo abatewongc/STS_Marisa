@@ -13,9 +13,9 @@ import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 import io.aleosiss.sts.character.marisa.powers.Marisa.ChargeUpPower;
-import io.aleosiss.sts.character.marisa.abstracts.MarisaModCard;
+import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 
-public class GalacticHalo extends MarisaModCard {
+public class GalacticHalo extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.GALACTIC_HALO;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
