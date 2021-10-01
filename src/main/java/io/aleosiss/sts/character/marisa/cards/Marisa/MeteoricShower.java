@@ -1,5 +1,10 @@
 package io.aleosiss.sts.character.marisa.cards.Marisa;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import io.aleosiss.sts.character.marisa.action.MeteoricShowerAction;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
@@ -11,6 +16,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import io.aleosiss.sts.character.marisa.vfx.CollectingQuirkEffect;
+import io.aleosiss.sts.character.marisa.vfx.MeteoricShowerEffect;
 
 public class MeteoricShower extends MarisaCard {
 
@@ -20,45 +27,28 @@ public class MeteoricShower extends MarisaCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/meteonic.png";
 
-	private static final int COST = -1;
-	private static final int ATK_DMG = 3;
-	private static final int UPG_DMG = 1;
+	private static final int COST = MarisaCard.COST_X;
+	private static final int ATTACK_DAMAGE = 3;
+	private static final int UPGRADE_DAMAGE = 1;
 
 
 	public MeteoricShower() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_COLOR,
-				AbstractCard.CardRarity.UNCOMMON,
-				AbstractCard.CardTarget.ALL_ENEMY
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, AbstractCardEnum.MARISA_COLOR, AbstractCard.CardRarity.UNCOMMON, AbstractCard.CardTarget.ALL_ENEMY);
 
-		this.baseDamage = ATK_DMG;
+		this.baseDamage = ATTACK_DAMAGE;
 	}
 
 	@Override
 	public void calculateCardDamage(AbstractMonster mo) {
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		int cnt = EnergyPanel.totalCount + 1;
-		if (p.hasRelic("Chemical X")) {
-			cnt += 2;
+	public void use(AbstractPlayer player, AbstractMonster monster) {
+		int count = EnergyPanel.totalCount + 1;
+		if (player.hasRelic(Identifiers.Relics.CHEMICAL_X)) {
+			count += 2;
 		}
 
-		AbstractDungeon.actionManager.addToBottom(
-				new MeteoricShowerAction(cnt, this.damage, this.freeToPlayOnce)
-		);
-/*
-    if (!this.freeToPlayOnce) {
-      p.energy.use(EnergyPanel.totalCount);
-    }
-    */
+		this.addToBot(new MeteoricShowerAction(count, this.damage, this.freeToPlayOnce));
 	}
 
 	public AbstractCard makeCopy() {
@@ -68,7 +58,7 @@ public class MeteoricShower extends MarisaCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(UPG_DMG);
+			upgradeDamage(UPGRADE_DAMAGE);
 		}
 	}
 }

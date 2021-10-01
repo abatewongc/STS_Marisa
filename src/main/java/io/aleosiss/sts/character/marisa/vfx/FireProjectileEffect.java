@@ -14,21 +14,30 @@ import com.megacrit.cardcrawl.vfx.combat.IceShatterEffect;
 
 public class FireProjectileEffect extends AbstractGameEffect {
 
+	public static final String PROJECTILE_IMPACT_SOUND_KEY = "ORB_FROST_EVOKE";
 	private ProjectileData projectile;
 	private float waitTimer;
 
-	//floorY = AbstractDungeon.floorY + MathUtils.random(-200.0F, 50.0F) * Settings.scale;
-	private float floorY;
+	private float floorY = AbstractDungeon.floorY + MathUtils.random(-200.0F, 50.0F) * Settings.scale;
 	private float monsterX;
 
 	public static FireProjectileEffect CollectingQuirkProjectile(Texture img, int relicCount, boolean flipped, float monsterX) {
 		FireProjectileEffect effect = new FireProjectileEffect();
 		effect.projectile = ProjectileData.CollectingQuirkProjectile(img, relicCount, flipped, effect.scale);
-		effect.monsterX = monsterX * Settings.scale;
+		effect.monsterX = monsterX + MathUtils.random(-100.0F, 100.0F) * Settings.scale;
 		effect.waitTimer = MathUtils.random(0.0F, 0.5F);
 
 		effect.renderBehind = MathUtils.randomBoolean();
-		effect.monsterX += MathUtils.random(-100.0F, 100.0F) * Settings.scale;
+
+		return effect;
+	}
+
+	public static FireProjectileEffect MeteoricShowerProjectile(int numHits, boolean flipped, float monsterX) {
+		FireProjectileEffect effect = new FireProjectileEffect();
+		effect.projectile = ProjectileData.MeteoricShowerProjectile(numHits, flipped, effect.scale);
+		effect.monsterX = (monsterX + MathUtils.random(-100.0F, 100.0F)) * Settings.scale;
+		effect.waitTimer = MathUtils.random(0.0F, 0.5F);
+		effect.renderBehind = MathUtils.randomBoolean();
 
 		return effect;
 	}
@@ -84,7 +93,7 @@ public class FireProjectileEffect extends AbstractGameEffect {
 	private void impact() {
 		float pitch = 0.8F;
 		pitch += MathUtils.random(-0.2F, 0.2F);// 80
-		CardCrawlGame.sound.playA("ORB_FROST_EVOKE", pitch);
+		CardCrawlGame.sound.playA(PROJECTILE_IMPACT_SOUND_KEY, pitch);
 
 		for(int i = 0; i < 4; ++i) {
 			AbstractDungeon.effectsQueue.add(new IceShatterEffect(projectile.x, projectile.y));
@@ -96,7 +105,8 @@ public class FireProjectileEffect extends AbstractGameEffect {
 		if (this.waitTimer < 0.0F) {
 			spriteBatch.setBlendFunction(770, 1);
 			spriteBatch.setColor(projectile.color);
-			spriteBatch.draw(projectile.texture, projectile.x, projectile.y, 48.0F, 48.0F, projectile.width, projectile.height, projectile.scale, projectile.scale, projectile.rotation, 0, 0, 96, 96, false, false);
+			//          draw(Texture texture, float x, float y, float originX, float originY, float width, float height, float scaleX, float scaleY, float rotation, int srcX, int srcY, int srcWidth, int srcHeight, boolean flipX, boolean flipY) {
+			spriteBatch.draw(projectile.texture, projectile.x, projectile.y, 48.0F, 48.0F, projectile.width, projectile.height, projectile.scale, projectile.scale, projectile.rotation, 0, 0, projectile.texture.getWidth(), projectile.texture.getHeight(), false, false);
 			spriteBatch.setBlendFunction(770, 771);
 		}
 	}
@@ -130,11 +140,13 @@ public class FireProjectileEffect extends AbstractGameEffect {
 			ProjectileData data = new ProjectileData();
 			data.texture = img;
 
-			data.width = 60;
-			data.height = 60;
+			data.width = 128;
+			data.height = 128;
 
 			data.shouldAccelerate = true;
 			data.accelerationXFactor = 5.0F;
+
+			data.shouldImpactWall = false;
 
 			data.x = MathUtils.random(-300, 0F);
 			data.vX = MathUtils.random(600.0F, 900.0F) - (float)relicCount * 5.0F;
@@ -150,6 +162,36 @@ public class FireProjectileEffect extends AbstractGameEffect {
 
 			data.duration = 2.0F;
 			data.scale = MathUtils.random(1.0F, 1.5F) + (float)relicCount * 0.04F;
+			scale(data);
+
+			data.color = new Color(0.9F, 0.9F, 1.0F, MathUtils.random(0.9F, 1.0F));
+			data.rotation = MathUtils.random(0, 360 -1);
+
+			fastMode(data);
+			return data;
+		}
+
+		public static ProjectileData MeteoricShowerProjectile(int numHits, boolean flipped, float scale) {
+			ProjectileData data = new ProjectileData();
+			data.texture = MeteoricShowerEffect.METEORIC_SHOWER_PROJECTILE;
+
+			data.shouldImpactFloor = true;
+
+			data.width = 64;
+			data.height = 64;
+
+			data.x = MathUtils.random(500.0F, 1500.0F);
+			data.vX = MathUtils.random(600.0F, 900.0F) - (float)numHits * 5.0F;
+
+			if (flipped) {
+				flip(data);
+			}
+
+			data.y = (float)Settings.HEIGHT + MathUtils.random(100.0F, 300.0F) - 48.0F;
+			data.vY = MathUtils.random(2500.0F, 4000.0F) - (float)numHits * 10.0F;
+
+			data.duration = 2.0F;
+			data.scale = MathUtils.random(0.5F, 1.25F) + (float)numHits * 0.04F;
 			scale(data);
 
 			data.color = new Color(0.9F, 0.9F, 1.0F, MathUtils.random(0.9F, 1.0F));
@@ -178,8 +220,10 @@ public class FireProjectileEffect extends AbstractGameEffect {
 		}
 
 		private static void scale(ProjectileData data) {
+			data.width *= Settings.scale;
+			data.height *= Settings.scale;
 			data.scale *= Settings.scale;
-			data.x = data.x * Settings.scale - 48.0F;
+			data.x = data.x * Settings.scale;
 			data.vX *= data.scale;
 			data.vX *= Settings.scale;
 			data.vY *= Settings.scale;
@@ -190,6 +234,5 @@ public class FireProjectileEffect extends AbstractGameEffect {
 			data.vX *= -1;
 			data.accelerationX = Settings.WIDTH - data.accelerationX;
 		}
-
 	}
 }
