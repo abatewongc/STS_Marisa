@@ -80,7 +80,7 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Amplify  [E]  : Deal 9 more damage."
   },
   "MeteoricShower": {
-    "NAME": "Meteonic Shower",
+    "NAME": "Meteoric Shower",
     "DESCRIPTION": "Exhaust up to X + 1 cards. NL Deal !D! damage to a random enemy 2 times for each card you Exhausted, or 3 times for each Burn Exhausted."
   },
   "MilkyWay": {
@@ -255,7 +255,7 @@
     "UPGRADE_DESCRIPTION": "Next turn, gain [E]  [E]. Amplify [E]  : Amplify effects cost no [E] this turn."
   },
   "Surprise": {
-    "NAME": "Surprise",
+    "NAME": "Surprise!",
     "DESCRIPTION": "Innate. NL Deal !D! damage. NL Deals double damage if there are no cards in your discard pile.",
     "UPGRADE_DESCRIPTION": "WWWWWWWWWWW"
   },

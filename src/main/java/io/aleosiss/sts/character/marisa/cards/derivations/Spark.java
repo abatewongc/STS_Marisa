@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import io.aleosiss.sts.character.marisa.abstracts.MarisaCard;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
-import io.aleosiss.sts.character.marisa.patches.AbstractCardEnum;
 
 public class Spark extends MarisaCard {
 
@@ -23,32 +22,22 @@ public class Spark extends MarisaCard {
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/Spark.png";
 	private static final int COST = 0;
-	private static final int ATTACK_DMG = 4;
-	private static final int UPGRADE_PLUS_DMG = 2;
+	private static final int ATTACK_DAMAGE = 4;
+	private static final int UPGRADE_DAMAGE = 2;
 
 	public Spark() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_DERIVATIONS,
-				AbstractCard.CardRarity.SPECIAL,
-				AbstractCard.CardTarget.ENEMY
-		);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, CardColor.COLORLESS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
 
 		this.exhaust = true;
-		this.baseDamage = ATTACK_DMG;
+		this.baseDamage = ATTACK_DAMAGE;
 		this.tags.add(SPARK);
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
+	public void use(AbstractPlayer player, AbstractMonster monster) {
 		AbstractDungeon.actionManager.addToBottom(
 				new DamageAction(
-						m,
-						new DamageInfo(p, this.damage, this.damageTypeForTurn),
+						monster,
+						new DamageInfo(player, this.damage, this.damageTypeForTurn),
 						AbstractGameAction.AttackEffect.SLASH_DIAGONAL
 				)
 		);
@@ -66,11 +55,10 @@ public class Spark extends MarisaCard {
 		return card;
 	}
 
-
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			upgradeDamage(UPGRADE_PLUS_DMG);
+			upgradeDamage(UPGRADE_DAMAGE);
 		}
 	}
 }

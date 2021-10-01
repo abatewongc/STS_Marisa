@@ -26,27 +26,16 @@ public class WhiteDwarfStar extends AmplifiedAttack {
 	private static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/Marisa/WhiteDwarf.png";
 	private static final int COST = 0;
-	private static final int ATTACK_DMG = 0;
-	private static final int HAND_REQ = 4;
+	private static final int ATTACK_DAMAGE = 0;
+	private static final int HANDSIZE_REQUIRED = 4;
 	private static final float MULTIPLIER = 2f;
 	private static final float MULTIPLIER_UPG = 3f;
 
 	private float magn = MULTIPLIER;
 
 	public WhiteDwarfStar() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.ATTACK,
-				AbstractCardEnum.MARISA_DERIVATIONS,
-				AbstractCard.CardRarity.SPECIAL,
-				AbstractCard.CardTarget.ENEMY
-		);
-
-		this.baseDamage = this.damage = ATTACK_DMG;
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.ATTACK, CardColor.COLORLESS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.ENEMY);
+		this.baseDamage = this.damage = ATTACK_DAMAGE;
 		this.exhaust = true;
 	}
 
@@ -70,7 +59,7 @@ public class WhiteDwarfStar extends AmplifiedAttack {
 	}
 
 	public boolean canUse(AbstractPlayer p, AbstractMonster m) {
-		if (p.hand.size() <= HAND_REQ) {
+		if (p.hand.size() <= HANDSIZE_REQUIRED) {
 			return true;
 		} else {
 			this.cantUseMessage = EXTENDED_DESCRIPTION[0];

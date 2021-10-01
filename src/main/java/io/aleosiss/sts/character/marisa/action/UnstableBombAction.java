@@ -21,7 +21,7 @@ public class UnstableBombAction extends AbstractGameAction {
 	public UnstableBombAction(AbstractCreature target, int min, int max, int numTimes) {
 		this.min = min;
 		this.max = max;
-		int dmg = AbstractDungeon.miscRng.random(min, max);
+		int dmg = MathUtils.random(min, max);
 		this.info = new DamageInfo(AbstractDungeon.player, dmg);
 		this.target = target;
 		this.actionType = AbstractGameAction.ActionType.DAMAGE;

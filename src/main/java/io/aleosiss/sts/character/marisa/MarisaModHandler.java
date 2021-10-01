@@ -69,6 +69,10 @@ public class MarisaModHandler implements
 	public static final String MOD_ID = "stsmarisamod";
 	public static final Logger logger = LogManager.getLogger(MarisaModHandler.class.getName());
 
+	// lol
+	private static final String TRUE = "TRUE";
+	private static final String FALSE = "FALSE";
+
 	public static int typhoonCounter = 0;
 	public static boolean isCatEventEnabled;
 	public static boolean isDeadBranchEnabled;
@@ -97,7 +101,7 @@ public class MarisaModHandler implements
 	}
 
 	private void setDefaultProperties() {
-		marisaModDefaultProperties.setProperty(Identifiers.Properties.IS_CAT_EVENT_ENABLED, "TRUE");
+		marisaModDefaultProperties.setProperty(Identifiers.Properties.IS_CAT_EVENT_ENABLED, TRUE);
 	}
 
 	private void constructColors() {
@@ -444,7 +448,6 @@ public class MarisaModHandler implements
 		cardLoader.add(new BlackFlareStar());
 		cardLoader.add(new WhiteDwarfStar());
 		cardLoader.add(new Exhaustion());
-		cardLoader.add(new Strike_MRS());
 		cardLoader.add(new Wraith());
 
 		return cardLoader;

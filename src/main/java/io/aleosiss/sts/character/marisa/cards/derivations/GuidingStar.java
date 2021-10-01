@@ -26,7 +26,7 @@ public class GuidingStar extends MarisaCard {
 	private static final int UPG_COST = 0;
 
 	public GuidingStar() {
-		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, AbstractCardEnum.MARISA_DERIVATIONS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, CardColor.COLORLESS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
 		this.exhaust = true;
 		this.selfRetain = true;
 	}

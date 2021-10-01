@@ -21,23 +21,13 @@ public class BlackFlareStar extends MarisaCard {
 	public static final String[] EXTENDED_DESCRIPTION = cardStrings.EXTENDED_DESCRIPTION;
 	public static final String IMG_PATH = "marisa/img/cards/Marisa/BlackFlareStar.png";
 	private static final int COST = 0;
-	private static final int BLC_AMT = 4;
-	private static final int UPG_BLC = 2;
+	private static final int BLOCK_AMOUNT = 4;
+	private static final int BLOCK_UPGRADE = 2;
 	private static final int HAND_REQ = 4;
 
 	public BlackFlareStar() {
-		super(
-				ID,
-				NAME,
-				IMG_PATH,
-				COST,
-				DESCRIPTION,
-				AbstractCard.CardType.SKILL,
-				AbstractCardEnum.MARISA_DERIVATIONS,
-				AbstractCard.CardRarity.SPECIAL,
-				AbstractCard.CardTarget.SELF
-		);
-		this.baseBlock = BLC_AMT;
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL, CardColor.COLORLESS, AbstractCard.CardRarity.SPECIAL, AbstractCard.CardTarget.SELF);
+		this.baseBlock = BLOCK_AMOUNT;
 		this.exhaust = true;
 	}
 
@@ -64,7 +54,7 @@ public class BlackFlareStar extends MarisaCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			this.upgradeBlock(UPG_BLC);
+			this.upgradeBlock(BLOCK_UPGRADE);
 		}
 	}
 }

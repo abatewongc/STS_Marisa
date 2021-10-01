@@ -19,12 +19,12 @@ public class PropBagPower extends AbstractPower {
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private AbstractRelic r;
+	private AbstractRelic relic;
 	private static int IdOffset;
-	private AbstractPlayer p;
-	private String rName;
+	private AbstractPlayer player;
+	private String relicName;
 
-	public PropBagPower(AbstractCreature owner, AbstractRelic r) {
+	public PropBagPower(AbstractCreature owner, AbstractRelic relic) {
 		this.name = NAME;
 		this.ID = POWER_ID + IdOffset;
 		this.owner = owner;
@@ -32,14 +32,14 @@ public class PropBagPower extends AbstractPower {
 		this.amount = -1;
 		this.type = AbstractPower.PowerType.BUFF;
 		this.img = new Texture("marisa/img/powers/diminish.png");
-		this.r = r;
-		this.p = AbstractDungeon.player;
-		this.rName = r.name;
-		MarisaModHandler.logger.info("PropBagPower : Granting relic : " + this.rName);
+		this.relic = relic;
+		this.player = AbstractDungeon.player;
+		this.relicName = relic.name;
+		MarisaModHandler.logger.info("PropBagPower : Granting relic : " + this.relicName);
 		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
-				Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, r
+				Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F, relic
 		);
-		r.atBattleStart();
+		relic.atBattleStart();
 		updateDescription();
 	}
 
@@ -49,10 +49,10 @@ public class PropBagPower extends AbstractPower {
 	}
 
 	public void onVictory() {
-		p.loseRelic(r.relicId);
+		player.loseRelic(relic.relicId);
 	}
 
 	public void updateDescription() {
-		this.description = (DESCRIPTIONS[0] + this.rName + DESCRIPTIONS[1]);
+		this.description = (DESCRIPTIONS[0] + this.relicName + DESCRIPTIONS[1]);
 	}
 }

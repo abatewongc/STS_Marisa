@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class MarisaCard extends CustomCard {
+	// These sentinel values are defined by the base game, we're just giving them more readable names.
+	// Copied from https://github.com/dbjorge/jorbs-spire-mod/blob/master/src/main/java/stsjorbsmod/cards/CustomJorbsModCard.java
+	public static final int COST_X = -1;
+	public static final int COST_UNPLAYABLE = -2;
+
 	protected ArrayList<AbstractCard> additionalCardsToPreview = new ArrayList<>();
 	private static final int WIDTH_SPACING = 10;
 	private static final int HEIGHT_SPACING = 7;

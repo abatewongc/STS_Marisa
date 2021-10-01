@@ -1,6 +1,8 @@
 package io.aleosiss.sts.character.marisa.action;
 
+import com.badlogic.gdx.math.MathUtils;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
+import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.powers.Marisa.PropBagPower;
 import io.aleosiss.sts.character.marisa.relics.AmplifyWand;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -21,9 +23,23 @@ import com.megacrit.cardcrawl.relics.Shuriken;
 import com.megacrit.cardcrawl.relics.Sundial;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
-public class PropBagAction
-		extends AbstractGameAction {
+public class PropBagAction extends AbstractGameAction {
+
+	private static final HashMap<String, ? extends AbstractRelic> PROP_BAG_RELICS = new HashMap<String, AbstractRelic>() {{
+		put(Identifiers.Relics.MEAT_ON_THE_BONE, new MeatOnTheBone());
+		put(Identifiers.Relics.MUMMIFIED_HAND, new MummifiedHand());
+		put(Identifiers.Relics.LETTER_OPENER, new LetterOpener());
+		put(Identifiers.Relics.SHURIKEN, new Shuriken());
+		put(Identifiers.Relics.GREMLIN_HORN, new GremlinHorn());
+		put(Identifiers.Relics.SUNDIAL, new Sundial());
+		put(Identifiers.Relics.MERCURY_HOURGLASS, new MercuryHourglass());
+		put(Identifiers.Relics.ORNAMENTAL_FAN, new OrnamentalFan());
+		put(Identifiers.Relics.KUNAI, new Kunai());
+		put(Identifiers.Relics.BLUE_CANDLE, new BlueCandle());
+		put(Identifiers.Relics.AMPLIFY_WAND, new AmplifyWand());
+	}};
 
 	public PropBagAction() {
 		this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
@@ -31,93 +47,32 @@ public class PropBagAction
 	}
 
 	public void update() {
+		AbstractPlayer player = AbstractDungeon.player;
 
-		AbstractPlayer p = AbstractDungeon.player;
-		MarisaModHandler.logger.info("PropBagAction : Checking for relics");
-
-		ArrayList<AbstractRelic> rs = new ArrayList<AbstractRelic>();
-		AbstractRelic r;
-
-		if (!p.hasRelic("Meat on the Bone")) {
-			r = new MeatOnTheBone();
-			rs.add(r);
-		}
-
-		if (!p.hasRelic("Mummified Hand")) {
-			r = new MummifiedHand();
-			rs.add(r);
+		MarisaModHandler.logger.info("PropBagAction: Checking for relics");
+		ArrayList<AbstractRelic> relics = new ArrayList<>();
+		AbstractRelic relic;
+		for (String relicId : PROP_BAG_RELICS.keySet()) {
+			if (!player.hasRelic(relicId)) {
+				relics.add(PROP_BAG_RELICS.get(relicId));
+			}
 		}
 
-		if (!p.hasRelic("Letter Opener")) {
-			r = new LetterOpener();
-			rs.add(r);
-		}
-
-		if (!p.hasRelic("Shuriken")) {
-			r = new Shuriken();
-			rs.add(r);
-		}
-
-		if (!p.hasRelic("Gremlin Horn")) {
-			r = new GremlinHorn();
-			rs.add(r);
-		}
-		if (!p.hasRelic("Sundial")) {
-			r = new Sundial();
-			rs.add(r);
-		}
-		if (!p.hasRelic("Mercury Hourglass")) {
-			r = new MercuryHourglass();
-			rs.add(r);
-		}
-		if (!p.hasRelic("Ornamental Fan")) {
-			r = new OrnamentalFan();
-			rs.add(r);
-		}
-		if (!p.hasRelic("Kunai")) {
-			r = new Kunai();
-			rs.add(r);
-		}
-		if (!p.hasRelic("Blue Candle")) {
-			r = new BlueCandle();
-			rs.add(r);
-		}
-		if (!p.hasRelic("AmplifyWand")) {
-			r = new AmplifyWand();
-			rs.add(r);
-		}
-
-		if (rs.size() <= 0) {
-			MarisaModHandler.logger.info("PropBagAction : No relic to give,returning");
+		if (relics.size() <= 0) {
+			MarisaModHandler.logger.info("PropBagAction: No relic to give, returning");
 			this.isDone = true;
 			return;
 		}
-		if (rs.size() == 1) {
-			r = rs.get(0);
-			MarisaModHandler.logger.info("PropBagAction : Only one relic to give : " + r.relicId);
-			AbstractDungeon.actionManager.addToBottom(
-					new ApplyPowerAction(
-							p, p,
-							new PropBagPower(p, r)
-					)
-			);
-			this.isDone = true;
-			return;
+		if (relics.size() == 1) {
+			relic = relics.get(0);
+			MarisaModHandler.logger.info("PropBagAction : Only one relic to give : " + relic.relicId);
+		} else {
+			int index = MathUtils.random(0, relics.size() - 1);
+			relic = relics.get(index);
+			MarisaModHandler.logger.info("PropBagAction: random relic : " + relic.relicId + " ; random index : " + index);
 		}
-		rs.size();
-		int index = AbstractDungeon.miscRng.random(0, rs.size() - 1);
-		r = rs.get(index);
-		MarisaModHandler.logger.info(
-				"PropBagAction : random relic : " + r.relicId
-						+ " ; random index : " + index
-		);
-		AbstractDungeon.actionManager.addToBottom(
-				new ApplyPowerAction(
-						p, p,
-						new PropBagPower(p, r)
-				)
-		);
+
+		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new PropBagPower(player, relic)));
 		this.isDone = true;
-
 	}
 }

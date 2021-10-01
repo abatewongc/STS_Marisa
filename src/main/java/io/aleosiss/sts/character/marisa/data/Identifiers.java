@@ -50,9 +50,24 @@ public class Identifiers {
 		public static final String RAMPAGING_MAGIC_TOOLS = "RampagingMagicTools";
 		public static final String SHROOM_BAG = "ShroomBag";
 		public static final String SPROUTING_BRANCH = "SproutingBranch";
+
+		// non-Marisa
 		public static final String PHILO_STONE = "Philosopher's Stone";
 		public static final String CIRCLET = "Circlet";
 		public static final String RED_CIRCLET = "Red Circlet";
+		public static final String CHEMICAL_X = "Chemical X";
+
+		// Portable Prop Bag (-Amplify Wand)
+		public static final String LETTER_OPENER = "Letter Opener";
+		public static final String MEAT_ON_THE_BONE = "Meat on the Bone";
+		public static final String MUMMIFIED_HAND = "Mummified Hand";
+		public static final String SHURIKEN = "Shuriken";
+		public static final String GREMLIN_HORN = "Gremlin Horn";
+		public static final String SUNDIAL = "Sundial";
+		public static final String MERCURY_HOURGLASS = "Mercury Hourglass";
+		public static final String ORNAMENTAL_FAN = "Ornamental Fan";
+		public static final String KUNAI = "Kunai";
+		public static final String BLUE_CANDLE = "Blue Candle";
 	}
 
 	public static class Potions extends Identifiers {

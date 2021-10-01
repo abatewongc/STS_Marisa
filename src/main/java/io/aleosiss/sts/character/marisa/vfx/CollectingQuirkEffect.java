@@ -55,12 +55,8 @@ public class CollectingQuirkEffect extends AbstractGameEffect {
 	}
 
 	@Override
-	public void render(SpriteBatch spriteBatch) {
-
-	}
+	public void render(SpriteBatch spriteBatch) {}
 
 	@Override
-	public void dispose() {
-
-	}
+	public void dispose() {}
 }
