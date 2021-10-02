@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
+import io.aleosiss.sts.character.marisa.characters.MarisaCharacter;
 import io.aleosiss.sts.character.marisa.relics.SproutingBranch;
 
 public class DeadBranchObtainPatch {
@@ -16,7 +17,7 @@ public class DeadBranchObtainPatch {
 
 		@SpirePrefixPatch
 		public static SpireReturn<AbstractRelic> Prefix(AbstractRelic _inst) {
-			if ((AbstractDungeon.player instanceof io.aleosiss.sts.character.marisa.characters.Marisa) && (!MarisaModHandler.isDeadBranchEnabled)) {
+			if ((AbstractDungeon.player instanceof MarisaCharacter) && (!MarisaModHandler.isDeadBranchEnabled)) {
 				return SpireReturn.Return(new SproutingBranch());
 			}
 			return SpireReturn.Continue();

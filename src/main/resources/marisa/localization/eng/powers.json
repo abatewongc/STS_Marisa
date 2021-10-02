@@ -40,7 +40,7 @@
   "Marisa:SatellIllusPower": {
     "NAME": "Satellite Illusion",
     "DESCRIPTIONS": [
-      "When you use a card that doesn't exist in your master deck,draw  #b",
+      "When you use a card that doesn't exist in your master deck, draw  #b",
       " card."
     ]
   },
@@ -77,7 +77,7 @@
   "Marisa:PolarisUniquePower": {
     "NAME": "Guiding Star",
     "DESCRIPTIONS": [
-      "If #yGuidingStar is in your draw pile, gain extra [E] at the start of each turn,."
+      "If #yGuidingStar is in your draw pile, gain extra [E] at the start of each turn."
     ]
   },
   "Marisa:OrrerysSunPower": {
@@ -160,8 +160,8 @@
   "Marisa:SuperNovaPower": {
     "NAME": "SuperNova",
     "DESCRIPTIONS": [
-      "When you #yExhaust a #yBurn ,Gain  #b",
-      "When you #yExhaust a #yCurse or a #Status ,Gain  #b",
+      "When you #yExhaust a #yBurn, Gain  #b",
+      "When you #yExhaust a #yCurse or a #Status, Gain  #b",
       " #yStrength . NL You no longer take damage from #yBurn . NL #yExhaust you hand when your turn ends."
     ]
   },
@@ -182,7 +182,7 @@
   "Marisa:GalacticHaloPower": {
     "NAME": "Galactic Halo",
     "DESCRIPTIONS": [
-      "At the end of your turn,gain  #b",
+      "At the end of your turn, gain  #b",
       " #yblock for each #yAttack you played this turn."
     ]
   },
@@ -196,7 +196,7 @@
   "Marisa:PropBagPower": {
     "NAME": "Portable Prop Bagr",
     "DESCRIPTIONS": [
-      "When the battle ends,you'll lose  #y",
+      "When the battle ends, you'll lose  #y",
       "."
     ]
   },
@@ -224,7 +224,7 @@
   "Marisa:SatelIllusPower": {
     "NAME": "Satellite Illusion",
     "DESCRIPTIONS": [
-      "During your turn,when the number of cards in your draw pile increases, gain  #b",
+      "During your turn, when the number of cards in your draw pile increases, gain  #b",
       " [E] ."
     ]
   },
@@ -238,14 +238,14 @@
   "Marisa:Diaspora": {
     "NAME": "Diaspora",
     "DESCRIPTIONS": [
-      "At the end of turn,instantly kill this creature if its health is less than #b",
+      "At the end of turn, instantly kill this creature if its health is less than #b",
       " ."
     ]
   },
   "Marisa:TalismanPower": {
     "NAME": "Five-Colored Talisman",
     "DESCRIPTIONS": [
-      "At the start of your turn,add #b",
+      "At the start of your turn, add #b",
       " random #ySkill to your hand."
     ]
   },
@@ -266,7 +266,7 @@
   "Marisa:LimboContact": {
     "NAME": "Undead Contact",
     "DESCRIPTIONS": [
-      "Whenever you are attacked by this enemy, gain a stack of #yWraith . NL On death,apply #b1 #yWraith to you.",
+      "Whenever you are attacked by this enemy, gain a stack of #yWraith . NL On death, apply #b1 #yWraith to you.",
       "WWWWWWWWWWW"
     ]
   },

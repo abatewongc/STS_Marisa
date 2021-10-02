@@ -5,7 +5,7 @@ import static io.aleosiss.sts.character.marisa.MarisaModHandler.logger;
 import com.megacrit.cardcrawl.random.Random;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
 
-import io.aleosiss.sts.character.marisa.characters.Marisa;
+import io.aleosiss.sts.character.marisa.characters.MarisaCharacter;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.event.Mushrooms_MRS;
 import io.aleosiss.sts.character.marisa.event.OrinTheCat;
@@ -27,7 +27,7 @@ public class MarisaModEventPatch {
 			);
 			debugEventList();
 
-			if (AbstractDungeon.player instanceof Marisa) {
+			if (AbstractDungeon.player instanceof MarisaCharacter) {
 				logger.info("Marisa detected, removing standard Mushroom event.");
 				AbstractDungeon.eventList.remove("Mushrooms");
 			} else {
@@ -67,7 +67,7 @@ public class MarisaModEventPatch {
 			*/
 			if (((_retVal instanceof Mushrooms_MRS) && (AbstractDungeon.floorNum <= 6)) ||
 			    ((_retVal instanceof OrinTheCat) && (AbstractDungeon.player.hasRelic(Identifiers.Relics.CAT_CART))) ||
-			    ((_retVal instanceof OrinTheCat) && (!(AbstractDungeon.player instanceof Marisa)) && (!MarisaModHandler.isCatEventEnabled))
+			    ((_retVal instanceof OrinTheCat) && (!(AbstractDungeon.player instanceof MarisaCharacter)) && (!MarisaModHandler.isCatEventEnabled))
 	        ) {
 		        return AbstractDungeon.getEvent(AbstractDungeon.eventRng);
 	        } else {

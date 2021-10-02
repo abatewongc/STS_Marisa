@@ -511,7 +511,7 @@ public class Orin extends AbstractMonster/* implements BaseMod.GetMonster */ {
   public void damage(DamageInfo info) {
     super.damage(info);
     if ((this.currentHealth <= 0) && (!this.halfDead)) {
-      logger.info("Orin : damage : catForm defeated,transforming");
+      logger.info("Orin : damage : catForm defeated, transforming");
       if (AbstractDungeon.getCurrRoom().cannotLose) {
         this.halfDead = true;
       }

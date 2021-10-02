@@ -25,7 +25,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import io.aleosiss.sts.character.marisa.action.SparkCostAction;
 import io.aleosiss.sts.character.marisa.cards.Marisa.*;
 import io.aleosiss.sts.character.marisa.cards.derivations.*;
-import io.aleosiss.sts.character.marisa.characters.Marisa;
+import io.aleosiss.sts.character.marisa.characters.MarisaCharacter;
 import io.aleosiss.sts.character.marisa.data.Constants;
 import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.event.Mushrooms_MRS;
@@ -118,7 +118,7 @@ public class MarisaModHandler implements
 
 		logger.info("add " + MARISA.toString());
 		BaseMod.addCharacter(
-				new Marisa("Marisa"),
+				new MarisaCharacter("Marisa"),
 				Constants.MARISA_CHARACTER_BUTTON,
 				Constants.MARISA_PORTRAIT,
 				MARISA
@@ -251,7 +251,7 @@ public class MarisaModHandler implements
 
 	@Override
 	public void receivePostInitialize() {
-		logger.info("Adding badge, configs,event and potion");
+		logger.info("Adding badge, configs, event and potion");
 		final ModPanel settingsPanel = addModPanel();
 
 		addEvents();

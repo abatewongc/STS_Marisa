@@ -46,7 +46,7 @@ public class GalacticHalo extends MarisaCard {
     	/*
     	AbstractDungeon.actionManager.addToBottom(
     		new ApplyPowerAction(p , p , 
-    				new GalacticHaloPower(p,this.magicNumber), this.magicNumber)
+    				new GalacticHaloPower(p, this.magicNumber), this.magicNumber)
     		);
     		*/
 

@@ -1,7 +1,6 @@
 package io.aleosiss.sts.character.marisa.characters;
 
 import com.megacrit.cardcrawl.localization.CharacterStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import io.aleosiss.sts.character.marisa.MarisaModHandler;
 import io.aleosiss.sts.character.marisa.cards.Marisa.MasterSpark;
 import io.aleosiss.sts.character.marisa.data.Constants;
@@ -22,7 +21,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.core.Settings.GameLanguage;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -35,7 +33,7 @@ import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Marisa extends CustomPlayer {
+public class MarisaCharacter extends CustomPlayer {
 
 	private static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
 
@@ -75,7 +73,7 @@ public class Marisa extends CustomPlayer {
 	public void applyPreCombatLogic() {
 		super.applyPreCombatLogic();
 		MarisaModHandler.typhoonCounter = 0;
-		MarisaModHandler.logger.info("Marisa : applyPreCombatLogic : I just reset the god damn typhoon counter ! current counter : " + MarisaModHandler.typhoonCounter);
+		MarisaModHandler.logger.info("applyPreCombatLogic: Reset typhoon counter. It is currently at " + MarisaModHandler.typhoonCounter);
 	}
 
 	private static final String CHARACTER_ID = MarisaHelpers.makeID("MarisaCharacter");
@@ -105,7 +103,7 @@ public class Marisa extends CustomPlayer {
 	private static final String ORB_VFX = "marisa/img/UI/energyBlueVFX.png";
 	private static final float[] LAYER_SPEED = {-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
 
-	public Marisa(String name) {
+	public MarisaCharacter(String name) {
 		super(name, MarisaModClassEnum.MARISA, ORB_TEXTURES, ORB_VFX, LAYER_SPEED, null, null);
 
 		this.dialogX = (this.drawX + 0.0F * Settings.scale);
@@ -186,7 +184,7 @@ public class Marisa extends CustomPlayer {
 	}
 
 	public AbstractPlayer newInstance() {
-		return new Marisa(this.name);
+		return new MarisaCharacter(this.name);
 	}
 
 	@Override

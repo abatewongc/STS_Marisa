@@ -76,7 +76,7 @@ public class SummonFairyAction
 					this.isDone = true;
 					return;
 				}
-				logger.info("SummonFairyAction : Alive Fairy found,increasing counter;");
+				logger.info("SummonFairyAction : Alive Fairy found, increasing counter;");
 				count++;
 				logger.info("SummonFairyAction : counter increased: " + count);
 			}
