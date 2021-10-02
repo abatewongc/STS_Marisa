@@ -29,9 +29,9 @@ public class ManaRampage extends MarisaCard {
 		this.magicNumber = this.baseMagicNumber = DMG_UP;
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
+	public void use(AbstractPlayer power, AbstractMonster m) {
 		int cnt = EnergyPanel.totalCount;
-		if (p.hasRelic("Chemical X")) {
+		if (power.hasRelic(Identifiers.Relics.CHEMICAL_X)) {
 			cnt += 2;
 		}
 
@@ -40,7 +40,7 @@ public class ManaRampage extends MarisaCard {
 					new ManaRampageAction(cnt, this.upgraded, this.freeToPlayOnce)
 			);
 		}
-/*
+	/*
     if (!this.freeToPlayOnce) {
       p.energy.use(EnergyPanel.totalCount);
     }

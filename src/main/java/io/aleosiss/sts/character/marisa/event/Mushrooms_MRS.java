@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.relics.Circlet;
 import com.megacrit.cardcrawl.relics.OddMushroom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
 import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
@@ -31,18 +32,18 @@ import org.apache.logging.log4j.LogManager;
 public class Mushrooms_MRS extends AbstractEvent {
 
 	private static final Logger logger = LogManager.getLogger(com.megacrit.cardcrawl.events.exordium.Mushrooms.class.getName());
-	public static final String ID = "Mushrooms_MRS";
+	public static final String ID = Identifiers.Events.MUSHROOMS;
 	private static final EventStrings eventStrings;
 	public static final String NAME;
 	public static final String[] DESCRIPTIONS;
 	private static final String[] OPTIONS;
-	private static final String ENC_NAME = "The Mushroom Lair";
 	private final Texture fgImg = ImageMaster.loadImage("images/events/fgShrooms.png");
 	private final Texture bgImg = ImageMaster.loadImage("images/events/bgShrooms.png");
 	private static final float HEAL_AMT = 0.25F;
 	private static final String HEAL_MSG;
 	private static final String FIGHT_MSG;
 	private int screenNum = 0;
+	private static final String ENC_NAME = "The Mushroom Lair";
 
 	public Mushrooms_MRS() {
 		this.roomEventText.clear();
@@ -71,7 +72,7 @@ public class Mushrooms_MRS extends AbstractEvent {
 					this.roomEventText.updateBodyText(FIGHT_MSG);
 					this.roomEventText.updateDialogOption(0, OPTIONS[3]);
 					this.roomEventText.removeDialogOption(1);
-					AbstractEvent.logMetric("Mushrooms_MRS", "Fought Mushrooms");
+					AbstractEvent.logMetric(Identifiers.Events.MUSHROOMS, "Fought Mushrooms");
 					this.screenNum += 2;
 				} else if (this.screenNum == 1) {
 					this.openMap();
@@ -102,7 +103,7 @@ public class Mushrooms_MRS extends AbstractEvent {
 				AbstractCard curse = new Parasite();
 				int healAmt = (int) ((float) AbstractDungeon.player.maxHealth * HEAL_AMT);
 				AbstractEvent
-						.logMetricObtainCardAndHeal("Mushrooms_MRS", "Healed and dodged fight", curse, healAmt);
+						.logMetricObtainCardAndHeal(Identifiers.Events.MUSHROOMS, "Healed and dodged fight", curse, healAmt);
 				AbstractDungeon.player.heal(healAmt);
 				AbstractDungeon.effectList.add(
 						new ShowCardAndObtainEffect(curse, (float) Settings.WIDTH / 2.0F,
@@ -125,7 +126,7 @@ public class Mushrooms_MRS extends AbstractEvent {
 	}
 
 	static {
-		eventStrings = CardCrawlGame.languagePack.getEventString("Mushrooms_MRS");
+		eventStrings = CardCrawlGame.languagePack.getEventString(Identifiers.Events.MUSHROOMS);
 		NAME = eventStrings.NAME;
 		DESCRIPTIONS = eventStrings.DESCRIPTIONS;
 		OPTIONS = eventStrings.OPTIONS;

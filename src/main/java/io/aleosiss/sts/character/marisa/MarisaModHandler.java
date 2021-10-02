@@ -323,8 +323,8 @@ public class MarisaModHandler implements
 	}
 
 	private void addMonsters() {
-		BaseMod.addMonster(Constants.ORIN_ENCOUNTER, Orin::new);
-		BaseMod.addMonster(Constants.ZOMBIE_FAIRY_ENC, (BaseMod.GetMonster) ZombieFairy::new);
+		BaseMod.addMonster(Identifiers.Encounters.ORIN_ENCOUNTER, Orin::new);
+		BaseMod.addMonster(Identifiers.Encounters.ZOMBIE_FAIRY_ENCOUNTER, (BaseMod.GetMonster) ZombieFairy::new);
 	}
 
 	private void addEvents() {
@@ -335,19 +335,19 @@ public class MarisaModHandler implements
 	private void addPotions() {
 		BaseMod.addPotion(ShroomBrew.class,
 				Color.NAVY.cpy(), Color.LIME.cpy(), Color.OLIVE,
-				"ShroomBrew",
+				ShroomBrew.POTION_ID,
 				MARISA
 		);
 
 		BaseMod.addPotion(StarNLove.class,
 				Color.BLUE.cpy(), Color.YELLOW.cpy(), Color.NAVY,
-				"StarNLove",
+				StarNLove.POTION_ID,
 				MARISA
 		);
 
 		BaseMod.addPotion(BottledSpark.class,
 				Color.BLUE.cpy(), Color.YELLOW.cpy(), Color.NAVY,
-				"BottledSpark",
+				BottledSpark.POTION_ID,
 				MARISA
 		);
 	}

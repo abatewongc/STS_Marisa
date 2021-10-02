@@ -48,7 +48,7 @@ public class ChargeUpSpray extends MarisaCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int cnt = 8;
-		if (p.hasRelic("SimpleLauncher")) {
+		if (p.hasRelic(Identifiers.Relics.SIMPLE_LAUNCHER)) {
 			cnt = 6;
 		}
 		if ((p.hasPower(Identifiers.Powers.CHARGE_UP)) && (!p.hasPower(Identifiers.Powers.ONE_TIME_OFF))) {

@@ -4,8 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 
 public class Constants {
-	public static final String ORIN_ENCOUNTER = "Orin";
-	public static final String ZOMBIE_FAIRY_ENC = "ZombieFairy";
 	public static final String MOD_BADGE = "marisa/img/UI/badge.png";
 	//card backgrounds
 	public static final String ATTACK_CC = "marisa/img/512/bg_attack_MRS_s.png";

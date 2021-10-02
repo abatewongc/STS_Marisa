@@ -35,7 +35,7 @@ public class Exhaustion extends MarisaCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (p.hasRelic("Medical Kit")) {
+		if (p.hasRelic(Identifiers.Relics.MEDICAL_KIT)) {
 			useMedicalKit(p);
 		} else {
 			AbstractDungeon.actionManager.addToBottom(new UseCardAction(this));

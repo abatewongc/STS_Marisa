@@ -66,7 +66,7 @@ public class ParasitePatch {
 				AbstractPlayer p,
 				AbstractMonster m
 		) {
-			if ((_inst.cardID.equals("Parasite")) && ((p.hasRelic("ShroomBag")) || (p.hasRelic("BigShroomBag")))) {
+			if ((_inst.cardID.equals("Parasite")) && ((p.hasRelic(Identifiers.Relics.SHROOM_BAG)) || (p.hasRelic(Identifiers.Relics.BIG_SHROOM_BAG)))) {
 				return SpireReturn.Return(true);
 			}
 			return SpireReturn.Continue();

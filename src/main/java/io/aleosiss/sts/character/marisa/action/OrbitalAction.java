@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import io.aleosiss.sts.character.marisa.data.Identifiers;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,7 +43,7 @@ public class OrbitalAction
       }
       AbstractCard car;
       if (this.p.exhaustPile.size() == 1) {
-        if ((this.p.exhaustPile.group.get(0)).cardID.equals("Orbital")) {
+        if ((this.p.exhaustPile.group.get(0)).cardID.equals(Identifiers.Cards.ORBITAL)) {
           this.isDone = true;
           return;
         }
@@ -66,7 +67,7 @@ public class OrbitalAction
       }
       for (c = this.p.exhaustPile.group.iterator(); c.hasNext(); ) {
         AbstractCard derp = c.next();
-        if (derp.cardID.equals("Orbital")) {
+        if (derp.cardID.equals(Identifiers.Cards.ORBITAL)) {
           c.remove();
           this.orbitals.add(derp);
         }

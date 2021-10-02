@@ -16,10 +16,11 @@ import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import io.aleosiss.sts.character.marisa.utils.MarisaHelpers;
 
 public class OrinTheCat extends AbstractEvent {
 
-  public static final String ID = "OrinTheCat";
+  public static final String ID = Identifiers.Events.ORIN_THE_CAT;
   private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
   public static final String NAME = eventStrings.NAME;
   private static final String[] DESCRIPTIONS = eventStrings.DESCRIPTIONS;
@@ -45,7 +46,7 @@ public class OrinTheCat extends AbstractEvent {
     if (satori) {
       this.roomEventText.addDialogOption(OPTIONS[4]);
     } else {
-      this.roomEventText.addDialogOption(OPTIONS[0], CardLibrary.getCopy("Wraith"));
+      this.roomEventText.addDialogOption(OPTIONS[0], CardLibrary.getCopy(Identifiers.Cards.WRAITH));
     }
     this.roomEventText.addDialogOption(OPTIONS[1]);
 
@@ -147,7 +148,7 @@ public class OrinTheCat extends AbstractEvent {
         logger.info("OrinTheCat : PreCombat : Adding Reward");
         AbstractRoom currRoom = AbstractDungeon.getCurrRoom();
         currRoom.rewards.clear();
-        if (!AbstractDungeon.player.hasRelic("CatCart")) {
+        if (!AbstractDungeon.player.hasRelic(Identifiers.Relics.CAT_CART)) {
           if (Settings.isDailyRun) {
             currRoom.addGoldToRewards(AbstractDungeon.miscRng.random(50));
           } else {
@@ -161,7 +162,7 @@ public class OrinTheCat extends AbstractEvent {
 
         logger.info("OrinTheCat : PreCombat : Entering combat");
         enterCombat();
-        AbstractDungeon.lastCombatMetricKey = "Orin";
+        AbstractDungeon.lastCombatMetricKey = Identifiers.Encounters.ORIN_ENCOUNTER;
         break;
       case END:
         logger.info("OrinTheCat : end : Opening Map");

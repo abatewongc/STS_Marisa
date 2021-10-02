@@ -3,6 +3,7 @@ package io.aleosiss.sts.character.marisa.action;
 
 import static io.aleosiss.sts.character.marisa.MarisaModHandler.logger;
 
+import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.monsters.ZombieFairy;
 import io.aleosiss.sts.character.marisa.powers.monsters.LimboContactPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -41,34 +42,34 @@ public class SummonFairyAction
 
 	public void update() {
 		int count = 0;
-		for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-			if ((m != this.source) && (m instanceof ZombieFairy)) {
-				if (m.isDying) {
+		for (AbstractMonster monster : AbstractDungeon.getMonsters().monsters) {
+			if ((monster != this.source) && (monster instanceof ZombieFairy)) {
+				if (monster.isDying) {
 					logger.info("SummonFairyAction : reviving Fairy;");
-					((ZombieFairy) m).turnNum = 0;
+					((ZombieFairy) monster).turnNum = 0;
 					AbstractDungeon.actionManager.addToTop(
-							new ReviveFairyAction(m, this.source)
+							new ReviveFairyAction(monster, this.source)
 					);
 					AbstractDungeon.actionManager.addToTop(
-							new ApplyPowerAction(m, m, new MinionPower(m))
+							new ApplyPowerAction(monster, monster, new MinionPower(monster))
 					);
 					AbstractDungeon.actionManager.addToTop(
-							new ApplyPowerAction(m, m, new LimboContactPower(m))
+							new ApplyPowerAction(monster, monster, new LimboContactPower(monster))
 					);
 					AbstractDungeon.actionManager.addToTop(
-							new ApplyPowerAction(m, m, new FlightPower(m, 99))
+							new ApplyPowerAction(monster, monster, new FlightPower(monster, 99))
 					);
-					if (AbstractDungeon.player.hasRelic("Philosopher's Stone")) {
-						m.addPower(new StrengthPower(m, 1));
+					if (AbstractDungeon.player.hasRelic(Identifiers.Relics.PHILO_STONE)) {
+						monster.addPower(new StrengthPower(monster, 1));
 					}
-					if (ModHelper.isModEnabled("Lethality")) {
+					if (ModHelper.isModEnabled(Identifiers.Mods.LETHALITY)) {
 						AbstractDungeon.actionManager.addToBottom(
-								new ApplyPowerAction(m, m, new StrengthPower(m, 3), 3)
+								new ApplyPowerAction(monster, monster, new StrengthPower(monster, 3), 3)
 						);
 					}
-					if (ModHelper.isModEnabled("Time Dilation")) {
+					if (ModHelper.isModEnabled(Identifiers.Mods.TIME_DILATION)) {
 						AbstractDungeon.actionManager.addToBottom(
-								new ApplyPowerAction(m, m, new SlowPower(m, 0))
+								new ApplyPowerAction(monster, monster, new SlowPower(monster, 0))
 						);
 					}
 					logger.info("SummonFairyAction : done reviving Fairy;");

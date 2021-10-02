@@ -98,7 +98,7 @@ public class Orin extends AbstractMonster/* implements BaseMod.GetMonster */ {
   private static final String MODEL_CAT_JSON = "marisa/img/monsters/Orin/rincat.json";
 
   public Orin() {
-    super(NAME, "Orin", STAGE_1_HP, 0.0F, -30.0F, 220.0F, 200.0F, tempImgUrl, -20.0F, -10.0F);
+    super(NAME, ID, STAGE_1_HP, 0.0F, -30.0F, 220.0F, 200.0F, tempImgUrl, -20.0F, -10.0F);
     if (Settings.language == GameLanguage.ZHS) {
       this.name = "\u963f\u71d0";
     }

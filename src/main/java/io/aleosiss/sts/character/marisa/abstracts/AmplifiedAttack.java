@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import io.aleosiss.sts.character.marisa.data.Identifiers;
 
 import java.util.ArrayList;
 
@@ -63,7 +64,7 @@ public abstract class AmplifiedAttack extends MarisaCard {
 	private float calculate(float base, AbstractMonster target) {
 		float temp = base;
 		AbstractPlayer player = AbstractDungeon.player;
-		if ((AbstractDungeon.player.hasRelic("WristBlade")) && (this.costForTurn == 0)) {
+		if ((AbstractDungeon.player.hasRelic(Identifiers.Relics.WRIST_BLADE)) && (this.costForTurn == 0)) {
 			temp += 3.0f;
 		}
 		for (AbstractPower power : player.powers) {

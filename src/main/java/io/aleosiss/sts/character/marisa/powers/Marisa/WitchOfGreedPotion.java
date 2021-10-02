@@ -24,17 +24,6 @@ public class WitchOfGreedPotion extends AbstractPower {
 		this.img = new Texture("marisa/img/powers/potion.png");
 	}
 
-	/*
-	  public void onVictory() {
-		for (int i = 0; i < this.amount; i++) {
-		  if (AbstractDungeon.player.hasRelic("Sozu")) {
-			AbstractDungeon.player.getRelic("Sozu").flash();
-		  } else {
-			AbstractDungeon.player.obtainPotion(AbstractDungeon.returnRandomPotion(true));
-		  }
-		}
-	  }
-	*/
 	public void updateDescription() {
 		this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]);
 	}

@@ -4,6 +4,7 @@ package io.aleosiss.sts.character.marisa.action;
 
 import static io.aleosiss.sts.character.marisa.MarisaModHandler.logger;
 
+import io.aleosiss.sts.character.marisa.data.Identifiers;
 import io.aleosiss.sts.character.marisa.monsters.ZombieFairy;
 import io.aleosiss.sts.character.marisa.powers.monsters.LimboContactPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -28,7 +29,7 @@ public class ReviveFairyAction extends AbstractGameAction {
     target.addPower(new LimboContactPower(target));
     target.addPower(new FlightPower(target, 99));
     */
-		if (AbstractDungeon.player.hasRelic("Philosopher's Stone")) {
+		if (AbstractDungeon.player.hasRelic(Identifiers.Relics.PHILO_STONE)) {
 			target.addPower(new StrengthPower(target, 1));
 			AbstractDungeon.onModifyPower();
 		}
