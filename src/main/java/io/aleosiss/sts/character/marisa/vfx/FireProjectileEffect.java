@@ -23,7 +23,7 @@ public class FireProjectileEffect extends AbstractGameEffect {
 
 	public static FireProjectileEffect CollectingQuirkProjectile(Texture img, int relicCount, boolean flipped, float monsterX) {
 		FireProjectileEffect effect = new FireProjectileEffect();
-		effect.projectile = ProjectileData.CollectingQuirkProjectile(img, relicCount, flipped, effect.scale);
+		effect.projectile = ProjectileFactory.CollectingQuirkProjectile(img, relicCount, flipped, effect.scale);
 		effect.monsterX = monsterX + MathUtils.random(-100.0F, 100.0F) * Settings.scale;
 		effect.waitTimer = MathUtils.random(0.0F, 0.5F);
 
@@ -34,7 +34,7 @@ public class FireProjectileEffect extends AbstractGameEffect {
 
 	public static FireProjectileEffect MeteoricShowerProjectile(int numHits, boolean flipped, float monsterX) {
 		FireProjectileEffect effect = new FireProjectileEffect();
-		effect.projectile = ProjectileData.MeteoricShowerProjectile(numHits, flipped, effect.scale);
+		effect.projectile = ProjectileFactory.MeteoricShowerProjectile(numHits, flipped, effect.scale);
 		effect.monsterX = (monsterX + MathUtils.random(-100.0F, 100.0F)) * Settings.scale;
 		effect.waitTimer = MathUtils.random(0.0F, 0.5F);
 		effect.renderBehind = MathUtils.randomBoolean();
@@ -64,7 +64,7 @@ public class FireProjectileEffect extends AbstractGameEffect {
 	}
 
 	private void checkWallCollision() {
-		boolean hittingWall = projectile.x > this.monsterX;
+		boolean hittingWall = projectile.x > monsterX;
 		if(hittingWall) {
 			impact();
 			isDone = true;
@@ -135,74 +135,8 @@ public class FireProjectileEffect extends AbstractGameEffect {
 		public Color color;
 		public float rotation;
 
-
-		public static ProjectileData CollectingQuirkProjectile(Texture img, int relicCount, boolean flipped, float scale) {
-			ProjectileData data = new ProjectileData();
-			data.texture = img;
-
-			data.width = 128;
-			data.height = 128;
-
-			data.shouldAccelerate = true;
-			data.accelerationXFactor = 5.0F;
-
-			data.shouldImpactWall = false;
-
-			data.x = MathUtils.random(-300, 0F);
-			data.vX = MathUtils.random(600.0F, 900.0F) - (float)relicCount * 5.0F;
-			data.accelerationX = 300.0F;
-
-			if (flipped) {
-				flip(data);
-			}
-
-			float yRange = (float)Settings.HEIGHT / 3;
-			data.y = ((float)Settings.HEIGHT / 2) + MathUtils.random(-yRange, yRange);
-			data.vY = 0;
-
-			data.duration = 2.0F;
-			data.scale = MathUtils.random(1.0F, 1.5F) + (float)relicCount * 0.04F;
-			scale(data);
-
-			data.color = new Color(0.9F, 0.9F, 1.0F, MathUtils.random(0.9F, 1.0F));
-			data.rotation = MathUtils.random(0, 360 -1);
-
-			fastMode(data);
-			return data;
-		}
-
-		public static ProjectileData MeteoricShowerProjectile(int numHits, boolean flipped, float scale) {
-			ProjectileData data = new ProjectileData();
-			data.texture = MeteoricShowerEffect.METEORIC_SHOWER_PROJECTILE;
-
-			data.shouldImpactFloor = true;
-
-			data.width = 64;
-			data.height = 64;
-
-			data.x = MathUtils.random(500.0F, 1500.0F);
-			data.vX = MathUtils.random(600.0F, 900.0F) - (float)numHits * 5.0F;
-
-			if (flipped) {
-				flip(data);
-			}
-
-			data.y = (float)Settings.HEIGHT + MathUtils.random(100.0F, 300.0F) - 48.0F;
-			data.vY = MathUtils.random(2500.0F, 4000.0F) - (float)numHits * 10.0F;
-
-			data.duration = 2.0F;
-			data.scale = MathUtils.random(0.5F, 1.25F) + (float)numHits * 0.04F;
-			scale(data);
-
-			data.color = new Color(0.9F, 0.9F, 1.0F, MathUtils.random(0.9F, 1.0F));
-			data.rotation = MathUtils.random(0, 360 -1);
-
-			fastMode(data);
-			return data;
-		}
-
 		//rotate((float) relicCount, flipped, data);
-		private static void rotate(float relicCount, boolean flipped, ProjectileData data) {
+		public void rotate(float relicCount, boolean flipped, ProjectileData data) {
 			Vector2 rotation = new Vector2(data.vX, data.vY);
 			if (flipped) {
 				data.rotation = rotation.angle() + 225.0F - relicCount / 3.0F;
@@ -211,28 +145,28 @@ public class FireProjectileEffect extends AbstractGameEffect {
 			}
 		}
 
-		private static void fastMode(ProjectileData data) {
+		public void fastMode() {
 			boolean fastMode = Settings.FAST_MODE;
 			if(fastMode) {
-				data.vX *= 2;
-				data.vY *= 2;
+				vX *= 2;
+				vY *= 2;
 			}
 		}
 
-		private static void scale(ProjectileData data) {
-			data.width *= Settings.scale;
-			data.height *= Settings.scale;
-			data.scale *= Settings.scale;
-			data.x = data.x * Settings.scale;
-			data.vX *= data.scale;
-			data.vX *= Settings.scale;
-			data.vY *= Settings.scale;
+		public void scale() {
+			width *= Settings.scale;
+			height *= Settings.scale;
+			scale *= Settings.scale;
+			x = x * Settings.scale;
+			vX *= scale;
+			vX *= Settings.scale;
+			vY *= Settings.scale;
 		}
 
-		private static void flip(ProjectileData data) {
-			data.x = Settings.WIDTH - data.x;
-			data.vX *= -1;
-			data.accelerationX = Settings.WIDTH - data.accelerationX;
+		public void flip() {
+			x = Settings.WIDTH - x;
+			vX *= -1;
+			accelerationX = Settings.WIDTH - accelerationX;
 		}
 	}
 }

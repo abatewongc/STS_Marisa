@@ -20,4 +20,7 @@ public class Constants {
 	public static final String CARD_ENERGY_ORB = "marisa/img/UI/energyOrb.png";
 	public static final String MARISA_CHARACTER_BUTTON = "marisa/img/charSelect/MarisaButton.png";
 	public static final String MARISA_PORTRAIT = "marisa/img/charSelect/marisaPortrait.jpg";
+
+	public static final String METEORIC_SHOWER_PROJECTILE = "marisa/img/vfx/star_128.png";
+
 }

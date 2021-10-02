@@ -1,10 +1,10 @@
 {
-  "stsmarisamod:DeadBranchReplacement": {
+  "Marisa:DeadBranchReplacement": {
     "TEXT": [
       "使用原版的树枝"
     ]
   },
-  "stsmarisamod:EnableBlackCatEventForAll": {
+  "Marisa:EnableBlackCatEventForAll": {
     "TEXT": [
       "使用其他角色时是否开启黑猫事件？"
     ]

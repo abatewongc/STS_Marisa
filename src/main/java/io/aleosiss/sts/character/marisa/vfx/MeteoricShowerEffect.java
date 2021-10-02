@@ -12,15 +12,16 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.SpotlightEffect;
+import io.aleosiss.sts.character.marisa.data.Constants;
 
 public class MeteoricShowerEffect extends AbstractGameEffect {
 	private static final String SOUND_EFFECT_KEY = "ORB_FROST_CHANNEL";
-	public static final Texture METEORIC_SHOWER_PROJECTILE = ImageMaster.loadImage("marisa/img/vfx/star_128.png");
+	public static final Texture METEORIC_SHOWER_PROJECTILE = ImageMaster.loadImage(Constants.METEORIC_SHOWER_PROJECTILE);
 	private final boolean flipped;
 	private final int numHits;
 
 	private float timer = 0.1f;
-	private float origDuration = Settings.FAST_MODE ? 2.0f : 0.5f;
+	private final float origDuration = Settings.FAST_MODE ? 2.0f : 0.5f;
 	private float duration = origDuration;
 	private int starCounter = 0;
 	private final float monsterX;

@@ -66,7 +66,7 @@ public class MarisaModHandler implements
 		OnPowersModifiedSubscriber,
 		PostDrawSubscriber,
 		PostEnergyRechargeSubscriber {
-	public static final String MOD_ID = "stsmarisamod";
+	public static final String MOD_ID = "Marisa";
 	public static final Logger logger = LogManager.getLogger(MarisaModHandler.class.getName());
 
 	// lol
@@ -92,7 +92,7 @@ public class MarisaModHandler implements
 	private void constructConfiguration() {
 		setDefaultProperties();
 		try {
-			final SpireConfig config = new SpireConfig("vexMod", "vexModConfig", marisaModDefaultProperties);
+			final SpireConfig config = new SpireConfig("Marisa", "marisaConfig", marisaModDefaultProperties);
 			config.load();
 			isCatEventEnabled = config.getBool(Identifiers.Properties.IS_CAT_EVENT_ENABLED);
 		} catch (Exception e) {
@@ -106,11 +106,6 @@ public class MarisaModHandler implements
 
 	private void constructColors() {
 		BaseMod.addColor(AbstractCardEnum.MARISA_COLOR,
-				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
-				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
-				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
-		);
-		BaseMod.addColor(AbstractCardEnum.MARISA_DERIVATIONS,
 				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
 				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
 				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
@@ -254,30 +249,28 @@ public class MarisaModHandler implements
 		logger.info("Done editing strings");
 	}
 
-	private void loadLocalizedStringData(Class<?> stringType, String stringsFileName) {
-		// We load english first as a fallback for yet-to-be-translated things, then load the "true" language if it is not English
-		BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.GameLanguage.ENG, stringsFileName));
-		if (!Settings.GameLanguage.ENG.equals(Settings.language)) {
-			BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.language, stringsFileName));
-		}
-	}
-
-	public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
-		String languageFolder = language.name().toLowerCase(Locale.ROOT);
-		String path = "marisa/localization/" + languageFolder + "/" + resourcePath;
-		logger.info("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
-		return path;
-	}
-
-	private static String loadJson(String jsonPath) {
-		return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
-	}
-
 	@Override
 	public void receivePostInitialize() {
-		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString("stsmarisamod:DeadBranchReplacement");
-		UIStrings blackCatEventForAllUI = CardCrawlGame.languagePack.getUIString("stsmarisamod:EnableBlackCatEventForAll");
 		logger.info("Adding badge, configs,event and potion");
+		final ModPanel settingsPanel = addModPanel();
+
+		addEvents();
+		addPotions();
+		addMonsters();
+
+		final Texture badge = ImageMaster.loadImage(Constants.MOD_BADGE);
+		BaseMod.registerModBadge(
+				badge,
+				"Marisa",
+				"Flynn, Hell, Hohner_257, Samsara, Aleosiss",
+				"The poor blonde girl from the Touhou Project",
+				settingsPanel
+		);
+	}
+
+	private ModPanel addModPanel() {
+		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString("Marisa:DeadBranchReplacement");
+		UIStrings blackCatEventForAllUI = CardCrawlGame.languagePack.getUIString("Marisa:EnableBlackCatEventForAll");
 
 		final ModPanel settingsPanel = new ModPanel();
 		final ModLabeledToggleButton enableBlackCatButton =
@@ -326,10 +319,20 @@ public class MarisaModHandler implements
 
 		settingsPanel.addUIElement(enableBlackCatButton);
 		settingsPanel.addUIElement(enableDeadBranchButton);
+		return settingsPanel;
+	}
 
+	private void addMonsters() {
+		BaseMod.addMonster(Constants.ORIN_ENCOUNTER, Orin::new);
+		BaseMod.addMonster(Constants.ZOMBIE_FAIRY_ENC, (BaseMod.GetMonster) ZombieFairy::new);
+	}
+
+	private void addEvents() {
 		BaseMod.addEvent(Mushrooms_MRS.ID, Mushrooms_MRS.class, Exordium.ID);
 		BaseMod.addEvent(OrinTheCat.ID, OrinTheCat.class, TheBeyond.ID);
+	}
 
+	private void addPotions() {
 		BaseMod.addPotion(ShroomBrew.class,
 				Color.NAVY.cpy(), Color.LIME.cpy(), Color.OLIVE,
 				"ShroomBrew",
@@ -347,17 +350,25 @@ public class MarisaModHandler implements
 				"BottledSpark",
 				MARISA
 		);
+	}
 
-		BaseMod.addMonster(Constants.ORIN_ENCOUNTER, Orin::new);
-		BaseMod.addMonster(Constants.ZOMBIE_FAIRY_ENC, (BaseMod.GetMonster) ZombieFairy::new);
-		final Texture badge = ImageMaster.loadImage(Constants.MOD_BADGE);
-		BaseMod.registerModBadge(
-				badge,
-				"MarisaMod",
-				"Flynn, Hell, Hohner_257, Samsara, Aleosiss",
-				"A Mod of the poor blonde girl from Touhou Project(",
-				settingsPanel
-		);
+	private void loadLocalizedStringData(Class<?> stringType, String stringsFileName) {
+		// We load english first as a fallback for yet-to-be-translated things, then load the "true" language if it is not English
+		BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.GameLanguage.ENG, stringsFileName));
+		if (!Settings.GameLanguage.ENG.equals(Settings.language)) {
+			BaseMod.loadCustomStringsFile(stringType, makeLocalizedStringsPath(Settings.language, stringsFileName));
+		}
+	}
+
+	public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
+		String languageFolder = language.name().toLowerCase(Locale.ROOT);
+		String path = "marisa/localization/" + languageFolder + "/" + resourcePath;
+		logger.info("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
+		return path;
+	}
+
+	private static String loadJson(String jsonPath) {
+		return Gdx.files.internal(jsonPath).readString(String.valueOf(StandardCharsets.UTF_8));
 	}
 
 	private List<AbstractCard> loadCardsToAdd() {
