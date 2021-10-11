@@ -1,12 +1,12 @@
 {
-  "DarkMatterPower": {
+  "Marisa:DarkMatterPower": {
     "NAME": "Matière noire",
     "DESCRIPTIONS": [
       "Vous ne pouvez plus jouer de #yMatière #yNoire ce tour-ci.",
       ""
     ]
   },
-  "ExtraDraw": {
+  "Marisa:ExtraDraw": {
     "NAME": "Vitesse de fuite",
     "DESCRIPTIONS": [
       "Piochez #b",
@@ -14,7 +14,7 @@
       " #yBrûlure(s) à votre main au début de chaque tour."
     ]
   },
-  "EventHorizonPower": {
+  "Marisa:EventHorizonPower": {
     "NAME": "Horizon des événements",
     "DESCRIPTIONS": [
       "Vous pouvez mettre une attaque de votre défausse dans votre main lorsque vous enclenchez un effet amplifié, jusqu'à #b",
@@ -23,49 +23,49 @@
       " charge(s) restantes)"
     ]
   },
-  "IllusionStarPower": {
+  "Marisa:IllusionStarPower": {
     "NAME": "Étoile illusoire",
     "DESCRIPTIONS": [
       "Au debut de votre tour , transformez  #b",
       "carte(s) de votre main."
     ]
   },
-  "MilliPulsaPower": {
+  "Marisa:MilliPulsaPower": {
     "NAME": "Pulsar",
     "DESCRIPTIONS": [
       "Les effets #yAmplifier ne nécessitent plus de [B] supplémentaires pour être activés.",
       ""
     ]
   },
-  "SatellIllusPower": {
+  "Marisa:SatellIllusPower": {
     "NAME": " Illusion Satellite",
     "DESCRIPTIONS": [
       "Lorsque vous utilisez une carte qui n'existe pas dans votre deck principal, piochez #b",
       " cartes."
     ]
   },
-  "TempStrength": {
+  "Marisa:TempStrength": {
     "NAME": "Force temporaire",
     "DESCRIPTIONS": [
       "Votre prochaine explosion cause  #b",
       " dégât(s) additionnels."
     ]
   },
-  "TempStrengthLoss": {
+  "Marisa:TempStrengthLoss": {
     "NAME": "Perte de force temporaire",
     "DESCRIPTIONS": [
       "Les dégâts de cette créature sont diminués de #b",
       " ce tour-ci."
     ]
   },
-  "ExtraEnergyPower": {
+  "Marisa:ExtraEnergyPower": {
     "NAME": "Energie supplémentaire",
     "DESCRIPTIONS": [
       "Gagnez ",
       " énergie supplémentaire chaque tour."
     ]
   },
-  "ChargeUpPower": {
+  "Marisa:ChargeUpPower": {
     "NAME": "Charge",
     "DESCRIPTIONS": [
       "Vous avez  #b",
@@ -74,90 +74,90 @@
       " fois de dégâts."
     ]
   },
-  "PolarisUniquePower": {
+  "Marisa:PolarisUniquePower": {
     "NAME": "Étoile guidante",
     "DESCRIPTIONS": [
       "Si #yÉtoile guidante est dans votre pioche, gagnez un [B] supplémentaire au début de chaque tour."
     ]
   },
-  "OrrerysSunPower": {
+  "Marisa:OrrerysSunPower": {
     "NAME": "Soleil planétaire",
     "DESCRIPTIONS": [
       "Lorsque vous consommez une #yCharge, infligez  #b",
       " à TOUS les ennemis."
     ]
   },
-  "Charged": {
+  "Marisa:Charged": {
     "NAME": "Chargé !",
     "DESCRIPTIONS": [
       "Votre prochaine explosion infligera #b",
       " fois les dégâts"
     ]
   },
-  "BlazeAwayPower": {
+  "Marisa:BlazeAwayPower": {
     "NAME": "Flambée",
     "DESCRIPTIONS": [
       "Vous ajouterez #b",
       " copie(s) de la prochaine attaque utilisée."
     ]
   },
-  "MPPower": {
+  "Marisa:MPPower": {
     "NAME": "Puissance maximale",
     "DESCRIPTIONS": [
       "Vos dégâts sont multipliés par  #b",
       " ce tour."
     ]
   },
-  "EnergyFlowPower": {
+  "Marisa:EnergyFlowPower": {
     "NAME": "Flux d'énergie",
     "DESCRIPTIONS": [
       "À la fin du tour, gagnez #b",
       " #yCharge ."
     ]
   },
-  "PulseMagicPower": {
+  "Marisa:PulseMagicPower": {
     "NAME": "Magie du pouls",
     "DESCRIPTIONS": [
       "Vous n'avez pas à payer de [B]  pour activer les effets #yAmplifier ce tour-ci.",
       "WWWWWWWWWWW"
     ]
   },
-  "SingularityPower": {
+  "Marisa:SingularityPower": {
     "NAME": "Singualrité",
     "DESCRIPTIONS": [
       "Lorsque vous jouez une carte qui coûte 0, ajoutez une #yAttack à votre main infligeant #b",
       " dégâts additionnels ce combat."
     ]
   },
-  "WitchOfGreedGold": {
+  "Marisa:WitchOfGreedGold": {
     "NAME": "Sorcière de la cupidité",
     "DESCRIPTIONS": [
       "À la fin du combat, gagnez  #b",
       " or."
     ]
   },
-  "WitchOfGreedPotion": {
+  "Marisa:WitchOfGreedPotion": {
     "NAME": "Sorcière de la cupidité",
     "DESCRIPTIONS": [
       "À la fin du combat, obtenez  #b",
       " potion(s) aléatoire(s)."
     ]
   },
-  "OneTimeOffPlusPower": {
+  "Marisa:OneTimeOffPlusPower": {
     "NAME": "Temps d'arrêts",
     "DESCRIPTIONS": [
       "Vous n'activerez pas d' #yAmplifier ou de #yCharge ce tour.",
       "WWWWWWWWWWW"
     ]
   },
-  "OneTimeOffPower": {
+  "Marisa:OneTimeOffPower": {
     "NAME": "Temps d'arrêts",
     "DESCRIPTIONS": [
       "Vous n'activerez pas d' #yAmplifier ce tour.",
       "WWWWWWWWWWW"
     ]
   },
-  "SuperNovaPower": {
+  "Marisa:SuperNovaPower": {
     "NAME": "SuperNova",
     "DESCRIPTIONS": [
       "Lorsque vous #yExhaust une #yBrûlure , gagnez  #b",
@@ -165,112 +165,112 @@
       " #yStrength . NL Vous ne prenez plus de dégâts des #yBrûlure . NL #yExhaust votre main lorsque votre tour se termine."
     ]
   },
-  "CasketOfStarPlusPower": {
+  "Marisa:CasketOfStarPlusPower": {
     "NAME": "Cercueil d'étoiles",
     "DESCRIPTIONS": [
       "Ajoutez #b",
       " #yupgraded #yÉtincelle à votre main lorsque vous gagnez de l'#yArmure ."
     ]
   },
-  "CasketOfStarPower": {
+  "Marisa:CasketOfStarPower": {
     "NAME": "Cercueil d'étoiles",
     "DESCRIPTIONS": [
       "Ajoutez  #b",
       " #ySpark à votre main lorsque vous gagnez de l'#yArmure ."
     ]
   },
-  "GalacticHaloPower": {
+  "Marisa:GalacticHaloPower": {
     "NAME": "Halo galactique",
     "DESCRIPTIONS": [
       "À la fin du tour, gagnez  #b",
       " #yArmure pour chaque #yAttaque que vous avez joué ce tour."
     ]
   },
-  "ManaRampagePower": {
+  "Marisa:ManaRampagePower": {
     "NAME": "Déchainement de man",
     "DESCRIPTIONS": [
       "Votre prochaine #yAttaque sera jouée  #b",
       " fois supplémentaires ce tour."
     ]
   },
-  "PropBagPower": {
+  "Marisa:PropBagPower": {
     "NAME": "Sac d'objets portable",
     "DESCRIPTIONS": [
       "Lorsque le combat se termine, vous perdrez #y",
       "."
     ]
   },
-  "UltraShortWavePower": {
+  "Marisa:UltraShortWavePower": {
     "NAME": "ondes-Courtes ultimes",
     "DESCRIPTIONS": [
       "Votre effet #yOndes-Courtes #yUltimes est #yAmplifier  #b",
       " fois."
     ]
   },
-  "DarkSparkPower": {
+  "Marisa:DarkSparkPower": {
     "NAME": "Étincelle sombre",
     "DESCRIPTIONS": [
       "Chaque carte que vous jouez avec ''étincelle' dans son nom, vous donne #b",
       "#yCharge additionnelles ce tour."
     ]
   },
-  "MagicChantPower": {
+  "Marisa:MagicChantPower": {
     "NAME": "Magic Chant",
     "DESCRIPTIONS": [
       "Réduit le coût de #b",
       " ce tour."
     ]
   },
-  "SatelIllusPower": {
+  "Marisa:SatelIllusPower": {
     "NAME": "Illusion Satellite",
     "DESCRIPTIONS": [
       "Pendant ce tour, lorsque le nombre de cartes dans votre pioche augmente, gagnez  #b",
       " [B] ."
     ]
   },
-  "GrandCrossPower": {
+  "Marisa:GrandCrossPower": {
     "NAME": "Amplifié",
     "DESCRIPTIONS": [
       "Vous avez activé un effet #yAmplifier ce tour.",
       "WWWWWWWWWWW"
     ]
   },
-  "Diaspora": {
+  "Marisa:Diaspora": {
     "NAME": "Diaspora",
     "DESCRIPTIONS": [
       "À la fin du tour, tuez instantanément cette créature si ses points de vie sont inférieurs à #b",
       " ."
     ]
   },
-  "TalismanPower": {
+  "Marisa:TalismanPower": {
     "NAME": "Talisman aux cinqs couleurs",
     "DESCRIPTIONS": [
       "Au début de votre tour, ajoutez #b",
       "  #yCompétence au hasard dans votre main."
     ]
   },
-  "Wraith": {
+  "Marisa:Wraith": {
     "NAME": "Spectre",
     "DESCRIPTIONS": [
       "#yÉpuisez une carte aléatoire de votre main après le début de votre tour.",
       "WWWWWWWWWWW"
     ]
   },
-  "LimboContact": {
+  "Marisa:LimboContact": {
     "NAME": "Contact mort-vivant",
     "DESCRIPTIONS": [
       "Lorsque vous recevez des dégâts de cet ennemi, gagnez un de #yFantôme .",
       "WWWWWWWWWWW"
     ]
   },
-  "Nebula": {
+  "Marisa:Nebula": {
     "NAME": "Nebuleuse",
     "DESCRIPTIONS": [
       "Gagnez ",
       " Armure plaquée lorsque vous perdez votre Armure de la part d'ennemis ou de cartes."
     ]
   },
-  "InfernoClaw": {
+  "Marisa:InfernoClaw": {
     "NAME": "Inferno Claw",
     "DESCRIPTIONS": [
       "Chaque fois que cet ennemi vous inflige des dégats d'attaque, ajoutez une  #yBrûlure  dans votre pile.",

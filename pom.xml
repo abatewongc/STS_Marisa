@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.aleosiss.sts</groupId>
+  <groupId>sts.touhouspire.mod.character</groupId>
   <artifactId>marisa</artifactId>
   <version>v0.16.0</version>
   <packaging>jar</packaging>
@@ -32,7 +32,7 @@
   </dependencies>
 
   <build>
-    <finalName>TS05_Marisa</finalName>
+    <finalName>Marisa</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -52,9 +52,9 @@
             <phase>package</phase>
             <configuration>
               <target>
-                <copy file="target/TS05_Marisa.jar" tofile="../lib/TS05_Marisa.jar"/>
-                <copy file="target/TS05_Marisa.jar"
-                      tofile="W:/SteamLibrary/steamapps/workshop/content/646570/1614104912/TS05_Marisa.jar"/>
+                <copy file="target/Marisa.jar" tofile="../lib/Marisa.jar"/>
+                <copy file="target/Marisa.jar"
+                      tofile="W:/SteamLibrary/steamapps/workshop/content/646570/1614104912/Marisa.jar"/>
               </target>
             </configuration>
             <goals>
@@ -65,6 +65,6 @@
       </plugin>
     </plugins>
   </build>
-  <name>SL the Spire Touhou Mod By Flynn , Hell , Hohner_257 , Samsara</name>
+  <name>SL the Spire Touhou Mod By Flynn, Hell, Hohner_257, Samsara, and Aleosiss</name>
   <description>A Mod of the poor blonde hair girl from Touhou Project(</description>
 </project>

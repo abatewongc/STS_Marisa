@@ -1,12 +1,12 @@
 {
-  "DarkMatterPower": {
+  "Marisa:DarkMatterPower": {
     "NAME": "Dark Matter",
     "DESCRIPTIONS": [
       "You can no longer play #yDark #yMatter this turn.",
       ""
     ]
   },
-  "ExtraDraw": {
+  "Marisa:ExtraDraw": {
     "NAME": "Escape Velocity",
     "DESCRIPTIONS": [
       "Draw #b",
@@ -14,7 +14,7 @@
       " #yBurn(s) to your hand at each start of your turn."
     ]
   },
-  "EventHorizonPower": {
+  "Marisa:EventHorizonPower": {
     "NAME": "Event Horizon",
     "DESCRIPTIONS": [
       "You can put an Attack from your discard pile into your hand whenever you activate an Amplify effect, up to #b",
@@ -23,49 +23,49 @@
       " time(s) left)"
     ]
   },
-  "IllusionStarPower": {
+  "Marisa:IllusionStarPower": {
     "NAME": "Illusion Star",
     "DESCRIPTIONS": [
       "At the start of your turn , transform  #b",
       "card(s) of your hand."
     ]
   },
-  "MilliPulsaPower": {
+  "Marisa:MilliPulsaPower": {
     "NAME": "Millisecond Pulsars",
     "DESCRIPTIONS": [
       " #yAmplify effects no longer need extra  [E]  to activate.",
       ""
     ]
   },
-  "SatellIllusPower": {
+  "Marisa:SatellIllusPower": {
     "NAME": "Satellite Illusion",
     "DESCRIPTIONS": [
-      "When you use a card that doesn't exist in your master deck,draw  #b",
+      "When you use a card that doesn't exist in your master deck, draw  #b",
       " card."
     ]
   },
-  "TempStrength": {
+  "Marisa:TempStrength": {
     "NAME": "Temproy Strength",
     "DESCRIPTIONS": [
       "Your next blow deals additional  #b",
       " damage."
     ]
   },
-  "TempStrengthLoss": {
+  "Marisa:TempStrengthLoss": {
     "NAME": "Temproy Strength Loss",
     "DESCRIPTIONS": [
       "The damage of this creature is lowered by  #b",
       " this turn."
     ]
   },
-  "ExtraEnergyPower": {
+  "Marisa:ExtraEnergyPower": {
     "NAME": "Extra Energy",
     "DESCRIPTIONS": [
       "Gain ",
       " energy in addition each turn."
     ]
   },
-  "ChargeUpPower": {
+  "Marisa:ChargeUpPower": {
     "NAME": "Charge Up",
     "DESCRIPTIONS": [
       "You have  #b",
@@ -74,203 +74,203 @@
       " times damage."
     ]
   },
-  "PolarisUniquePower": {
+  "Marisa:PolarisUniquePower": {
     "NAME": "Guiding Star",
     "DESCRIPTIONS": [
-      "If #yGuidingStar is in your draw pile, gain extra [E] at the start of each turn,."
+      "If #yGuidingStar is in your draw pile, gain extra [E] at the start of each turn."
     ]
   },
-  "OrrerysSunPower": {
+  "Marisa:OrrerysSunPower": {
     "NAME": "Orrerys Sun",
     "DESCRIPTIONS": [
       "Whenever you consume #yCharge-up, deal  #b",
       " damage to all enemies."
     ]
   },
-  "Charged": {
+  "Marisa:Charged": {
     "NAME": "Charged!",
     "DESCRIPTIONS": [
       "Your next blow will do  #b",
       " times damage"
     ]
   },
-  "BlazeAwayPower": {
+  "Marisa:BlazeAwayPower": {
     "NAME": "Blaze Away",
     "DESCRIPTIONS": [
       "Will add  #b",
       " copy(copies) of the next attack card you use."
     ]
   },
-  "MPPower": {
+  "Marisa:MPPower": {
     "NAME": "Max Power",
     "DESCRIPTIONS": [
       "Your damage is multipled by  #b",
       " this turn."
     ]
   },
-  "EnergyFlowPower": {
+  "Marisa:EnergyFlowPower": {
     "NAME": "Energy Flow",
     "DESCRIPTIONS": [
       "At the end of your turn, gain  #b",
       " #yCharge-up ."
     ]
   },
-  "PulseMagicPower": {
+  "Marisa:PulseMagicPower": {
     "NAME": "Pulse Magic",
     "DESCRIPTIONS": [
       "You don't need to pay  [E]  to activate #yAmplify effects this turn.",
       "WWWWWWWWWWW"
     ]
   },
-  "SingularityPower": {
-    "NAME": "Singualrity",
+  "Marisa:SingularityPower": {
+    "NAME": "Singularity",
     "DESCRIPTIONS": [
       "Whenever you play a card that costs 0 , a random #yAttack in your hand deals #b",
       " additional damage this combat."
     ]
   },
-  "WitchOfGreedGold": {
+  "Marisa:WitchOfGreedGold": {
     "NAME": "Witch Of Greed",
     "DESCRIPTIONS": [
       "At the end of combat, gain  #b",
       " gold ."
     ]
   },
-  "WitchOfGreedPotion": {
+  "Marisa:WitchOfGreedPotion": {
     "NAME": "Witch Of Greed",
     "DESCRIPTIONS": [
       "At the end of combat, obtain  #b",
       " random potion."
     ]
   },
-  "OneTimeOffPlusPower": {
+  "Marisa:OneTimeOffPlusPower": {
     "NAME": "One Time Off",
     "DESCRIPTIONS": [
       "You won't trigger #yAmplify and #yCharge-up this turn.",
       "WWWWWWWWWWW"
     ]
   },
-  "OneTimeOffPower": {
+  "Marisa:OneTimeOffPower": {
     "NAME": "One Time Off",
     "DESCRIPTIONS": [
       "You won't trigger #yAmplify this turn.",
       "WWWWWWWWWWW"
     ]
   },
-  "SuperNovaPower": {
+  "Marisa:SuperNovaPower": {
     "NAME": "SuperNova",
     "DESCRIPTIONS": [
-      "When you #yExhaust a #yBurn ,Gain  #b",
-      "When you #yExhaust a #yCurse or a #Status ,Gain  #b",
+      "When you #yExhaust a #yBurn, Gain  #b",
+      "When you #yExhaust a #yCurse or a #Status, Gain  #b",
       " #yStrength . NL You no longer take damage from #yBurn . NL #yExhaust you hand when your turn ends."
     ]
   },
-  "CasketOfStarPlusPower": {
+  "Marisa:CasketOfStarPlusPower": {
     "NAME": "Casket Of Star",
     "DESCRIPTIONS": [
       "Add  #b",
       " #yupgraded #ySpark to your hand whenever you gain #yBlock ."
     ]
   },
-  "CasketOfStarPower": {
+  "Marisa:CasketOfStarPower": {
     "NAME": "Casket Of Star",
     "DESCRIPTIONS": [
       "Add  #b",
       " #ySpark to your hand whenever you gain #yBlock ."
     ]
   },
-  "GalacticHaloPower": {
+  "Marisa:GalacticHaloPower": {
     "NAME": "Galactic Halo",
     "DESCRIPTIONS": [
-      "At the end of your turn,gain  #b",
+      "At the end of your turn, gain  #b",
       " #yblock for each #yAttack you played this turn."
     ]
   },
-  "ManaRampagePower": {
+  "Marisa:ManaRampagePower": {
     "NAME": "Mana Rampage",
     "DESCRIPTIONS": [
       "Your next #yAttack will be played  #b",
       " extra times this turn."
     ]
   },
-  "PropBagPower": {
+  "Marisa:PropBagPower": {
     "NAME": "Portable Prop Bagr",
     "DESCRIPTIONS": [
-      "When the battle ends,you'll lose  #y",
+      "When the battle ends, you'll lose  #y",
       "."
     ]
   },
-  "UltraShortWavePower": {
+  "Marisa:UltraShortWavePower": {
     "NAME": "Ultimate ShortWave",
     "DESCRIPTIONS": [
       "Your #yUltimate #yShortWave's effect is #yAmplified  #b",
       " times."
     ]
   },
-  "DarkSparkPower": {
+  "Marisa:DarkSparkPower": {
     "NAME": "Dark Spark",
     "DESCRIPTIONS": [
       "Each card with 'Spark' in its name you play will grant you  #b",
       " additional #yCharge-up this turn."
     ]
   },
-  "MagicChantPower": {
+  "Marisa:MagicChantPower": {
     "NAME": "Magic Chant",
     "DESCRIPTIONS": [
       "Reduce the cost of  #b",
       " next turn."
     ]
   },
-  "SatelIllusPower": {
+  "Marisa:SatelIllusPower": {
     "NAME": "Satellite Illusion",
     "DESCRIPTIONS": [
-      "During your turn,when the number of cards in your draw pile increases, gain  #b",
+      "During your turn, when the number of cards in your draw pile increases, gain  #b",
       " [E] ."
     ]
   },
-  "GrandCrossPower": {
+  "Marisa:GrandCrossPower": {
     "NAME": "Amplified",
     "DESCRIPTIONS": [
       "You have activated an #yAmplify effect this turn.",
       "WWWWWWWWWWW"
     ]
   },
-  "Diaspora": {
+  "Marisa:Diaspora": {
     "NAME": "Diaspora",
     "DESCRIPTIONS": [
-      "At the end of turn,instantly kill this creature if its health is less than #b",
+      "At the end of turn, instantly kill this creature if its health is less than #b",
       " ."
     ]
   },
-  "TalismanPower": {
+  "Marisa:TalismanPower": {
     "NAME": "Five-Colored Talisman",
     "DESCRIPTIONS": [
-      "At the start of your turn,add #b",
+      "At the start of your turn, add #b",
       " random #ySkill to your hand."
     ]
   },
-  "Wraith": {
+  "Marisa:Wraith": {
     "NAME": "Wraith",
     "DESCRIPTIONS": [
       "#yExhaust a random card in your hand after the start of your turn.",
       "WWWWWWWWWWW"
     ]
   },
-  "Nebula": {
+  "Marisa:Nebula": {
     "NAME": "Nebula",
     "DESCRIPTIONS": [
       "Gain ",
       " Plated Armor whenever you lose Block from enemies or cards."
     ]
   },
-  "LimboContact": {
+  "Marisa:LimboContact": {
     "NAME": "Undead Contact",
     "DESCRIPTIONS": [
-      "Whenever you are attacked by this enemy, gain a stack of #yWraith . NL On death,apply #b1 #yWraith to you.",
+      "Whenever you are attacked by this enemy, gain a stack of #yWraith . NL On death, apply #b1 #yWraith to you.",
       "WWWWWWWWWWW"
     ]
   },
-  "InfernoClaw": {
+  "Marisa:InfernoClaw": {
     "NAME": "Inferno Claw",
     "DESCRIPTIONS": [
       "Whenever you receive attack damage from this enemy, add a #yBurn into your draw pile.",

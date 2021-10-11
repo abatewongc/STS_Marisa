@@ -49,7 +49,7 @@ public class ManaRampAction
       return;
     }
 
-    target = AbstractDungeon.getMonsters().getRandomMonster(true);
+    target = MarisaHelpers.getRandomMonster();
 
     if (target == null) {
       this.isDone = true;
