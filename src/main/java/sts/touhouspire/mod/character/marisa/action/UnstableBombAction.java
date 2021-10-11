@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class UnstableBombAction extends AbstractGameAction {
 
@@ -87,7 +88,7 @@ public class UnstableBombAction extends AbstractGameAction {
 				this.numTimes--;
 				AbstractDungeon.actionManager.addToTop(
 						new UnstableBombAction(
-								AbstractDungeon.getMonsters().getRandomMonster(true),
+								MarisaHelpers.getRandomMonster(),
 								min,
 								max,
 								this.numTimes

@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class WasteBombAction extends AbstractGameAction {
 
@@ -92,7 +93,7 @@ public class WasteBombAction extends AbstractGameAction {
 			if ((this.numberOfHits > 1) && (!AbstractDungeon.getMonsters().areMonstersBasicallyDead())) {
 				this.numberOfHits--;
 				AbstractDungeon.actionManager.addToTop(
-						new WasteBombAction(AbstractDungeon.getMonsters().getRandomMonster(true),
+						new WasteBombAction(MarisaHelpers.getRandomMonster(),
 								this.damage, this.numberOfHits, this.strengthDownValue
 						)
 				);

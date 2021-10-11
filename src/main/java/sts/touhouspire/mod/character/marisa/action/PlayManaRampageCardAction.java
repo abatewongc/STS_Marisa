@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class PlayManaRampageCardAction extends AbstractGameAction {
 
@@ -21,7 +22,7 @@ public class PlayManaRampageCardAction extends AbstractGameAction {
 
 	public void update() {
 
-    target = AbstractDungeon.getMonsters().getRandomMonster(true);
+    target = MarisaHelpers.getRandomMonster();
     AbstractCard card = AbstractDungeon.returnTrulyRandomCardInCombat(CardType.ATTACK).makeCopy();
 
 		if (upgraded) {

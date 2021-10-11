@@ -3,11 +3,14 @@ package sts.touhouspire.mod.character.marisa.utils;
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import sts.touhouspire.mod.character.marisa.MarisaModHandler;
 import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
 import sts.touhouspire.mod.character.marisa.cards.derivations.GuidingStar;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
+
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.cardRandomRng;
 
 public class MarisaHelpers {
 	public static boolean wasZeroCost(AbstractCard card) {
@@ -25,6 +28,10 @@ public class MarisaHelpers {
 			card = AbstractDungeon.returnTrulyRandomCardInCombat().makeCopy();
 		}
 		return card;
+	}
+
+	public static AbstractMonster getRandomMonster() {
+		return AbstractDungeon.getMonsters().getRandomMonster(null, true, cardRandomRng);
 	}
 
 	public static void addRelic(AbstractRelic relic) {

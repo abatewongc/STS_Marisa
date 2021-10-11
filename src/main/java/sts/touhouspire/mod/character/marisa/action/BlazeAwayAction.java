@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class BlazeAwayAction
 		extends AbstractGameAction {
@@ -31,7 +32,7 @@ public class BlazeAwayAction
 	}
 
 	public void update() {
-		AbstractMonster target = AbstractDungeon.getMonsters().getRandomMonster(true);
+		AbstractMonster target = MarisaHelpers.getRandomMonster();
 		if(target == null) {
 			this.isDone = true;
 			return;

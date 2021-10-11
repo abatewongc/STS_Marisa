@@ -57,28 +57,28 @@ public class FungusSplashAction extends AbstractGameAction {
 	}
 
 	public void usePotion(CardType type) {
-		AbstractPotion p;
+		AbstractPotion potion;
 		switch (type) {
 			case ATTACK:
-				p = new FearPotion();
-				p.use(target);
+				potion = new FearPotion();
+				potion.use(target);
 				break;
 			case SKILL:
-				p = new WeakenPotion();
-				p.use(target);
+				potion = new WeakenPotion();
+				potion.use(target);
 				break;
 			case POWER:
-				p = new PoisonPotion();
-				p.use(target);
+				potion = new PoisonPotion();
+				potion.use(target);
 				break;
 			case STATUS:
-				p = new FirePotion();
-				p.use(target);
+				potion = new FirePotion();
+				potion.use(target);
 				break;
 			case CURSE:
-				p = new SmokeBomb();
-				if (p.canUse())
-					p.use(this.p);
+				potion = new SmokeBomb();
+				if (potion.canUse())
+					potion.use(this.p);
 				break;
 			default:
 				break;

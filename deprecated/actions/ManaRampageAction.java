@@ -53,7 +53,7 @@ public class ManaRampageAction
 
     AbstractCard card = list.get(0);
     list.remove(0);
-    target = AbstractDungeon.getMonsters().getRandomMonster(true);
+    target = MarisaHelpers.getRandomMonster();
 /*
     if (target == null) {
       this.isDone = true;

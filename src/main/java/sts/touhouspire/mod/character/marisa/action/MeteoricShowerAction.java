@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 import sts.touhouspire.mod.character.marisa.vfx.MeteoricShowerEffect;
 
 public class MeteoricShowerAction extends AbstractGameAction {
@@ -58,7 +59,7 @@ public class MeteoricShowerAction extends AbstractGameAction {
         float duration = Settings.FAST_MODE ? 0.5f : 1.0f;
         MonsterGroup monsters = AbstractDungeon.getMonsters();
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new MeteoricShowerEffect(count, monsters.shouldFlipVfx(), (float) monsters.monsters.stream().mapToDouble(m -> m.drawX).average().orElse(Settings.WIDTH)), duration));
-        AbstractDungeon.actionManager.addToBottom(new UnstableBombAction(AbstractDungeon.getMonsters().getRandomMonster(true), damage, damage, count));
+        AbstractDungeon.actionManager.addToBottom(new UnstableBombAction(MarisaHelpers.getRandomMonster(), damage, damage, count));
       }
       AbstractDungeon.gridSelectScreen.selectedCards.clear();
       AbstractDungeon.player.hand.refreshHandLayout();

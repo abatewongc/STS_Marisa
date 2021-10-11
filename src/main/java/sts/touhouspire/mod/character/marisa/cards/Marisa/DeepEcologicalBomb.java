@@ -12,6 +12,7 @@ import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
 import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
 import sts.touhouspire.mod.character.marisa.utils.AmplifyUtils;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class DeepEcologicalBomb extends MarisaCard {
 
@@ -47,7 +48,7 @@ public class DeepEcologicalBomb extends MarisaCard {
 		}
 		AbstractDungeon.actionManager.addToBottom(
 				new WasteBombAction(
-						AbstractDungeon.getMonsters().getRandomMonster(true),
+						MarisaHelpers.getRandomMonster(),
 						this.damage, num, this.magicNumber
 				)
 		);

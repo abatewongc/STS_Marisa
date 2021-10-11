@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
 import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 import sts.touhouspire.mod.character.marisa.vfx.CollectingQuirkEffect;
 
 public class CollectingQuirk extends MarisaCard {
@@ -77,7 +78,7 @@ public class CollectingQuirk extends MarisaCard {
 			float duration = Settings.FAST_MODE ? 0.5f : 1.0f;
 			MonsterGroup monsters = AbstractDungeon.getMonsters();
 			this.addToBot(new VFXAction(new CollectingQuirkEffect(monsters.shouldFlipVfx(), (float) monsters.monsters.stream().mapToDouble(m -> m.drawX).average().orElse(Settings.WIDTH)), duration));
-			this.addToBot(new UnstableBombAction(AbstractDungeon.getMonsters().getRandomMonster(true), this.damage, this.damage, this.counter));
+			this.addToBot(new UnstableBombAction(MarisaHelpers.getRandomMonster(), this.damage, this.damage, this.counter));
 		}
 	}
 

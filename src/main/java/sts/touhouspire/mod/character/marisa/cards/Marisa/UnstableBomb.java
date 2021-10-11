@@ -11,6 +11,7 @@ import sts.touhouspire.mod.character.marisa.abstracts.AmplifiedAttack;
 import sts.touhouspire.mod.character.marisa.action.UnstableBombAction;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class UnstableBomb extends AmplifiedAttack {
 
@@ -48,7 +49,7 @@ public class UnstableBomb extends AmplifiedAttack {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(
 				new UnstableBombAction(
-						AbstractDungeon.getMonsters().getRandomMonster(true),
+						MarisaHelpers.getRandomMonster(),
 						this.damage,
 						this.block,
 						4
