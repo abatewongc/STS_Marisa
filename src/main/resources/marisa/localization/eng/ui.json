@@ -1,0 +1,12 @@
+{
+  "Marisa:DeadBranchReplacement": {
+    "TEXT": [
+      "Don't replace Dead Branch?"
+    ]
+  },
+  "Marisa:EnableBlackCatEventForAll": {
+    "TEXT": [
+      "Enable Black Cat event when playing other characters?"
+    ]
+  }
+}

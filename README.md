@@ -1,11 +1,12 @@
 # Slay the Spire Mod - Marisa
 
 ## Introduction ##
-This is a mod for [**Slay the Spire**](https://store.steampowered.com/app/646570/Slay_the_Spire/), which adds [**Marisa Kirisame**](https://en.touhouwiki.net/wiki/Kirisame_Marisa) from Touhou Project as a playable character.<br>
-Like many other mods,this mod needs [BaseMod](https://github.com/daviscook477/BaseMod/releases) and [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases) to work.
+This is a mod for [**Slay the Spire**](https://store.steampowered.com/app/646570/Slay_the_Spire/), which adds [**Marisa Kirisame**](https://en.touhouwiki.net/wiki/Kirisame_Marisa) from the Touhou Project as a playable character.<br>
+Like many other mods, this mod needs [BaseMod](https://github.com/daviscook477/BaseMod/releases) and [ModTheSpire](https://github.com/kiooeht/ModTheSpire/releases) to work.
 
 ## Content and Gameplay ##
-(I'll write this later...)
+
+This mod adds a new character, with all of the bells and whistles that normally entails - cards, relics, and even new encounters and events.
 
 ## Usage ##
 ### Download ###
@@ -16,7 +17,7 @@ Like many other mods,this mod needs [BaseMod](https://github.com/daviscook477/Ba
 1. Unzip `ModTheSpire.zip`,copy `ModTheSpire.jar` to your Slay the Spire install directory.
     * For Windows, copy `MTS.cmd` to your Slay the Spire install directory.
     * For Linux, copy `MTS.sh` to your Slay the Spire install directory and make it executable.
-2. Create a `mods` directory. Place `basemod.jar` and `TS05_Marisa.jar` into the `mods` directory.
+2. Create a `mods` directory. Place `basemod.jar` and `Marisa.jar` into the `mods` directory.
 ### Running Mods ###
 1. Run ModTheSpire.
     * For Windows, run `MTS.cmd`.
@@ -32,6 +33,7 @@ Like many other mods,this mod needs [BaseMod](https://github.com/daviscook477/Ba
   * Samsara (https://www.pixiv.net/member.php?id=5365310): character concept art,card illustrations and relic icons
   * Kishin : playtesting and gameplay consultation
   * Flynn (https://github.com/lf201014) : programming and project management
+  * Aleosiss: 2021 update, refactor, and updated english localization
 ### Special Thanks ###
   * Rakkis157 (https://github.com/Rakkis157) : generously offering help and making great improvement to the English text
   * Dustin (https://github.com/Skrelpoid) : generously offering help and making great improvement to the English text
@@ -39,7 +41,7 @@ Like many other mods,this mod needs [BaseMod](https://github.com/daviscook477/Ba
   * Gogo (https://github.com/Gogomoe): programming consultation
   * BlackRuse (https://github.com/lionpkqq) : programming consultation
   * Hoykj (https://github.com/HOYKJ) : programming consultation
-  * 胡又天 () : funder and leader of the Touhou Spire Group,making many things possible to happen
+  * 胡又天 () : funder and leader of the Touhou Spire Group, making many things possible to happen
   * And other members Touhou Spire Group : helping me more than one way
 
 ## See Also ##
@@ -53,5 +55,5 @@ Other mod by the members of Touhou Spire Group:
   * [Yuyuko](https://github.com/Gogomoe/YuyukoMod) : mod of Saigyouji Yuyuko
   
 Strongly Recommended:
-  * [SuperFastMode](https://github.com/Skrelpoid/SuperFastMode) : speeding up the game,making the gameplay lightning fast
+  * [SuperFastMode](https://github.com/Skrelpoid/SuperFastMode) : speeding up the game, making the gameplay lightning fast
   * [BetterRewardsMod](https://github.com/Skrelpoid/BetterRewardsMod) : adding a choice at Neow that reward you depending on the score of your last run

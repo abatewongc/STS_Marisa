@@ -1,0 +1,287 @@
+{
+  "Marisa:DarkMatterPower": {
+    "NAME": "ダークマター",
+    "DESCRIPTIONS": [
+      "このターン  #yダークマター  をプレイすることはできない。",
+      ""
+    ]
+  },
+  "Marisa:ExtraDraw": {
+    "NAME": "エスケープベロシティ",
+    "DESCRIPTIONS": [
+      "ターン開始時、カード 2 #b",
+      " 枚を引き、 #y火傷  #b",
+      " 枚を手札に加える。"
+    ]
+  },
+  "Marisa:EventHorizonPower": {
+    "NAME": "イベントホライズン",
+    "DESCRIPTIONS": [
+      "1 ターンに #b",
+      "回 増幅効果を使用するたび、 捨て札の アタック を 手札に戻す。",
+      "( 残り回数: ",
+      " )"
+    ]
+  },
+  "Marisa:IllusionStarPower": {
+    "NAME": "イリュージョンスター",
+    "DESCRIPTIONS": [
+      "ターン開始時、 手札の #b",
+      " 枚のカードを 変化 する。."
+    ]
+  },
+  "Marisa:MilliPulsaPower": {
+    "NAME": "ミリ秒パルサー",
+    "DESCRIPTIONS": [
+      " #y増幅 効果の  [E]  が不要になる。",
+      ""
+    ]
+  },
+  "Marisa:SatellIllusPower": {
+    "NAME": "サテライトイリュージョン",
+    "DESCRIPTIONS": [
+      "デッキに存在しないカードをプレイするたび、 カードを #b",
+      " 枚引く。"
+    ]
+  },
+  "Marisa:TempStrength": {
+    "NAME": "一時的な筋力",
+    "DESCRIPTIONS": [
+      "次に与えるダメージに #b",
+      " を追加。"
+    ]
+  },
+  "Marisa:TempStrengthLoss": {
+    "NAME": "一時的な筋力喪失",
+    "DESCRIPTIONS": [
+      "このターンの 与えるダメージが #b",
+      " 低下。"
+    ]
+  },
+  "Marisa:ExtraEnergyPower": {
+    "NAME": "余分なエネルギー",
+    "DESCRIPTIONS": [
+      "毎ターン",
+      " [E]を得る。"
+    ]
+  },
+  "Marisa:ChargeUpPower": {
+    "NAME": "チャージ",
+    "DESCRIPTIONS": [
+      "#b",
+      " スタックの #yチャージ がある ",
+      "#b",
+      " 倍のダメージを与える。"
+    ]
+  },
+  "Marisa:PolarisUniquePower": {
+    "NAME": "ガイディングスター",
+    "DESCRIPTIONS": [
+      " #yガイディングスター が山札にある場合, ターン開始時に [E] を得る。"
+    ]
+  },
+  "Marisa:OrrerysSunPower": {
+    "NAME": "オーレリーズサン",
+    "DESCRIPTIONS": [
+      "チャージ が使用されるたび、敵全体に  #b",
+      " ダメージを与える。"
+    ]
+  },
+  "Marisa:Charged": {
+    "NAME": "チャージ!",
+    "DESCRIPTIONS": [
+      "次の攻撃は、  #b",
+      " 倍のダメージを与える。"
+    ]
+  },
+  "Marisa:BlazeAwayPower": {
+    "NAME": "ブレイズアウェイ",
+    "DESCRIPTIONS": [
+      "次に使用する アタック の複製 #b",
+      " 枚を手札に加える。"
+    ]
+  },
+  "Marisa:MPPower": {
+    "NAME": "マックスパワー",
+    "DESCRIPTIONS": [
+      "このターン、与えるダメージ  #b",
+      " 倍。"
+    ]
+  },
+  "Marisa:EnergyFlowPower": {
+    "NAME": "エナジーフロー",
+    "DESCRIPTIONS": [
+      "ターン終了時、 #yチャージ #b",
+      " を得る"
+    ]
+  },
+  "Marisa:PulseMagicPower": {
+    "NAME": "パルスマジック",
+    "DESCRIPTIONS": [
+      "このターン、 #y増幅 効果に  [E]  は不要。",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:SingularityPower": {
+    "NAME": "シンギュラリティ",
+    "DESCRIPTIONS": [
+      "コストが #b0 のカードを使用するたび、手札のランダムな #yアタック のダメージを #b",
+      " 増加する。"
+    ]
+  },
+  "Marisa:WitchOfGreedGold": {
+    "NAME": "魔女の強欲",
+    "DESCRIPTIONS": [
+      "戦闘終了時、  #b",
+      " ゴールドを得る。 "
+    ]
+  },
+  "Marisa:WitchOfGreedPotion": {
+    "NAME": "魔女の強欲",
+    "DESCRIPTIONS": [
+      "戦闘終了時、  #b",
+      " ゴールドと、ランダムなポーションを得る。"
+    ]
+  },
+  "Marisa:OneTimeOffPlusPower": {
+    "NAME": "1回休み",
+    "DESCRIPTIONS": [
+      "このターン、 #y増幅 効果を使用したり、 #yチャージ を消費する事ができない。",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:OneTimeOffPower": {
+    "NAME": "1回休み",
+    "DESCRIPTIONS": [
+      "このターン、 #y増幅 効果を使用する事ができない。",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:SuperNovaPower": {
+    "NAME": "スーパーノヴァ",
+    "DESCRIPTIONS": [
+      "#y火傷 を #y廃棄 するたび、 #y筋力  #b",
+      "#y呪い や #y状態異常 を #y廃棄 するたび、 #y筋力  #b",
+      "を得る。 #y火傷 によるダメージを受けなくなる。 . NL ターン終了時手札を #y廃棄 する。"
+    ]
+  },
+  "Marisa:CasketOfStarPlusPower": {
+    "NAME": "星の器",
+    "DESCRIPTIONS": [
+      " #yブロック を得るたび、 #yスパーク #y+ を #b",
+      " 枚手札に加える。"
+    ]
+  },
+  "Marisa:CasketOfStarPower": {
+    "NAME": "星の器",
+    "DESCRIPTIONS": [
+      " #yブロック を得るたび、 #yスパーク を #b",
+      " 枚手札に加える。"
+    ]
+  },
+  "Marisa:GalacticHaloPower": {
+    "NAME": "ギャラクティックハロー",
+    "DESCRIPTIONS": [
+      " このターンにプレイした #yアタック の枚数分 #b",
+      " #yブロック を得る。"
+    ]
+  },
+  "Marisa:ManaRampagePower": {
+    "NAME": "魔力暴走",
+    "DESCRIPTIONS": [
+      "次にプレイする #yアタック を、 #b",
+      " 回プレイする。 ."
+    ]
+  },
+  "Marisa:PropBagPower": {
+    "NAME": "携帯道具袋",
+    "DESCRIPTIONS": [
+      "戦闘終了時、  #y",
+      "を失う。"
+    ]
+  },
+  "Marisa:UltraShortWavePower": {
+    "NAME": "アルティメットショートウェーブ",
+    "DESCRIPTIONS": [
+      "アルティメットショートウェーブの効果が #b",
+      " 回 #y増幅 された。"
+    ]
+  },
+  "Marisa:DarkSparkPower": {
+    "NAME": "ダークスパーク",
+    "DESCRIPTIONS": [
+      "このターン、名前に スパーク と付くカードをプレイするたび、  #b",
+      " #yチャージ を付与する。"
+    ]
+  },
+  "Marisa:MagicChantPower": {
+    "NAME": "魔術詠唱",
+    "DESCRIPTIONS": [
+      "コストを削減  #b",
+      " 次のターン"
+    ]
+  },
+  "Marisa:SatelIllusPower": {
+    "NAME": "サテライトイリュージョン",
+    "DESCRIPTIONS": [
+      "プレイヤーのターン中、山札のカードが増加するたび #b",
+      " [E] を得る。"
+    ]
+  },
+  "Marisa:GrandCrossPower": {
+    "NAME": "グランドクロス",
+    "DESCRIPTIONS": [
+      "このターン #y増幅 を使用しました",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:Diaspora": {
+    "NAME": "ディアスポラ",
+    "DESCRIPTIONS": [
+      "ターン終了時に、体力が #b",
+      "以下の時、即死する。"
+    ]
+  },
+  "Marisa:TalismanPower": {
+    "NAME": "5色のタリスマン",
+    "DESCRIPTIONS": [
+      "ターン開始時、 #b",
+      " ランダムな #yスキル を手札に加える。"
+    ]
+  },
+  "Marisa:Wraith": {
+    "NAME": "レイス",
+    "DESCRIPTIONS": [
+      "ターン開始時、 手札のランダムなカード #b1 枚を #y廃棄 する。",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:LimboContact": {
+    "NAME": "アンデッドコンタクト",
+    "DESCRIPTIONS": [
+      "この敵からダメージを受けるたび、 #yレイス 1 を得る。",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "Marisa:Nebula": {
+    "NAME": "ネビュラ",
+    "DESCRIPTIONS": [
+      "ブロック を失うたび、 プレートアーマー ",
+      " を得る。"
+    ]
+  },
+  "Marisa:InfernoClaw": {
+    "NAME": "Inferno Claw",
+    "DESCRIPTIONS": [
+      "Whenever you receive attack damage from this enemy, add a #yBurn into your draw pile.",
+      "WWWWWWWWWWW"
+    ]
+  },
+  "WWWWWWWWWWWWW": {
+    "NAME": "WWWWWWWWWWW",
+    "DESCRIPTIONS": [
+      "WWWWWWWWWWW",
+      "WWWWWWWWWWW"
+    ]
+  }
+}

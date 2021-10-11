@@ -1,13 +1,13 @@
 {
   "cards": {
-    "6A": [
+    "Marisa:Rebound": [
       {
         "x": 134.50003,
         "y": 231.0,
         "size": 13.829317
       }
     ],
-    "OpenUniverse": [
+    "Marisa:OpenUniverse": [
       {
         "x": 358.00003,
         "y": 216.0,
@@ -19,7 +19,7 @@
         "size": 17.55705
       }
     ],	
-    "GrandCross": [
+    "Marisa:GrandCross": [
       {
         "x": 244.00003,
         "y": 244.5,
@@ -31,7 +31,7 @@
         "size": 10.062305
       }
     ],
-    "IllusionStar": [
+    "Marisa:IllusionStar": [
       {
         "x": 260.50003,
         "y": 144.0,
@@ -43,7 +43,7 @@
         "size": 71.11962
       }
     ],
-    "UpSweep": [
+    "Marisa:UpSweep": [
       {
         "x": 320.50003,
         "y": 87.0,
@@ -55,7 +55,7 @@
         "size": 25.0
       }
     ],
-	"AlicesGift": [
+	"Marisa:AlicesGift": [
       {
         "x": 203.50003,
         "y": 276.0,
@@ -67,7 +67,7 @@
         "size": 13.829317
       }
     ],
-    "CasketOfStar": [
+    "Marisa:CasketOfStar": [
       {
         "x": 272.50003,
         "y": 288.0,
@@ -79,7 +79,7 @@
         "size": 17.492855
       }
     ],
-    "ChargeUpSpray": [
+    "Marisa:ChargeUpSpray": [
       {
         "x": 160.00003,
         "y": 309.0,
@@ -91,7 +91,7 @@
         "size": 10.062305
       }
     ],
-    "EarthLightRay": [
+    "Marisa:EarthLightRay": [
       {
         "x": 206.50003,
         "y": 241.5,
@@ -103,14 +103,14 @@
         "size": 14.150971
       }
     ],
-    "EnergyFlow": [
+    "Marisa:EnergyFlow": [
       {
         "x": 161.50003,
         "y": 244.5,
         "size": 12.0
       }
     ],
-    "EscapeVelocity": [
+    "Marisa:EscapeVelocity": [
       {
         "x": 277.00003,
         "y": 238.5,
@@ -137,14 +137,14 @@
         "size": 8.485281
       }
     ],
-    "EventHorizon": [
+    "Marisa:EventHorizon": [
       {
         "x": 163.00003,
         "y": 282.0,
         "size": 12.903488
       }
     ],
-    "FairyDestructionRay": [
+    "Marisa:FairyDestructionRay": [
       {
         "x": 278.50003,
         "y": 111.0,
@@ -161,7 +161,7 @@
         "size": 9.0
       }
     ],
-    "GalacticHalo": [
+    "Marisa:GalacticHalo": [
       {
         "x": 344.50003,
         "y": 297.0,
@@ -173,7 +173,7 @@
         "size": 15.0
       }
     ],
-    "GasGiant": [
+    "Marisa:GasGiant": [
       {
         "x": 187.00003,
         "y": 234.0,
@@ -185,14 +185,14 @@
         "size": 25.0
       }
     ],
-    "JA": [
+    "Marisa:WarmingUp": [
       {
         "x": 247.00003,
         "y": 220.5,
         "size": 15.0
       }
     ],
-    "LuminesStrike": [
+    "Marisa:LuminesStrike": [
       {
         "x": 379.00003,
         "y": 258.0,
@@ -204,7 +204,7 @@
         "size": 7.5
       }
     ],
-    "MagicChant": [
+    "Marisa:MagicChant": [
       {
         "x": 182.50003,
         "y": 223.5,
@@ -216,7 +216,7 @@
         "size": 25.0
       }
     ],
-    "ManaRampage": [
+    "Marisa:ManaRampage": [
       {
         "x": 293.50003,
         "y": 205.5,
@@ -228,7 +228,7 @@
         "size": 25.0
       }
     ],
-    "MillisecondPulsars": [
+    "Marisa:MillisecondPulsars": [
       {
         "x": 237.3499,
         "y": 111.62813,
@@ -240,7 +240,7 @@
         "size": 11.332029
       }
     ],
-    "MysteriousBeam": [
+    "Marisa:MysteriousBeam": [
       {
         "x": 208.00003,
         "y": 291.0,
@@ -252,7 +252,7 @@
         "size": 16.970562
       }
     ],
-    "OneTimeOff": [
+    "Marisa:OneTimeOff": [
       {
         "x": 128.50003,
         "y": 253.5,
@@ -264,14 +264,14 @@
         "size": 15.074814
       }
     ],
-    "OortCloud": [
+    "Marisa:OortCloud": [
       {
         "x": 233.50003,
         "y": 273.0,
         "size": 7.5
       }
     ],
-    "OrrerysSun": [
+    "Marisa:OrrerysSun": [
       {
         "x": 110.50003,
         "y": 316.5,
@@ -313,7 +313,7 @@
         "size": 25.0
       }
     ],
-    "PulseMagic": [
+    "Marisa:PulseMagic": [
       {
         "x": 272.50003,
         "y": 280.5,
@@ -325,7 +325,7 @@
         "size": 12.903488
       }
     ],
-    "Robbery": [
+    "Marisa:Robbery": [
       {
         "x": 124.00003,
         "y": 205.5,
@@ -347,7 +347,7 @@
         "size": 18.309834
       }
     ],
-    "SprinkleStarSeal": [
+    "Marisa:SprinkleStarSeal": [
       {
         "x": 128.50003,
         "y": 154.5,
@@ -359,7 +359,7 @@
         "size": 25.0
       }
     ],
-    "StarBarrage": [
+    "Marisa:StarBarrage": [
       {
         "x": 224.50003,
         "y": 187.5,
@@ -371,7 +371,7 @@
         "size": 23.43075
       }
     ],
-    "StarDustReverie": [
+    "Marisa:StarDustReverie": [
       {
         "x": 232.00003,
         "y": 235.5,
@@ -383,7 +383,7 @@
         "size": 15.443445
       }
     ],
-    "WitchOfGreed": [
+    "Marisa:WitchOfGreed": [
       {
         "x": 284.50003,
         "y": 253.5,
