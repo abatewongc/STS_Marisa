@@ -63,7 +63,7 @@ public class ChargeUpPower extends AbstractPower {
 			this.description =
 					(
 							DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1]
-									+ "," + DESCRIPTIONS[2] + (int) Math.pow(2, this.numberOfCharges) + DESCRIPTIONS[3]
+									+ ", " + DESCRIPTIONS[2] + (int) Math.pow(2, this.numberOfCharges) + DESCRIPTIONS[3]
 					);
 		} else {
 			this.description = (DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + ".");

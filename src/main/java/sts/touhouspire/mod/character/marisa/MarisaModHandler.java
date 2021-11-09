@@ -1,5 +1,6 @@
 package sts.touhouspire.mod.character.marisa;
 
+import Gensokyo.cards.MarisaTwilightSpark;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -8,6 +9,7 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
@@ -43,7 +45,10 @@ import sts.touhouspire.mod.character.marisa.potions.StarNLove;
 import sts.touhouspire.mod.character.marisa.relics.*;
 import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
+import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
+import java.security.AccessController;
+import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -77,6 +82,8 @@ public class MarisaModHandler implements
 	public static boolean isCatEventEnabled;
 	public static boolean isDeadBranchEnabled;
 
+	private static final boolean isGensokyoEnabled = Loader.isModLoaded("Gensokyo");
+
 	private final Properties marisaModDefaultProperties = new Properties();
 
 	@SuppressWarnings("unused") // SpireInitializer
@@ -106,6 +113,12 @@ public class MarisaModHandler implements
 
 	private void constructColors() {
 		BaseMod.addColor(AbstractCardEnum.MARISA_COLOR,
+				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
+				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
+				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
+		);
+
+		BaseMod.addColor(AbstractCardEnum.MARISA_DERIVATIONS,
 				Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT, Constants.STARLIGHT,
 				Constants.ATTACK_CC, Constants.SKILL_CC, Constants.POWER_CC, Constants.ENERGY_ORB_CC, Constants.ATTACK_CC_PORTRAIT, Constants.SKILL_CC_PORTRAIT,
 				Constants.POWER_CC_PORTRAIT, Constants.ENERGY_ORB_CC_PORTRAIT, Constants.CARD_ENERGY_ORB
@@ -257,20 +270,27 @@ public class MarisaModHandler implements
 		addEvents();
 		addPotions();
 		addMonsters();
+		addCompatibility();
 
 		final Texture badge = ImageMaster.loadImage(Constants.MOD_BADGE);
 		BaseMod.registerModBadge(
 				badge,
 				"Marisa",
-				"Flynn, Hell, Hohner_257, Samsara, Aleosiss",
+				"Flynn, Hell, Hohner_257, Samsara",
 				"The poor blonde girl from the Touhou Project",
 				settingsPanel
 		);
 	}
 
+	private void addCompatibility() {
+		if(isGensokyoEnabled) {
+
+		}
+	}
+
 	private ModPanel addModPanel() {
-		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString("Marisa:DeadBranchReplacement");
-		UIStrings blackCatEventForAllUI = CardCrawlGame.languagePack.getUIString("Marisa:EnableBlackCatEventForAll");
+		UIStrings deadBranchReplacementUI = CardCrawlGame.languagePack.getUIString(MarisaHelpers.makeID("DeadBranchReplacement"));
+		UIStrings blackCatEventForAllUI = CardCrawlGame.languagePack.getUIString(MarisaHelpers.makeID("EnableBlackCatEventForAll"));
 
 		final ModPanel settingsPanel = new ModPanel();
 		final ModLabeledToggleButton enableBlackCatButton =
@@ -286,7 +306,7 @@ public class MarisaModHandler implements
 						button -> {
 							isCatEventEnabled = button.enabled;
 							try {
-								final SpireConfig config = new SpireConfig("MarisaMod", "MarisaModCongfig", marisaModDefaultProperties);
+								final SpireConfig config = new SpireConfig("MarisaMod", "MarisaModConfig", marisaModDefaultProperties);
 								config.setBool("enablePlaceholder", isCatEventEnabled);
 								config.save();
 							} catch (Exception e) {

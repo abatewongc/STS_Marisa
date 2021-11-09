@@ -48,6 +48,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="BaseMod" level="project" />
+    <orderEntry type="library" name="Gensokyo" level="project" />
     <orderEntry type="module-library">
       <library name="Maven: com.megacrit.cardcrawl:slaythespire:906">
         <CLASSES>
@@ -70,6 +71,15 @@
       <library name="Maven: com.evacipated.cardcrawl:ModTheSpire:3.1.0">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/ModTheSpire.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: gensokyo:Gensokyo:4.0.0">
+        <CLASSES>
+          <root url="jar://W:/SteamLibrary/steamapps/workshop/content/646570/1943540698/Gensokyo.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

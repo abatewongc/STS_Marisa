@@ -6,6 +6,11 @@
   <version>v0.16.0</version>
   <packaging>jar</packaging>
 
+  <properties>
+    <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
+    <Steam.path>W:/SteamLibrary/steamapps</Steam.path>
+    <Steam.sts_id>646570</Steam.sts_id>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -28,6 +33,20 @@
       <version>3.1.0</version>
       <scope>system</scope>
       <systemPath>${basedir}/lib/ModTheSpire.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.evacipated.cardcrawl</groupId>
+      <artifactId>ModTheSpire</artifactId>
+      <version>3.1.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/ModTheSpire.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>gensokyo</groupId>
+      <artifactId>Gensokyo</artifactId>
+      <version>4.0.0</version>
+      <scope>system</scope>
+      <systemPath>${Steam.path}/workshop/content/${Steam.sts_id}/1943540698/Gensokyo.jar</systemPath>
     </dependency>
   </dependencies>
 
@@ -52,9 +71,9 @@
             <phase>package</phase>
             <configuration>
               <target>
-                <copy file="target/Marisa.jar" tofile="../lib/Marisa.jar"/>
+                <copy file="target/Marisa.jar" tofile="../lib/TS05_Marisa.jar"/>
                 <copy file="target/Marisa.jar"
-                      tofile="W:/SteamLibrary/steamapps/workshop/content/646570/1614104912/Marisa.jar"/>
+                      tofile="${Steam.path}/workshop/content/${Steam.sts_id}/1614104912/TS05_Marisa.jar"/>
               </target>
             </configuration>
             <goals>
@@ -65,6 +84,6 @@
       </plugin>
     </plugins>
   </build>
-  <name>SL the Spire Touhou Mod By Flynn, Hell, Hohner_257, Samsara, and Aleosiss</name>
-  <description>A Mod of the poor blonde hair girl from Touhou Project(</description>
+  <name>Slay the Spire Touhou Mod By Flynn, Hell, Hohner_257, and Samsara</name>
+  <description>A Mod of the poor blonde girl from the Touhou Project</description>
 </project>
