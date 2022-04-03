@@ -10,7 +10,7 @@ import sts.touhouspire.mod.character.marisa.data.Identifiers;
 
 import java.util.ArrayList;
 
-public abstract class AmplifiedAttack extends MarisaCard {
+public abstract class AmplifiedAttack extends AmplifyCard {
 	private int ampDamage = -1;
 	protected int ampNumber = 0;
 	protected int[] multiAmpDamage;

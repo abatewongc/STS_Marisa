@@ -3,7 +3,7 @@
 
   <groupId>sts.touhouspire.mod.character</groupId>
   <artifactId>marisa</artifactId>
-  <version>v0.16.0</version>
+  <version>v0.16.1</version>
   <packaging>jar</packaging>
 
   <properties>
@@ -71,7 +71,7 @@
             <phase>package</phase>
             <configuration>
               <target>
-                <copy file="target/Marisa.jar" tofile="../lib/TS05_Marisa.jar"/>
+                <copy file="target/Marisa.jar" tofile="target/lib/TS05_Marisa.jar"/>
                 <copy file="target/Marisa.jar"
                       tofile="${Steam.path}/workshop/content/${Steam.sts_id}/1614104912/TS05_Marisa.jar"/>
               </target>

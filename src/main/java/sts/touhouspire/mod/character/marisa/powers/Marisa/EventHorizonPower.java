@@ -9,16 +9,17 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import sts.touhouspire.mod.character.marisa.MarisaModHandler;
+import sts.touhouspire.mod.character.marisa.abstracts.OnAmplifySubscriber;
 import sts.touhouspire.mod.character.marisa.action.DiscToHandATKOnly;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 
-public class EventHorizonPower extends AbstractPower {
+public class EventHorizonPower extends AbstractPower implements OnAmplifySubscriber {
 
 	public static final String POWER_ID = Identifiers.Powers.EVENT_HORIZON;
 	private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
 	public static final String NAME = powerStrings.NAME;
 	public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-	private int cnt;
+	private int count;
 
 	public EventHorizonPower(AbstractCreature owner, int amount) {
 		this.name = NAME;
@@ -27,39 +28,39 @@ public class EventHorizonPower extends AbstractPower {
 		this.amount = amount;
 		this.type = AbstractPower.PowerType.BUFF;
 		this.img = new Texture("marisa/img/powers/eventHorizon.png");
-		this.cnt = amount;
+		this.count = amount;
 		updateDescription();
 	}
 
 	public void atStartOfTurnPostDraw() {
-		this.cnt = this.amount;
+		this.count = this.amount;
 		updateDescription();
 	}
 
 	public void stackPower(int stackAmount) {
 		super.stackPower(stackAmount);
-		this.cnt += stackAmount;
+		this.count += stackAmount;
 		updateDescription();
 	}
 
 	public void onSpecificTrigger() {
-		MarisaModHandler.logger.info("EventHorizonPower : Checking ; counter : " + this.cnt);
-		if (this.cnt <= 0) {
+		MarisaModHandler.logger.info("EventHorizonPower : Checking ; counter : " + this.count);
+		if (this.count <= 0) {
 			return;
 		}
 
 		MarisaModHandler.logger.info("EventHorizonPower : Action");
-		AbstractPlayer p = AbstractDungeon.player;
-		if (!p.discardPile.isEmpty()) {
+		AbstractPlayer player = AbstractDungeon.player;
+		if (!player.discardPile.isEmpty()) {
 			flash();
 			AbstractDungeon.actionManager.addToBottom(
 					new DiscToHandATKOnly(1)
 			);
-			this.cnt--;
+			this.count--;
 			updateDescription();
 		}
 
-		MarisaModHandler.logger.info("EventHorizonPower : Done ; counter : " + this.cnt);
+		MarisaModHandler.logger.info("EventHorizonPower : Done ; counter : " + this.count);
 	}
 
 	public void updateDescription() {
@@ -68,9 +69,14 @@ public class EventHorizonPower extends AbstractPower {
 						+ this.amount
 						+ DESCRIPTIONS[1]
 						+ DESCRIPTIONS[2]
-						+ this.cnt
+						+ this.count
 						+ DESCRIPTIONS[3]
 		);
+	}
+
+	@Override
+	public void amplify() {
+		this.onSpecificTrigger();
 	}
 
 }

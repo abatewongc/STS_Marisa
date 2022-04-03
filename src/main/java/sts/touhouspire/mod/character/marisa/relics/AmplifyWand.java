@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import basemod.abstracts.CustomRelic;
+import sts.touhouspire.mod.character.marisa.abstracts.OnAmplifySubscriber;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 
-public class AmplifyWand extends CustomRelic {
+public class AmplifyWand extends CustomRelic implements OnAmplifySubscriber {
 
 	public static final String ID = Identifiers.Relics.AMPLIFY_WAND;
 	private static final String IMG = "marisa/img/relics/AmplifyWand_s.png";
@@ -32,5 +33,10 @@ public class AmplifyWand extends CustomRelic {
 		this.flash();
 		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK_AMOUNT));
+	}
+
+	@Override
+	public void amplify() {
+		this.onTrigger();
 	}
 }
