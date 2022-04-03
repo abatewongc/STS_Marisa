@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.powers.FlightPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.powers.SlowPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import sts.touhouspire.mod.character.marisa.utils.CompatibilityUtils;
 
 public class SummonFairyAction
 		extends AbstractGameAction {
@@ -59,19 +60,8 @@ public class SummonFairyAction
 					AbstractDungeon.actionManager.addToTop(
 							new ApplyPowerAction(monster, monster, new FlightPower(monster, 99))
 					);
-					if (AbstractDungeon.player.hasRelic(Identifiers.Relics.PHILO_STONE)) {
-						monster.addPower(new StrengthPower(monster, 1));
-					}
-					if (ModHelper.isModEnabled(Identifiers.Mods.LETHALITY)) {
-						AbstractDungeon.actionManager.addToBottom(
-								new ApplyPowerAction(monster, monster, new StrengthPower(monster, 3), 3)
-						);
-					}
-					if (ModHelper.isModEnabled(Identifiers.Mods.TIME_DILATION)) {
-						AbstractDungeon.actionManager.addToBottom(
-								new ApplyPowerAction(monster, monster, new SlowPower(monster, 0))
-						);
-					}
+					CompatibilityUtils.addPhiloStoneToMonster(monster);
+					CompatibilityUtils.addModPowersToMonster(monster);
 					logger.info("SummonFairyAction : done reviving Fairy;");
 					this.isDone = true;
 					return;
