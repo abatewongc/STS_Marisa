@@ -43,13 +43,13 @@ public class ChargingUp extends MarisaCard {
 		this.exhaust = true;
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
+	public void use(AbstractPlayer player, AbstractMonster monster) {
 		int stack = this.magicNumber;
 		AbstractDungeon.actionManager.addToBottom(
 				new ApplyPowerAction(
-						p,
-						p,
-						new ChargeUpPower(p, stack),
+						player,
+						player,
+						new ChargeUpPower(player, stack),
 						stack
 				)
 		);

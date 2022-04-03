@@ -24,6 +24,10 @@ public abstract class AmplifiedAttack extends MarisaCard {
 
 	@Override
 	public void applyPowers() {
+		amplify();
+	}
+
+	private void amplify() {
 		if (!this.isException) {
 			this.damage = this.baseDamage;
 			this.ampDamage = (this.baseDamage + this.ampNumber);
@@ -39,14 +43,7 @@ public abstract class AmplifiedAttack extends MarisaCard {
 		tmp = calculate(tmp, null);
 		amp = calculate(amp, null);
 
-		if (this.baseDamage != (int) tmp) {
-			this.isDamageModified = true;
-		}
-		if (this.ampDamage != (int) amp) {
-			this.isBlockModified = true;
-		}
-		this.damage = MathUtils.floor(tmp);
-		this.block = MathUtils.floor(amp);
+		modifyDamage(tmp, amp);
 
 		if (this.isMultiDamage) {
 			ArrayList<AbstractMonster> monsters = AbstractDungeon.getCurrRoom().monsters.monsters;
@@ -106,14 +103,7 @@ public abstract class AmplifiedAttack extends MarisaCard {
 			float amp = this.block;
 			tmp = calculate(tmp, mo);
 			amp = calculate(amp, mo);
-			if (this.baseDamage != (int) tmp) {
-				this.isDamageModified = true;
-			}
-			if (this.ampDamage != (int) amp) {
-				this.isBlockModified = true;
-			}
-			this.damage = MathUtils.floor(tmp);
-			this.block = MathUtils.floor(amp);
+			modifyDamage(tmp, amp);
 		} else {
 			ArrayList<AbstractMonster> m = AbstractDungeon.getCurrRoom().monsters.monsters;
 			float[] tmp = new float[m.size()];
@@ -139,5 +129,16 @@ public abstract class AmplifiedAttack extends MarisaCard {
 			this.damage = this.multiDamage[0];
 			this.block = this.multiAmpDamage[0];
 		}
+	}
+
+	private void modifyDamage(float tmp, float amp) {
+		if (this.baseDamage != (int) tmp) {
+			this.isDamageModified = true;
+		}
+		if (this.ampDamage != (int) amp) {
+			this.isBlockModified = true;
+		}
+		this.damage = MathUtils.floor(tmp);
+		this.block = MathUtils.floor(amp);
 	}
 }

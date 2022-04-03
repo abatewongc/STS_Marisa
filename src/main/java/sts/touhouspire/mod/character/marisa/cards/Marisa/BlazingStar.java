@@ -41,10 +41,10 @@ public class BlazingStar extends AmplifiedAttack {
 
 	@Override
 	public void applyPowers() {
-		AbstractPlayer p = AbstractDungeon.player;
+		AbstractPlayer player = AbstractDungeon.player;
 		this.block = this.baseDamage;
-		for (AbstractCard c : p.hand.group) {
-			if ((c instanceof Burn)) {
+		for (AbstractCard card : player.hand.group) {
+			if ((card instanceof Burn)) {
 				this.block += this.magicNumber;
 			}
 		}

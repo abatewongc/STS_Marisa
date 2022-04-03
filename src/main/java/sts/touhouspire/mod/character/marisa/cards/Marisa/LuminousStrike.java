@@ -74,7 +74,6 @@ public class LuminousStrike extends AmplifiedAttack {
 
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-
 		if (AmplifyUtils.Amplified(this, AMP)) {
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(

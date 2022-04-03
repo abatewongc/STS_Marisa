@@ -1,5 +1,6 @@
 package sts.touhouspire.mod.character.marisa.cards.Marisa;
 
+import sts.touhouspire.mod.character.marisa.abstracts.AmplifyCard;
 import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
 import sts.touhouspire.mod.character.marisa.action.DrawDrawPileAction;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
@@ -11,7 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import sts.touhouspire.mod.character.marisa.utils.AmplifyUtils;
 
-public class Acceleration extends MarisaCard {
+public class Acceleration extends AmplifyCard {
 
 	public static final String ID = Identifiers.Cards.ACCELERATION;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -26,17 +27,19 @@ public class Acceleration extends MarisaCard {
 	private static final int AMP_UPG = 1;
 
 	public Acceleration() {
-		super(ID, NAME, IMG_PATH, COST, DESCRIPTION, AbstractCard.CardType.SKILL,
-				AbstractCardEnum.MARISA_COLOR, CardRarity.COMMON, AbstractCard.CardTarget.SELF);
+		super(ID, NAME, IMG_PATH, COST, DESCRIPTION,
+				AbstractCard.CardType.SKILL,
+				AbstractCardEnum.MARISA_COLOR,
+				CardRarity.COMMON,
+				AbstractCard.CardTarget.SELF);
 		this.magicNumber = this.baseMagicNumber = AMP;
 		this.block = this.baseBlock = DRAW;
 	}
 
 	@Override
-	protected void applyPowersToBlock() {
-	}
+	protected void applyPowersToBlock() {}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
+	public void use(AbstractPlayer player, AbstractMonster monster) {
 		for (int i = 0; i < this.block; i++) {
 			addToBot(new DrawDrawPileAction());
 		}
@@ -55,8 +58,6 @@ public class Acceleration extends MarisaCard {
 	public void upgrade() {
 		if (!this.upgraded) {
 			upgradeName();
-			//this.rawDescription = DESCRIPTION_UPG;
-			//initializeDescription();
 			upgradeMagicNumber(AMP_UPG);
 		}
 	}

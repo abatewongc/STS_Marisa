@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.combat.IceShatterEffect;
 
 public class FireProjectileEffect extends AbstractGameEffect {
-
 	public static final String PROJECTILE_IMPACT_SOUND_KEY = "ORB_FROST_EVOKE";
 	private ProjectileData projectile;
 	private float waitTimer;

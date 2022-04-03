@@ -18,9 +18,11 @@ import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
 import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 import sts.touhouspire.mod.character.marisa.vfx.CollectingQuirkEffect;
 
+import static sts.touhouspire.mod.character.marisa.data.Identifiers.*;
+
 public class CollectingQuirk extends MarisaCard {
 
-	public static final String ID = Identifiers.Cards.COLLECTING_QUIRK;
+	public static final String ID = Cards.COLLECTING_QUIRK;
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
 	public static final String NAME = cardStrings.NAME;
 	public static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -57,7 +59,7 @@ public class CollectingQuirk extends MarisaCard {
 	}
 
 	@Override
-	public void calculateCardDamage(AbstractMonster mo) {
+	public void calculateCardDamage(AbstractMonster monster) {
 		//super.calculateCardDamage(mo);
 		getNumberOfHits();
 		modifyBlock();
@@ -99,11 +101,11 @@ public class CollectingQuirk extends MarisaCard {
 		}
 
 		counter = player.relics.size();
-		if (player.hasRelic(Identifiers.Relics.CIRCLET)) {
-			counter += player.getRelic(Identifiers.Relics.CIRCLET).counter - 1;
+		if (player.hasRelic(Relics.CIRCLET)) {
+			counter += player.getRelic(Relics.CIRCLET).counter - 1;
 		}
-		if (player.hasRelic(Identifiers.Relics.RED_CIRCLET)) {
-			counter += player.getRelic(Identifiers.Relics.RED_CIRCLET).counter - 1;
+		if (player.hasRelic(Relics.RED_CIRCLET)) {
+			counter += player.getRelic(Relics.RED_CIRCLET).counter - 1;
 		}
 
 		counter /= divider;

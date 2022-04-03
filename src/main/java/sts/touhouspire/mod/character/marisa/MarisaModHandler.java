@@ -99,12 +99,16 @@ public class MarisaModHandler implements
 	private void constructConfiguration() {
 		setDefaultProperties();
 		try {
-			final SpireConfig config = new SpireConfig("Marisa", "marisaConfig", marisaModDefaultProperties);
+			final SpireConfig config = new SpireConfig(MOD_ID, "marisaConfig", marisaModDefaultProperties);
 			config.load();
-			isCatEventEnabled = config.getBool(Identifiers.Properties.IS_CAT_EVENT_ENABLED);
+			loadConfiguration(config);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void loadConfiguration(SpireConfig config) {
+		isCatEventEnabled = config.getBool(Identifiers.Properties.IS_CAT_EVENT_ENABLED);
 	}
 
 	private void setDefaultProperties() {
@@ -166,7 +170,7 @@ public class MarisaModHandler implements
 	@Override
 	public void receiveEditCards() {
 		logger.info("starting editing cards");
-		logger.info("adding cards for MARISA");
+		logger.info("adding cards for " + MOD_ID);
 		for (AbstractCard card : loadCardsToAdd()) {
 			logger.info("Adding card : " + card.name);
 			BaseMod.addCard(card);
@@ -383,7 +387,7 @@ public class MarisaModHandler implements
 	public static String makeLocalizedStringsPath(Settings.GameLanguage language, String resourcePath) {
 		String languageFolder = language.name().toLowerCase(Locale.ROOT);
 		String path = "marisa/localization/" + languageFolder + "/" + resourcePath;
-		logger.info("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
+		logger.debug("creating localized string path:" + MarisaModHandler.class.getClassLoader().getResource(path).getPath());
 		return path;
 	}
 
@@ -489,7 +493,6 @@ public class MarisaModHandler implements
 	}
 
 	/*
-
 
 
 ............................................................................................................................................

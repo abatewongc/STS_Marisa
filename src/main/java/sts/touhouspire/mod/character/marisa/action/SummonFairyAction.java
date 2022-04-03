@@ -77,7 +77,6 @@ public class SummonFairyAction
 					new SpawnFairyAction(COORDINATE[count][0], COORDINATE[count][1])
 			);
 		}
-		//AbstractDungeon.actionManager.addToTop(new FairyWraithAction());
 		this.isDone = true;
 	}
 }
