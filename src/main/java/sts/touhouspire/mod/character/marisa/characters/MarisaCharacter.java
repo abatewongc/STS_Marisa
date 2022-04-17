@@ -1,14 +1,6 @@
 package sts.touhouspire.mod.character.marisa.characters;
 
-import com.megacrit.cardcrawl.localization.CharacterStrings;
-import sts.touhouspire.mod.character.marisa.MarisaModHandler;
-import sts.touhouspire.mod.character.marisa.cards.Marisa.MasterSpark;
-import sts.touhouspire.mod.character.marisa.data.Constants;
-import sts.touhouspire.mod.character.marisa.data.Identifiers;
-import sts.touhouspire.mod.character.marisa.data.Identifiers.Cards;
-import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
-import sts.touhouspire.mod.character.marisa.patches.MarisaModClassEnum;
-import basemod.abstracts.CustomPlayer;
+import ThMod.characters.Marisa;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -24,16 +16,23 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import sts.touhouspire.mod.character.marisa.MarisaModHandler;
+import sts.touhouspire.mod.character.marisa.cards.Marisa.MasterSpark;
+import sts.touhouspire.mod.character.marisa.data.Constants;
+import sts.touhouspire.mod.character.marisa.data.Identifiers;
+import sts.touhouspire.mod.character.marisa.data.Identifiers.Cards;
+import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
+import sts.touhouspire.mod.character.marisa.patches.MarisaModClassEnum;
+import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 import java.util.ArrayList;
 
-import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-public class MarisaCharacter extends CustomPlayer {
+public class MarisaCharacter extends Marisa {
 
 	private static final int ENERGY_PER_TURN = 3; // how much energy you get every turn
 
@@ -43,7 +42,7 @@ public class MarisaCharacter extends CustomPlayer {
 	private static final int HAND_SIZE = 5;
 	private static final int ASCENSION_MAX_HP_LOSS = 5;
 
-	public ArrayList<String> getStartingDeck() { // starting deck 'nuff said
+	public ArrayList<String> getStartingDeck() {
 		ArrayList<String> deck = new ArrayList<>();
 		deck.add(Cards.STRIKE);
 		deck.add(Cards.STRIKE);

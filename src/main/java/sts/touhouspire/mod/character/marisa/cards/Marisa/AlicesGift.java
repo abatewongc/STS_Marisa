@@ -15,7 +15,6 @@ import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
 import sts.touhouspire.mod.character.marisa.utils.AmplifyUtils;
 
 public class AlicesGift extends MarisaCard {
-
 	public static final String ID = Identifiers.Cards.ALICES_GIFT;
 	public static final String IMG_PATH = "marisa/img/cards/GiftDoll_v2.png";
 	private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);

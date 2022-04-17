@@ -1,9 +1,9 @@
 package ThMod.characters;
 
-import sts.touhouspire.mod.character.marisa.characters.MarisaCharacter;
+import basemod.abstracts.CustomPlayer;
 
-public class Marisa extends MarisaCharacter {
-	public Marisa(String name) {
-		super(name);
+public abstract class Marisa extends CustomPlayer {
+	public Marisa(String name, PlayerClass playerClass, String[] orbTextures, String orbVfxPath, float[] layerSpeeds, String model, String animation) {
+		super(name, playerClass, orbTextures, orbVfxPath, layerSpeeds, model, animation);
 	}
 }

@@ -18,28 +18,21 @@
       <artifactId>slaythespire</artifactId>
       <version>906</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/desktop-1.0.jar</systemPath>
+      <systemPath>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>basemod</groupId>
       <artifactId>basemod</artifactId>
-      <version>3.2.2</version>
+      <version>5.0.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/BaseMod.jar</systemPath>
+      <systemPath>${Steam.path}/workshop/content/${Steam.sts_id}/1605833019/BaseMod.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>com.evacipated.cardcrawl</groupId>
-      <artifactId>ModTheSpire</artifactId>
+      <artifactId>modthespire</artifactId>
       <version>3.1.0</version>
       <scope>system</scope>
-      <systemPath>${basedir}/lib/ModTheSpire.jar</systemPath>
-    </dependency>
-    <dependency>
-      <groupId>com.evacipated.cardcrawl</groupId>
-      <artifactId>ModTheSpire</artifactId>
-      <version>3.1.0</version>
-      <scope>system</scope>
-      <systemPath>${basedir}/lib/ModTheSpire.jar</systemPath>
+      <systemPath>${Steam.path}/workshop/content/${Steam.sts_id}/1605060445/ModTheSpire.jar</systemPath>
     </dependency>
     <dependency>
       <groupId>gensokyo</groupId>

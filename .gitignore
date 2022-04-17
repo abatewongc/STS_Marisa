@@ -17,3 +17,5 @@ src/main/resources/marisa/img/char/Marisa/Marisa_2.7z
 lib/
 
 notes.txt
+
+*.iml

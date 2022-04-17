@@ -1,26 +1,21 @@
 package sts.touhouspire.mod.character.marisa.action;
 
 
-import static sts.touhouspire.mod.character.marisa.MarisaModHandler.logger;
-
-import sts.touhouspire.mod.character.marisa.data.Identifiers;
-import sts.touhouspire.mod.character.marisa.monsters.ZombieFairy;
-import sts.touhouspire.mod.character.marisa.powers.monsters.LimboContactPower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FlightPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
-import com.megacrit.cardcrawl.powers.SlowPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import sts.touhouspire.mod.character.marisa.monsters.ZombieFairy;
+import sts.touhouspire.mod.character.marisa.powers.monsters.LimboContactPower;
 import sts.touhouspire.mod.character.marisa.utils.CompatibilityUtils;
 
-public class SummonFairyAction
-		extends AbstractGameAction {
-
+public class SummonFairyAction extends AbstractGameAction {
+	public static final Logger logger = LogManager.getLogger(SummonFairyAction.class.getName());
 	private static final float pos0X = 210.0F;
 	private static final float pos0Y = 10.0F;
 	private static final float pos1X = -220.0F;
@@ -29,7 +24,7 @@ public class SummonFairyAction
 	private static final float pos2Y = 320.0F;
 	private static final float pos3X = -250.0F;
 	private static final float pos3Y = 310.0F;
-	private static final float COORDINATE[][] = {
+	private static final float[][] COORDINATE = {
 			{pos0X, pos0Y},
 			{pos1X, pos1Y},
 			{pos2X, pos2Y},
@@ -62,17 +57,17 @@ public class SummonFairyAction
 					);
 					CompatibilityUtils.addPhiloStoneToMonster(monster);
 					CompatibilityUtils.addModPowersToMonster(monster);
-					logger.info("SummonFairyAction : done reviving Fairy;");
+					logger.info("Done reviving Fairy");
 					this.isDone = true;
 					return;
 				}
-				logger.info("SummonFairyAction : Alive Fairy found, increasing counter;");
+				logger.info("Alive Fairy found, increasing counter;");
 				count++;
-				logger.info("SummonFairyAction : counter increased: " + count);
+				logger.info("Fairy counter increased: " + count);
 			}
 		}
 		if (count < 4) {
-			logger.info("SummonFairyAction : spawning Fairy;");
+			logger.info("Spawning Fairy");
 			AbstractDungeon.actionManager.addToTop(
 					new SpawnFairyAction(COORDINATE[count][0], COORDINATE[count][1])
 			);
