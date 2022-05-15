@@ -185,5 +185,6 @@ public class Identifiers {
 	public static class Mods extends Identifiers {
 		public static final String LETHALITY        = "Lethality";
 		public static final String TIME_DILATION    = "Time Dilation";
+        public static final String GENSOKYO = "Gensokyo";
     }
 }

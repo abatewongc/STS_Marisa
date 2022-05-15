@@ -1,6 +1,5 @@
 package sts.touhouspire.mod.character.marisa;
 
-import Gensokyo.cards.MarisaTwilightSpark;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -45,10 +44,7 @@ import sts.touhouspire.mod.character.marisa.potions.StarNLove;
 import sts.touhouspire.mod.character.marisa.relics.*;
 import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
-import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -81,8 +77,7 @@ public class MarisaModHandler implements
 	public static int typhoonCounter = 0;
 	public static boolean isCatEventEnabled;
 	public static boolean isDeadBranchEnabled;
-
-	private static final boolean isGensokyoEnabled = Loader.isModLoaded("Gensokyo");
+	private static final boolean isGensokyoEnabled = Loader.isModLoaded(Identifiers.Mods.GENSOKYO);
 
 	private final Properties marisaModDefaultProperties = new Properties();
 
@@ -287,9 +282,7 @@ public class MarisaModHandler implements
 	}
 
 	private void addCompatibility() {
-		if(isGensokyoEnabled) {
-
-		}
+		if(isGensokyoEnabled) {}
 	}
 
 	private ModPanel addModPanel() {
