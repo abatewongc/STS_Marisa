@@ -48,7 +48,7 @@ public class EarthLightRay extends MarisaCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		if (!p.discardPile.isEmpty()) {
-			if (AmplifyUtils.Amplified(this, AMP)) {
+			if (AmplifyUtils.Amplify(this, AMP)) {
 				if ((this.upgraded) && (!p.discardPile.isEmpty())) {
 					AbstractDungeon.actionManager.addToBottom(
 							new DiscardPileToHandAction(1)

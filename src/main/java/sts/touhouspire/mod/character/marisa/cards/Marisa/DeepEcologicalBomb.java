@@ -43,7 +43,7 @@ public class DeepEcologicalBomb extends MarisaCard {
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		int num = 1;
 
-		if (AmplifyUtils.Amplified(this, AMPLIFY_COST)) {
+		if (AmplifyUtils.Amplify(this, AMPLIFY_COST)) {
 			num++;
 		}
 		AbstractDungeon.actionManager.addToBottom(

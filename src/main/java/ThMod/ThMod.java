@@ -6,7 +6,7 @@ import sts.touhouspire.mod.character.marisa.utils.MarisaHelpers;
 
 public class ThMod {
     public static boolean Amplified(AbstractCard card, int cost) {
-        return AmplifyUtils.Amplified(card, cost);
+        return AmplifyUtils.Amplify(card, cost);
     }
 
     public static AbstractCard getRandomMarisaCard() {

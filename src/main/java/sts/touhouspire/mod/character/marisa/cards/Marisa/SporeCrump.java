@@ -42,7 +42,7 @@ public class SporeCrump extends MarisaCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
 				AbstractDungeon.actionManager.addToBottom(
 						new ApplyPowerAction(

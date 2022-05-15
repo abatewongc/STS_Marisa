@@ -75,7 +75,7 @@ public class EventHorizonPower extends AbstractPower implements OnAmplifySubscri
 	}
 
 	@Override
-	public void amplify() {
+	public void onAmplify() {
 		this.onSpecificTrigger();
 	}
 

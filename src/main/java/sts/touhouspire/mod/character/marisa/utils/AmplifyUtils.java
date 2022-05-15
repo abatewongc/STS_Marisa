@@ -4,33 +4,31 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import sts.touhouspire.mod.character.marisa.MarisaModHandler;
 import sts.touhouspire.mod.character.marisa.abstracts.OnAmplifySubscriber;
-import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.powers.Marisa.GrandCrossPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.List;
+
+import static sts.touhouspire.mod.character.marisa.data.Identifiers.*;
 
 public class AmplifyUtils {
 	public static final Logger logger = LogManager.getLogger(AmplifyUtils.class.getName());
 
-	public static boolean Amplified(AbstractCard card, int amplifyCost) {
+	public static boolean Amplify(AbstractCard card, int amplifyCost) {
 		logger.info("Attempting to amplify card: " + card.cardID + "; costForTurn: " + card.costForTurn);
 		AbstractPlayer player = AbstractDungeon.player;
 
-		AmplifyStatus amplifyStatus = canAmplify(card, amplifyCost, player);
-		if (amplifyStatus.isAmplified) {
-			amplify(card, amplifyStatus.isFree, amplifyCost, player);
+		AmplifyStatus as = canAmplify(card, amplifyCost, player);
+		if (as.isAmplified) {
+			amplify(card, as.isFree, amplifyCost, player);
 		}
 
-		logger.info("Amplifying Card: " + card.cardID + " ; Amplify : " + amplifyStatus.isAmplified + " ; costForTurn : " + card.costForTurn);
-		return amplifyStatus.isAmplified;
+		logger.info("Amplifying Card: " + card.cardID + " ; Amplify : " + as.isAmplified + " ; costForTurn : " + card.costForTurn);
+		return as.isAmplified;
 	}
 
 	private static class AmplifyStatus {
@@ -63,13 +61,13 @@ public class AmplifyUtils {
 	}
 
 	public static boolean amplifyBlocked(AbstractPlayer player) {
-		boolean blocked;
-		if (player.hasPower(Identifiers.Powers.ONE_TIME_OFF)) {
+		boolean blocked = false;
+		if (player.hasPower(Powers.ONE_TIME_OFF)) {
 			logger.info("OneTimeOff detected, blocking amplify.");
-			return true;
+			blocked = true || blocked;
 		}
 
-		return false;
+		return blocked;
 	}
 
 	private static void amplify(AbstractCard card, boolean amplifyIsFree, int amplifyCost, AbstractPlayer player) {
@@ -102,12 +100,12 @@ public class AmplifyUtils {
 		subscribers.stream()
 				.filter(obj -> obj instanceof OnAmplifySubscriber)
 				.map(obj -> (OnAmplifySubscriber)obj)
-				.forEach(OnAmplifySubscriber::amplify);
+				.forEach(OnAmplifySubscriber::onAmplify);
 	}
 
 	private static boolean canAmplifyForFree(AbstractCard card, AbstractPlayer player) {
-		return (player.hasPower(Identifiers.Powers.MILLISECOND_PULSARS))
-				|| (player.hasPower(Identifiers.Powers.PULSE_MAGIC))
+		return (player.hasPower(Powers.MILLISECOND_PULSARS))
+				|| (player.hasPower(Powers.PULSE_MAGIC))
 				|| (card.freeToPlayOnce)
 				|| (card.purgeOnUse);
 	}

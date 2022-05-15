@@ -62,7 +62,7 @@ public class WitchOfGreed extends MarisaCard {
 					)
 			);
 
-			if (AmplifyUtils.Amplified(this, AMP)) {
+			if (AmplifyUtils.Amplify(this, AMP)) {
 				AbstractPotion po = AbstractDungeon.returnRandomPotion();
 				AbstractDungeon.getCurrRoom().addPotionToRewards(po);
 				AbstractDungeon.actionManager.addToBottom(

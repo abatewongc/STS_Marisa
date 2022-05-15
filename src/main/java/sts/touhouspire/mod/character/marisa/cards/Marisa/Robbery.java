@@ -49,7 +49,7 @@ public class Robbery extends MarisaCard {
 				new RobberyDamageAction(
 						m,
 						new DamageInfo(p, this.damage, this.damageTypeForTurn),
-						AmplifyUtils.Amplified(this, AMP)
+						AmplifyUtils.Amplify(this, AMP)
 				)
 		);
 	}

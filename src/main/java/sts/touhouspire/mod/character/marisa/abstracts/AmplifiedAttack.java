@@ -10,6 +10,8 @@ import sts.touhouspire.mod.character.marisa.data.Identifiers;
 
 import java.util.ArrayList;
 
+import static sts.touhouspire.mod.character.marisa.data.Identifiers.*;
+
 public abstract class AmplifiedAttack extends AmplifyCard {
 	private int ampDamage = -1;
 	protected int ampNumber = 0;
@@ -46,13 +48,13 @@ public abstract class AmplifiedAttack extends AmplifyCard {
 		modifyDamage(tmp, amp);
 
 		if (this.isMultiDamage) {
-			ArrayList<AbstractMonster> monsters = AbstractDungeon.getCurrRoom().monsters.monsters;
-			this.multiDamage = new int[monsters.size()];
-			for (int i = 0; i < monsters.size(); i++) {
+			int monsters = AbstractDungeon.getCurrRoom().monsters.monsters.size();
+			this.multiDamage = new int[monsters];
+			for (int i = 0; i < monsters; i++) {
 				this.multiDamage[i] = MathUtils.floor(tmp);
 			}
-			this.multiAmpDamage = new int[monsters.size()];
-			for (int i = 0; i < monsters.size(); i++) {
+			this.multiAmpDamage = new int[monsters];
+			for (int i = 0; i < monsters; i++) {
 				this.multiAmpDamage[i] = MathUtils.floor(amp);
 			}
 		}
@@ -61,7 +63,7 @@ public abstract class AmplifiedAttack extends AmplifyCard {
 	private float calculate(float base, AbstractMonster target) {
 		float temp = base;
 		AbstractPlayer player = AbstractDungeon.player;
-		if ((AbstractDungeon.player.hasRelic(Identifiers.Relics.WRIST_BLADE)) && (this.costForTurn == 0)) {
+		if ((AbstractDungeon.player.hasRelic(Relics.WRIST_BLADE)) && (this.costForTurn == 0)) {
 			temp += 3.0f;
 		}
 		for (AbstractPower power : player.powers) {

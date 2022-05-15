@@ -60,7 +60,7 @@ public class MasterSpark extends AmplifiedAttack {
 				)
 		);
 
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			AbstractDungeon.actionManager.addToBottom(
 					new DamageAction(
 							monster,

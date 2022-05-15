@@ -36,7 +36,7 @@ public class AmplifyWand extends CustomRelic implements OnAmplifySubscriber {
 	}
 
 	@Override
-	public void amplify() {
+	public void onAmplify() {
 		this.onTrigger();
 	}
 }

@@ -44,7 +44,7 @@ public class BinaryStars extends MarisaCard {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			AbstractCard c = new BlackFlareStar();
 			if (this.upgraded) {
 				c.upgrade();

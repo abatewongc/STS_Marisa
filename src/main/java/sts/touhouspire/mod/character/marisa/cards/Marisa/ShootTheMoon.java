@@ -44,7 +44,7 @@ public class ShootTheMoon extends AmplifiedAttack {
 	public void use(AbstractPlayer player, AbstractMonster monster) {
 		boolean targetingBoss = (monster.type == AbstractMonster.EnemyType.BOSS);
 
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			amplifiedUse(player, monster, targetingBoss);
 		} else {
 			use(player, monster, targetingBoss);

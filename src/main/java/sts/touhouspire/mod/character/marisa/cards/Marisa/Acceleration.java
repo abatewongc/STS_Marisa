@@ -1,7 +1,6 @@
 package sts.touhouspire.mod.character.marisa.cards.Marisa;
 
 import sts.touhouspire.mod.character.marisa.abstracts.AmplifyCard;
-import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
 import sts.touhouspire.mod.character.marisa.action.DrawDrawPileAction;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
@@ -44,7 +43,7 @@ public class Acceleration extends AmplifyCard {
 			addToBot(new DrawDrawPileAction());
 		}
 
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			for (int i = 0; i < this.magicNumber; i++) {
 				addToBot(new DrawDrawPileAction());
 			}

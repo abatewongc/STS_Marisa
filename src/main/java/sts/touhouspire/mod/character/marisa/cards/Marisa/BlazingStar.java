@@ -69,7 +69,7 @@ public class BlazingStar extends AmplifiedAttack {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			this.block *= 2;
 		}
 		AbstractDungeon.actionManager.addToBottom(

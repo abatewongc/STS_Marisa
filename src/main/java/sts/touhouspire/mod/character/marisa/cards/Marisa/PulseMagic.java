@@ -53,7 +53,7 @@ public class PulseMagic extends MarisaCard {
 	  }
 	*/
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			AbstractDungeon.actionManager.addToBottom(
 					new ApplyPowerAction(p, p, new PulseMagicPower(p)
 					)

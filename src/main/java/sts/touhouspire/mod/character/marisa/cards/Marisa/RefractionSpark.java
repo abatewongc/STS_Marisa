@@ -51,7 +51,7 @@ public class RefractionSpark extends AmplifiedAttack {
 	}
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			AbstractDungeon.actionManager.addToBottom(
 					new RefractionSparkAction(
 							m,

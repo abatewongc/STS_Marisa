@@ -14,6 +14,8 @@ import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
 import com.megacrit.cardcrawl.powers.NextTurnBlockPower;
 import sts.touhouspire.mod.character.marisa.utils.AmplifyUtils;
 
+import static com.megacrit.cardcrawl.dungeons.AbstractDungeon.actionManager;
+
 public class AsteroidBelt extends MarisaCard {
 
 	public static final String ID = Identifiers.Cards.ASTEROID_BELT;
@@ -43,19 +45,10 @@ public class AsteroidBelt extends MarisaCard {
 		this.baseBlock = BLOCK_AMT;
 	}
 
-	public void use(AbstractPlayer p, AbstractMonster m) {
-		AbstractDungeon.actionManager.addToBottom(
-				new GainBlockAction(p, p, this.block)
-		);
-		if (AmplifyUtils.Amplified(this, AMP)) {
-			AbstractDungeon.actionManager.addToBottom(
-					new ApplyPowerAction(
-							p,
-							p,
-							new NextTurnBlockPower(p, this.block),
-							this.block
-					)
-			);
+	public void use(AbstractPlayer player, AbstractMonster m) {
+		actionManager.addToBottom(new GainBlockAction(player, player, this.block));
+		if (AmplifyUtils.Amplify(this, AMP)) {
+			actionManager.addToBottom(new ApplyPowerAction(player, player, new NextTurnBlockPower(player, this.block), this.block));
 		}
 	}
 

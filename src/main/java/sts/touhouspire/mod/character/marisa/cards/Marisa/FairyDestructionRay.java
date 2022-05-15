@@ -59,7 +59,7 @@ public class FairyDestructionRay extends MarisaCard {
 		);
 
 		if (!AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-			if (AmplifyUtils.Amplified(this, AMP)) {
+			if (AmplifyUtils.Amplify(this, AMP)) {
 				AbstractDungeon.actionManager.addToBottom(
 						new FairyDestrucCullingAction(this.magicNumber)
 				);

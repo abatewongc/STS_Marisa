@@ -52,7 +52,7 @@ public class AlicesGift extends MarisaCard {
 
 	@Override
 	public void use(AbstractPlayer p, AbstractMonster m) {
-		if (AmplifyUtils.Amplified(this, AMP)) {
+		if (AmplifyUtils.Amplify(this, AMP)) {
 			this.damage *= 3;
 		}
 		AbstractDungeon.actionManager.addToBottom(
