@@ -25,16 +25,13 @@ public class BlackFlareStarAction extends AbstractGameAction {
 			return;
 		}
 		if (!AbstractDungeon.handCardSelectScreen.wereCardsRetrieved) {
-			if (!AbstractDungeon.
-					handCardSelectScreen.selectedCards.group.isEmpty()) {
-				int cnt = AbstractDungeon.
-						handCardSelectScreen.selectedCards.group.size();
+			if (!AbstractDungeon.handCardSelectScreen.selectedCards.group.isEmpty()) {
+				int cnt = AbstractDungeon.handCardSelectScreen.selectedCards.group.size();
 				AbstractDungeon.actionManager.addToTop(
 						new GainBlockAction(source, source, blc * cnt)
 				);
 
-				for (AbstractCard c :
-						AbstractDungeon.handCardSelectScreen.selectedCards.group) {
+				for (AbstractCard c : AbstractDungeon.handCardSelectScreen.selectedCards.group) {
 					AbstractDungeon.player.hand.moveToDiscardPile(c);
 					GameActionManager.incrementDiscard(false);
 					c.triggerOnManualDiscard();

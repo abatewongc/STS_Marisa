@@ -9,11 +9,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import sts.touhouspire.mod.character.marisa.MarisaModHandler;
 
-public class BigCruncAction
-		extends AbstractGameAction {
+public class BigCrunchAction extends AbstractGameAction {
 	private boolean upg = false;
 
-	public BigCruncAction(boolean upgraded) {
+	public BigCrunchAction(boolean upgraded) {
 		this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_FAST;
 		this.upg = upgraded;
@@ -22,32 +21,32 @@ public class BigCruncAction
 	public void update() {
 		this.isDone = false;
 
-		AbstractPlayer p = AbstractDungeon.player;
+		AbstractPlayer player = AbstractDungeon.player;
 		int div = 5;
 		if (this.upg) {
 			div--;
 		}
-		int cnt = p.discardPile.size() / 2;
+		int cnt = player.discardPile.size() / 2;
 		int total = cnt;
-		p.discardPile.shuffle();
+		player.discardPile.shuffle();
 
 		MarisaModHandler.logger.info(
-				"BigCruncAction : Discard size : " + p.discardPile.size()
+				"BigCrunchAction : Discard size : " + player.discardPile.size()
 						+ " ; counter : " + cnt
 		);
 
 		if (cnt > 0) {
 			for (int i = 0; i < cnt; i++) {
-				p.discardPile.moveToExhaustPile(p.discardPile.getTopCard());
+				player.discardPile.moveToExhaustPile(player.discardPile.getTopCard());
 			}
 		}
 
-		p.drawPile.shuffle();
+		player.drawPile.shuffle();
 
-		cnt = p.drawPile.size() / 2;
+		cnt = player.drawPile.size() / 2;
 
 		MarisaModHandler.logger.info(
-				"BigCruncAction : Draw size : " + p.drawPile.size()
+				"BigCrunchAction : Draw size : " + player.drawPile.size()
 						+ " ; counter : " + cnt
 		);
 
@@ -55,14 +54,14 @@ public class BigCruncAction
 
 		if (cnt > 0) {
 			for (int i = 0; i < cnt; i++) {
-				p.drawPile.moveToExhaustPile(p.drawPile.getTopCard());
+				player.drawPile.moveToExhaustPile(player.drawPile.getTopCard());
 			}
 		}
 
 		int res = total / div;
 
 		MarisaModHandler.logger.info(
-				"BigCruncAction : total :" + total
+				"BigCrunchAction : total :" + total
 						+ " ; res : " + res
 		);
 

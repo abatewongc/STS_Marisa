@@ -11,29 +11,29 @@ import sts.touhouspire.mod.character.marisa.cards.derivations.BlackFlareStar;
 import sts.touhouspire.mod.character.marisa.cards.derivations.WhiteDwarfStar;
 
 public class BinaryStarsAction extends AbstractGameAction {
-	private AbstractPlayer p;
-	private boolean upg;
+	private final AbstractPlayer player;
+	private final boolean upgrade;
 
 	public BinaryStarsAction(boolean upgraded) {
-		this.p = AbstractDungeon.player;
-		setValues(this.p, AbstractDungeon.player, 1);
+		this.player = AbstractDungeon.player;
+		setValues(this.player, AbstractDungeon.player, 1);
 		this.actionType = AbstractGameAction.ActionType.CARD_MANIPULATION;
 		this.duration = Settings.ACTION_DUR_MED;
-		this.upg = upgraded;
+		this.upgrade = upgraded;
 	}
 
 	public void update() {
 		CardGroup tmp;
 		if (this.duration == Settings.ACTION_DUR_MED) {
 			tmp = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-			AbstractCard c = new BlackFlareStar();
-			if (this.upg)
-				c.upgrade();
-			tmp.addToTop(c);
-			c = new WhiteDwarfStar();
-			if (this.upg)
-				c.upgrade();
-			tmp.addToTop(c);
+			AbstractCard card = new BlackFlareStar();
+			if (this.upgrade)
+				card.upgrade();
+			tmp.addToTop(card);
+			card = new WhiteDwarfStar();
+			if (this.upgrade)
+				card.upgrade();
+			tmp.addToTop(card);
 			AbstractDungeon.gridSelectScreen.open(tmp, 1, "Choose", false);
 			tickDuration();
 			return;
@@ -41,17 +41,17 @@ public class BinaryStarsAction extends AbstractGameAction {
 		if (AbstractDungeon.gridSelectScreen.selectedCards.size() != 0) {
 			for (AbstractCard c : AbstractDungeon.gridSelectScreen.selectedCards) {
 				c.unhover();
-				if (this.p.hand.size() == 10) {
-					this.p.createHandIsFullDialog();
-					this.p.discardPile.addToTop(c);
+				if (this.player.hand.size() == 10) {
+					this.player.createHandIsFullDialog();
+					this.player.discardPile.addToTop(c);
 				} else {
-					this.p.hand.addToTop(c);
+					this.player.hand.addToTop(c);
 				}
-				this.p.hand.refreshHandLayout();
-				this.p.hand.applyPowers();
+				this.player.hand.refreshHandLayout();
+				this.player.hand.applyPowers();
 			}
 			AbstractDungeon.gridSelectScreen.selectedCards.clear();
-			this.p.hand.refreshHandLayout();
+			this.player.hand.refreshHandLayout();
 		}
 		tickDuration();
 	}

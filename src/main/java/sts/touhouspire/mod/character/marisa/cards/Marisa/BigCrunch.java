@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import sts.touhouspire.mod.character.marisa.action.BigCruncAction;
+import sts.touhouspire.mod.character.marisa.action.BigCrunchAction;
 import sts.touhouspire.mod.character.marisa.data.Identifiers;
 import sts.touhouspire.mod.character.marisa.patches.AbstractCardEnum;
 import sts.touhouspire.mod.character.marisa.abstracts.MarisaCard;
@@ -42,7 +42,7 @@ public class BigCrunch extends MarisaCard {
 
 	public void use(AbstractPlayer p, AbstractMonster m) {
 		AbstractDungeon.actionManager.addToBottom(
-				new BigCruncAction(this.upgraded)
+				new BigCrunchAction(this.upgraded)
 		);
 	}
 
